@@ -1,0 +1,686 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Partenaire</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="039b8d15-c097-4900-bf8f-18f52943e9ff" class="page sans"><header><img class="page-cover-image" src="Oxelta_P2_V2%2015.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🤝</span></div><h1 class="page-title">Partenaire</h1><p class="page-description"></p></header><div class="page-body"><h1 id="d8d7f245-75fb-4625-9326-6729f3234224" class="">Nom prénom</h1><div id="20749d9e-178c-4380-87b4-c8810609f66e" class="column-list"><div id="527db6f6-6cf2-40fb-baed-8d5dc6964ac3" style="width:31.25%" class="column"><figure id="e1143625-c40d-4595-bc19-743b57a3dade" class="image"><a href="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="8f9395bb-8afb-4d1d-8fe1-799be9403c25" style="width:93.75%" class="column"><h3 id="04d9c9bd-461e-4181-aed4-0254495917dd" class="">Rôle d&#x27;un CSE dans une entreprise</h3><p id="180f2a1e-c3cc-4def-b597-8e613726a74b" class="">Le Comité Social et Économique (CSE) est une instance représentative du personnel dans une entreprise. Son rôle est de veiller à la protection des droits et des intérêts des salariés. Le CSE est chargé de négocier les accords collectifs, de traiter les questions liées à la santé, à la sécurité et aux conditions de travail, ainsi que de promouvoir le dialogue social au sein de l&#x27;entreprise.</p><h3 id="d81e67f2-62dc-415f-9349-9102ce116f3e" class="">Linkedin</h3><p id="292b664f-0b4e-42f2-ba7f-8fbd281325d4" class="">
+</p></div></div><hr id="27658cde-e12e-4a4f-978f-e5f502d6197c"/><h1 id="df1d4ed3-fecc-4d87-811b-b77747ebfd62" class="">Nom prénom</h1><div id="9bcd1c42-3c6b-4e58-ab4e-885c644e3f6d" class="column-list"><div id="e38a72c7-6f8a-42ab-a167-561f322330fd" style="width:31.25%" class="column"><figure id="6c82f278-3645-40ef-9e6f-005b446865ae" class="image"><a href="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="f581f201-630f-46f4-84d8-4eac8c9ca98f" style="width:93.75%" class="column"><h3 id="509d46f3-f95b-40a2-a178-140ca91fec4b" class="">Rôle d&#x27;un CSE dans une entreprise</h3><p id="12aa0992-d105-4a6c-b357-e2af583b0b91" class="">Le Comité Social et Économique (CSE) est une instance représentative du personnel dans une entreprise. Son rôle est de veiller à la protection des droits et des intérêts des salariés. Le CSE est chargé de négocier les accords collectifs, de traiter les questions liées à la santé, à la sécurité et aux conditions de travail, ainsi que de promouvoir le dialogue social au sein de l&#x27;entreprise.</p><h3 id="699f3949-f85f-481e-bb25-ee909957a5b6" class="">Linkedin</h3><p id="e08b8873-ab68-4d38-bea6-44dbb24bf7d0" class="">
+</p></div></div><hr id="a7140277-5b99-4e83-9cfa-f9fdd453594b"/><h1 id="afd6690a-9749-4e19-b454-2157452bbd8e" class="">Nom prénom</h1><div id="3db0664c-b013-48a2-a1a8-45f707d220e5" class="column-list"><div id="dfe97a58-dd23-496d-8e1c-35b18328f05a" style="width:31.25%" class="column"><figure id="bc2c45c1-a164-4136-a1a4-c166fcd998a7" class="image"><a href="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="dfe37b4c-0df7-4c39-825f-3cd790b00d42" style="width:93.75%" class="column"><h3 id="e6653892-3eab-47ae-86ce-5a8157d21b38" class="">Rôle d&#x27;un CSE dans une entreprise</h3><p id="ef934c64-eab0-4c81-b604-128a97460414" class="">Le Comité Social et Économique (CSE) est une instance représentative du personnel dans une entreprise. Son rôle est de veiller à la protection des droits et des intérêts des salariés. Le CSE est chargé de négocier les accords collectifs, de traiter les questions liées à la santé, à la sécurité et aux conditions de travail, ainsi que de promouvoir le dialogue social au sein de l&#x27;entreprise.</p><h3 id="a4776da4-9034-41c5-ae3c-5e61f4538c74" class="">Linkedin</h3><p id="f000aa73-3e5b-49f6-9aa5-a246e00cb98f" class="">
+</p></div></div><hr id="47f091e8-0f47-4845-b012-29a83a944b15"/><h1 id="11eb8a89-db1c-4489-9b3a-64f9e102f500" class="">Nom prénom</h1><div id="152b430d-3448-495e-8a6e-67de18585b13" class="column-list"><div id="be8a13fc-f316-44bf-93ab-1a72675261da" style="width:31.25%" class="column"><figure id="9e45868d-9908-4bb0-89b8-0b94a9df0b9e" class="image"><a href="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="5ec94313-0bbc-418f-9a05-0ca6f4302b39" style="width:93.75%" class="column"><h3 id="b8625b39-70ab-4a13-b60e-7736fea567a1" class="">Rôle d&#x27;un CSE dans une entreprise</h3><p id="5934b75f-15a9-4d2d-8a88-fc9509ab8d6a" class="">Le Comité Social et Économique (CSE) est une instance représentative du personnel dans une entreprise. Son rôle est de veiller à la protection des droits et des intérêts des salariés. Le CSE est chargé de négocier les accords collectifs, de traiter les questions liées à la santé, à la sécurité et aux conditions de travail, ainsi que de promouvoir le dialogue social au sein de l&#x27;entreprise.</p><h3 id="a9367e97-b0da-4f2a-88ae-13c5f717a7cd" class="">Linkedin</h3><p id="d2dc43c5-1656-4f5e-88a7-965a82a81c89" class="">
+</p></div></div><hr id="fb636b9e-dc31-4405-b9c3-fca6ae1234a2"/><h1 id="1e9d4871-942a-4668-945e-facc6fea2b5b" class="">Nom prénom</h1><div id="3c44e581-3c32-4454-b9b5-b431dbfd2cbe" class="column-list"><div id="10deb575-3f53-4a1a-af90-880f4735a58e" style="width:31.25%" class="column"><figure id="999f1943-d1d7-4fa0-8c16-fc194accc0dc" class="image"><a href="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="34f4cd67-11d5-4d2f-90c9-be73ce833ccb" style="width:93.75%" class="column"><h3 id="26855065-f6b8-454d-a881-cfe6f86334bd" class="">Rôle d&#x27;un CSE dans une entreprise</h3><p id="e40f395d-d929-42fa-a653-d83f7f68bece" class="">Le Comité Social et Économique (CSE) est une instance représentative du personnel dans une entreprise. Son rôle est de veiller à la protection des droits et des intérêts des salariés. Le CSE est chargé de négocier les accords collectifs, de traiter les questions liées à la santé, à la sécurité et aux conditions de travail, ainsi que de promouvoir le dialogue social au sein de l&#x27;entreprise.</p><h3 id="1b344480-c4a1-4a8e-b90d-47466fe1759a" class="">Linkedin</h3><p id="0a88935f-3dad-4da7-b633-ef1204405cc4" class="">
+</p></div></div><hr id="592da37a-acac-48bd-ab04-a20de8391fe9"/><h1 id="2d0c8975-7602-4595-858c-044e788a5bee" class="">Nom prénom</h1><div id="46851e18-f7c9-4538-9cb0-c906708c4848" class="column-list"><div id="a9020708-e02d-4348-898b-38d06862fc91" style="width:31.25%" class="column"><figure id="ad3803b0-6fcc-4bd5-bae8-04482d09524e" class="image"><a href="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="62acddee-85af-4c50-86f7-fc4a43b7f3d7" style="width:93.75%" class="column"><h3 id="44a59848-3771-438a-bce9-11be6f0925f1" class="">Rôle d&#x27;un CSE dans une entreprise</h3><p id="15abd017-4bef-489c-9ab7-27f811e86dd1" class="">Le Comité Social et Économique (CSE) est une instance représentative du personnel dans une entreprise. Son rôle est de veiller à la protection des droits et des intérêts des salariés. Le CSE est chargé de négocier les accords collectifs, de traiter les questions liées à la santé, à la sécurité et aux conditions de travail, ainsi que de promouvoir le dialogue social au sein de l&#x27;entreprise.</p><h3 id="bd8b27dd-4db4-47ab-8ce2-dbd2844fa5a2" class="">Linkedin</h3><p id="a2f569c3-18fe-4882-b761-35e88d31e5f4" class="">
+</p></div></div><hr id="02c0c72e-fce6-4ede-9a2d-7603e4627fa7"/><h1 id="7351625a-4598-4c54-8d8e-e3718a684287" class="">Nom prénom</h1><div id="2da0753d-1fa1-4381-b192-41be988cd50b" class="column-list"><div id="f524e2d7-5e29-4a40-b710-152d2be9936c" style="width:31.25%" class="column"><figure id="d51bcc7b-ef83-4ae9-9f86-31bccabbb0de" class="image"><a href="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="cacab5ad-b27d-4212-bf53-96cbdfda00c1" style="width:93.75%" class="column"><h3 id="bc9cb824-5277-443d-9db3-5ce16936aa18" class="">Rôle d&#x27;un CSE dans une entreprise</h3><p id="f41420f8-7b8c-4737-b723-aa7cf821c135" class="">Le Comité Social et Économique (CSE) est une instance représentative du personnel dans une entreprise. Son rôle est de veiller à la protection des droits et des intérêts des salariés. Le CSE est chargé de négocier les accords collectifs, de traiter les questions liées à la santé, à la sécurité et aux conditions de travail, ainsi que de promouvoir le dialogue social au sein de l&#x27;entreprise.</p><h3 id="4515ce93-519c-4211-8703-94a4ced3b124" class="">Linkedin</h3><p id="2d4187dc-1286-465e-885a-86c7224273d1" class="">
+</p></div></div><hr id="4f6528f2-2b93-4795-9a49-47d25c15354a"/><h1 id="07354e21-6a6a-40ce-a27c-5780bb94ea1c" class="">Nom prénom</h1><div id="4c727e19-f4ef-43cc-84ec-c2b7866a51fc" class="column-list"><div id="bd0af740-ad7a-4f3e-947c-0f87c57031c8" style="width:31.25%" class="column"><figure id="37a6fd21-444c-4496-86ba-a8caff372842" class="image"><a href="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="71cc0dea-93f7-4340-89d4-826dbfa83d38" style="width:93.75%" class="column"><h3 id="05ee490b-b721-430c-9fe3-d6a8569cc94f" class="">Rôle d&#x27;un CSE dans une entreprise</h3><p id="019e0b0a-927b-43ff-89c1-cc23aad82b6e" class="">Le Comité Social et Économique (CSE) est une instance représentative du personnel dans une entreprise. Son rôle est de veiller à la protection des droits et des intérêts des salariés. Le CSE est chargé de négocier les accords collectifs, de traiter les questions liées à la santé, à la sécurité et aux conditions de travail, ainsi que de promouvoir le dialogue social au sein de l&#x27;entreprise.</p><h3 id="92359550-ca49-4287-bebe-4407e0f8770a" class="">Linkedin</h3><p id="13f918ea-22f7-494f-955f-ef2d60374bfd" class="">
+</p></div></div><hr id="cebf2b70-ffe2-4f3d-a0d2-3f684da1edd1"/><h1 id="3204c018-4923-4491-9e0c-689af8d4260a" class="">Nom prénom</h1><div id="03a295d3-a280-4932-aa72-7366437f3074" class="column-list"><div id="b4a21eea-7d5f-4c9d-9400-e923cf8fd0c8" style="width:31.25%" class="column"><figure id="d235e454-80f4-4718-8cff-ed6e69860d69" class="image"><a href="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="b5b7c802-ba28-4254-aa8c-b3e80120cc35" style="width:93.75%" class="column"><h3 id="928d192a-6308-4ccd-8675-f2ea2f81bf69" class="">Rôle d&#x27;un CSE dans une entreprise</h3><p id="84fc70e5-0ac2-49fc-8175-4a79efa8b57b" class="">Le Comité Social et Économique (CSE) est une instance représentative du personnel dans une entreprise. Son rôle est de veiller à la protection des droits et des intérêts des salariés. Le CSE est chargé de négocier les accords collectifs, de traiter les questions liées à la santé, à la sécurité et aux conditions de travail, ainsi que de promouvoir le dialogue social au sein de l&#x27;entreprise.</p><h3 id="4031b2c4-be77-42b8-baee-940fcc9424da" class="">Linkedin</h3><p id="81047c8c-47e0-4d9e-bb0a-c1d28db1ebf9" class="">
+</p></div></div><hr id="216757af-9f3a-4606-8e6a-b72eeee61021"/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

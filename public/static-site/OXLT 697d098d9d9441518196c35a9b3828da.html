@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>OXLT</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="697d098d-9d94-4151-8196-c35a9b3828da" class="page sans"><header><img class="page-cover-image" src="Oxelta_P2_V2%203.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🪐</span></div><h1 class="page-title">OXLT</h1><p class="page-description"></p></header><div class="page-body"><nav id="563fbc0e-27e4-4009-849f-5b5afffe703f" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8c6154cf-50c8-47e1-9ac7-40461c3fe9bd"><strong>Token</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#24814000-b34b-4554-8741-75b1640ce8e4"><strong>Utility</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#5abdaa11-6fba-4655-8b84-ab6c9fa35b0c"><strong>Utility pour avant Métaverse</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4ef553ff-24af-45b6-8965-349804debfb1"><strong>Utility après Métaverse</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#56f46f3c-c57b-4675-823a-455cf022b06a"><strong>Token Economics</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#162be651-f65c-4e05-a32f-ef8e2f484089"><strong>Private Sale (Vente privée)</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#f9fc7961-0e68-4efa-bbec-edf699ecdf89"><strong>L’ICO publique</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#38476245-7abb-4e19-a47b-da97f87be043"><strong>Liquidity</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#70608def-261d-4dd9-a7f3-d4fd84e4bd6f"><strong>Airdrop Early</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#877e6809-a732-472b-876d-05b08f882ac5"><strong>Tournoi de Sir OXO</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ae6bd91f-1957-4955-afda-18b0e3c81e22"><strong>Blocage Plan</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#0e2a3fe3-4e1d-4a23-8eed-f14773a6946b"><strong>P2E Rewards</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#7d327b86-5bd4-4526-ad14-e14d740b2d95"><strong>Marketing &amp; Community</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#40a5fd0d-1d6f-4ef6-a8db-6db3d5dc2848"><strong>Team (équipe)</strong></a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#ab94acaa-1162-453f-9eff-cefbf8d56fc4"><strong>Trésorerie</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#9e7d989e-b495-47e1-97a8-d1e5802833f3">Release</a></div></nav><h1 id="8c6154cf-50c8-47e1-9ac7-40461c3fe9bd" class="block-color-yellow_background"><strong>Token</strong></h1><p id="7a919a41-5a95-4ca2-89c6-c9912e0aead5" class=""><strong>Oxelta</strong>, dans le but de dynamiser ses jeux et de récompenser sa communauté, émet un Token sur la Blockchain <strong>Polygon</strong>. Ce Token, nommé <strong>OXLT</strong>, sera qualifié d&#x27;utility token, car il sera utilisé par la communauté au sein du projet. Avec une quantité totale maximum de <strong>10,000,000,000</strong>, OXLT est conçu comme un token <strong>fixe</strong>, où le nombre de Tokens en circulation ne pourra être modifié.</p><p id="58e89e7d-df4a-4c25-8de4-10e58e628e6a" class="">La Blockchain Polygon offre un environnement sécurisé, évolutif et décentralisé, qui permettra à <strong>Oxelta</strong> de mettre en œuvre son écosystème de jeux et de récompenses de manière transparente et efficace. De plus, la blockchain Polygon est EVM compatible ce qui permet d’envisager des partenariats avec des projets établis sur d’autres blockchains EVM.</p><p id="1f0c56f0-48aa-405b-bc31-bf46e70d8d9c" class="">Nous allons explorer en détail les différents aspects du Token OXLT : l’utility, la distribution, le cliff, le vesting, l&#x27;engagement de la communauté.</p><figure id="5fbe1323-b139-4f76-a566-f56147598de5" class="image"><a href="https://lh7-us.googleusercontent.com/c74Kqm3wHEYpDA-bDUk_9_Pf5-wUn-YTboIOftuvhAOx0oS1N1A_RyKbbLqyEf6gaSDtPNHDVhj36JiAX_YVUURJbnegAU9qMr5JEHEjJbaNvypCDv3iWQ3TXK31FN9dA7Bt5CwlCPRr"><img style="width:336px" src="https://lh7-us.googleusercontent.com/c74Kqm3wHEYpDA-bDUk_9_Pf5-wUn-YTboIOftuvhAOx0oS1N1A_RyKbbLqyEf6gaSDtPNHDVhj36JiAX_YVUURJbnegAU9qMr5JEHEjJbaNvypCDv3iWQ3TXK31FN9dA7Bt5CwlCPRr"/></a></figure><h1 id="24814000-b34b-4554-8741-75b1640ce8e4" class="block-color-yellow_background"><strong>Utility</strong></h1><p id="ac6d4fc4-5135-4726-8062-496c1c141ead" class="">Le Token joue un rôle central dans notre écosystème, en tant qu&#x27;élément essentiel de toutes les transactions et interactions. Il est conçu pour offrir une utilité polyvalente et favoriser l&#x27;engagement des utilisateurs dans notre Metaverse. Voici les principales utilisations du token :</p><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Utility pour avant Métaverse</strong></summary><div class="indented"><p id="14fec3c8-85d4-46db-b4e7-96ac9ba7ba88" class="">1. P2E mobile : Le Token OXLT sera utilisé pour l&#x27;achat de parties supplémentaires et permettra également d’acquérir une résurrection par partie, renforçant ainsi la dimension compétitive de nos deux premiers jeux mobiles.</p><p id="23d06073-dbb4-47e9-bca1-7d63a0336d75" class="">2. Tournoi de Sir Oxo : Chaque joueur a la possibilité d&#x27;améliorer la puissance de ses NFTs Oxo Warriors en utilisant des OXLT lors des duels. Cela permet de gagner en force, offrant ainsi à tous les participants une opportunité équitable d&#x27;améliorer leurs chances lors d’un duel du  Tournoi communautaire. Les détails concernant cette mécanique sont explicités dans la partie VIII : Tournoi de Sir Oxo.</p><p id="693c8a7d-1745-4102-87a5-8509cd7436d5" class="">3. Marketplace : Notre Marketplace permettra des transactions peer-to-peer (C2C) avec notre Token. Les utilisateurs pourront acheter, vendre et échanger leurs NFTs, créant ainsi un écosystème économique dynamique.</p><p id="511feb83-6d99-48c2-945d-fbd15e702667" class="">4. Titre d&#x27;un Joueur : Nous mettrons en place des titres honorifiques pour récompenser les actions réalisées sur <strong>Oxelta</strong>. Les titres seront associés à des réalisations spécifiques liées à l’OXLT, reconnaissant ainsi les contributions des utilisateurs à notre communauté (voir Annexe Titre Joueurs).</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Utility après Métaverse</strong></summary><div class="indented"><p id="b794712d-dac1-45ce-9a58-7565b94d55c3" class="">Pour la phase 2 de notre développement, nous prévoyons d&#x27;introduire de nouvelles fonctionnalités et avantages pour notre Token :</p><p id="7f11f796-d3f9-4cd3-9926-23235768766b" class="">1. Skins Particuliers pour certains Jeux (B2C) : Les utilisateurs pourront acquérir avec leur Tokens des skins spéciaux pour personnaliser leurs personnages et/ou les transformer, améliorer leur expérience de jeu.</p><p id="771f3b2b-b4ec-4151-9664-db8a18d9bec9" class="">2. Avantages sur des Parties :  le Token offrira des avantages uniques sur certains jeux, rendant l&#x27;expérience de jeu encore plus immersive et compétitive.</p><p id="d4873305-55b4-4f62-92bb-ea93d3ab2e89" class="">3. Participation à des Missions Particulières : Les utilisateurs pourront utiliser le Token pour participer à des missions spéciales, élargissant ainsi les possibilités de jeu et offrant des récompenses uniques.</p><p id="2ba9fe59-994b-41bf-91c4-bb7c3922c297" class="">4. Miser Contre d&#x27;Autres Joueurs : Le Token permettra aux participants de parier contre d&#x27;autres joueurs lors de certaines activités, ajoutant une dimension compétitive supplémentaire à notre Metaverse.</p><p id="3409b60a-3aa8-476f-804e-53e1eb1f285d" class="">5. Le Pass de Combat par Saison : <strong>Oxelta</strong> mettra en place des saisons accompagnées d’un Pass de combat. Ce dernier sera acquérable par le biais de notre Token. Posséder un Pass de Combat saisonnier, débloquera des récompenses exclusives en progressant dans les niveaux.</p><p id="40540307-aaa1-4cbc-ab53-5928e1a02ca5" class="">En favorisant l&#x27;adoption et l&#x27;engagement des utilisateurs/joueurs, le Token crée une économie dynamique et stimulante au sein de notre plateforme. Ces multiples cas d&#x27;utilisation garantissent que le Token joue un rôle central dans l&#x27;expérience des utilisateurs, tant dans la phase initiale que dans le futur du développement d&#x27;<strong>Oxelta</strong>.</p></div></details><h1 id="56f46f3c-c57b-4675-823a-455cf022b06a" class="block-color-yellow_background"><strong>Token Economics</strong></h1><p id="4024a979-ef36-4ea2-af70-c80949e03e02" class="">OXLT répartition:</p><table id="e19555c8-8e12-4aa1-bd45-b6cd154634c7" class="simple-table"><tbody><tr id="42e22485-c014-498a-9686-0e7a178f304a"><td id="~TOY" class=""><strong>Name</strong></td><td id="vcNy" class=""><strong>Nbr de Token</strong></td><td id="qJq@" class=""><strong>%</strong></td></tr><tr id="d286e1d7-f8f6-4e3a-966d-e45f9c0b63b5"><td id="~TOY" class="">Private Sale</td><td id="vcNy" class="">500 000 000</td><td id="qJq@" class="">5%</td></tr><tr id="e07c4ac8-d784-4130-ad8d-e6b673fd47c0"><td id="~TOY" class="">ICO</td><td id="vcNy" class="">1 000 000 000</td><td id="qJq@" class="">10%</td></tr><tr id="1b2abea5-50e1-4cb7-9014-a38945a0802c"><td id="~TOY" class="">Liquidity</td><td id="vcNy" class="">1 200 000 000</td><td id="qJq@" class="">12%</td></tr><tr id="bf7e4218-bd50-4471-803b-e9729784c59d"><td id="~TOY" class="">Airdrop early</td><td id="vcNy" class="">300 000 000</td><td id="qJq@" class="">3%</td></tr><tr id="a156077c-b010-4e45-b77c-61ac29784def"><td id="~TOY" class="">Sir Oxo tournament</td><td id="vcNy" class="">200 000 000</td><td id="qJq@" class="">2%</td></tr><tr id="74735aa9-15fe-41a7-9aab-4cc5ada46ef0"><td id="~TOY" class="">Blocking Plan</td><td id="vcNy" class="">1 000 000 000</td><td id="qJq@" class="">10%</td></tr><tr id="6cb55219-c752-468c-90c4-b81b10a9a67d"><td id="~TOY" class="">P2E Reward</td><td id="vcNy" class="">2 500 000 000</td><td id="qJq@" class="">25%</td></tr><tr id="b316b933-727e-4726-bf25-eb9d0564d105"><td id="~TOY" class="">Marketing-Community</td><td id="vcNy" class="">1 000 000 000</td><td id="qJq@" class="">10%</td></tr><tr id="4d54d321-c532-46d2-8067-22ad75ea364a"><td id="~TOY" class="">Team</td><td id="vcNy" class="">800 000 000</td><td id="qJq@" class="">8%</td></tr><tr id="f3f91bfe-0202-4ea1-8e24-de7ce92d9e25"><td id="~TOY" class="">Cashflow and future games</td><td id="vcNy" class="">1 500 000 000</td><td id="qJq@" class="">15%</td></tr><tr id="c67939c2-a834-4f6f-8353-002a9d2e515a"><td id="~TOY" class=""><strong>Total</strong></td><td id="vcNy" class=""><strong>10 000 000 000</strong></td><td id="qJq@" class=""><strong>100%</strong></td></tr></tbody></table><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Private Sale (Vente privée)</strong></summary><div class="indented"><p id="544cf09e-e071-43ec-9948-aa678bb7dc32" class="">La vente privée OXLT représente une allocation de 5 % de la supply de notre Token et est planifiée pour la fin du  quatrième trimestre 2023, avec la possibilité d&#x27;une éventuelle extension jusqu&#x27;au début du premier trimestre 2024, en fonction des résultats obtenus à cette étape. Cette vente privée se tiendra exclusivement sur notre Web App, accessible depuis le site <strong>oxelta.io</strong>. Veuillez noter que pour y participer, une validation KYC/KYB sera requise, garantissant ainsi la sécurité et la conformité.</p><p id="8a146ac7-628f-42e0-8285-d73f597a594f" class="">Pour vous inscrire à la vente privée, vous avez deux options : la première consiste à être directement contacté par <strong>Oxelta</strong>, ce qui vous permettra d&#x27;accéder à une liste blanche (whitelist) privilégiée. La deuxième option consiste à soumettre votre demande après votre inscription sur notre site web. Il est essentiel de souligner que le nombre de participants est limité à 150.</p><p id="f608c8a9-3ff2-4b6c-8d4f-f198a8ada442" class="">Pendant la vente privée, le Token OXLT sera proposé à un prix fixe de 0,0008 $ tout au long de la période de prévente. Vous aurez la possibilité d&#x27;acheter OXLT en utilisant des fonds en Fiat ou en Matic, offrant ainsi une flexibilité de paiement.</p><p id="33b64158-1c1f-4e2a-a891-3de2cf94edd8" class="">De plus, un cliff de 6 mois sera mis en place, suivi d&#x27;un vesting sur 10 mois pour assurer une distribution progressive des Tokens. Cette étape sera mise en œuvre après la conclusion de notre ICO, marquant ainsi le début de l&#x27;émission des Tokens.</p><p id="bcd23e38-2df8-418f-8469-479fd3ae8855" class="">Le montant minimum d&#x27;investissement requis pour participer à la vente privée est de 800 $. Pour les investisseurs plus ambitieux, un investissement maximal de 40 000 $ est possible.</p><p id="32e05c79-cad3-42e4-9d71-da702fe222ba" class="">Il est essentiel de noter que la vente privée se déroule avant la création du Token. En participant à cette phase, les investisseurs recevront un NFT indiquant la quantité d&#x27;OXLT achetée. Ce NFT peut être échangé sur le marché secondaire d&#x27;<strong>Oxelta</strong>, offrant aux investisseurs de la vente privée la flexibilité de décider de vendre leur investissement dans son intégralité. Ce NFT facilite la transformation d&#x27;un marché illiquide en un marché liquide en permettant la vente du NFT en per to per.</p><p id="587f4b4a-d9ea-423c-a6ae-10dac795efb6" class="">Le NFT garantit la vente privée : à la fin du cliff, le détenteur final du NFT recevra les OXLT associés à la vente privée selon le vesting prévu.</p><table id="f016602f-1922-4a7f-a59f-660dea3f3346" class="simple-table"><tbody><tr id="24f1637c-f55e-4b33-8ea4-de853b397333"><td id="a@V~" class=""><strong>Phase</strong></td><td id="?s]^" class=""><strong>Prix</strong></td><td id="^^]L" class=""><strong>Cliff</strong></td><td id="j[@;" class=""><strong>Vesting</strong></td><td id="WHKi" class=""><strong>Tokens</strong></td><td id="|\Jo" class=""><strong>Ticket Min</strong></td><td id="GyVn" class=""><strong>Ticket Max</strong></td></tr><tr id="7a01efa1-d776-4ee1-a350-01edd4a625f4"><td id="a@V~" class=""><strong>Private Sale</strong></td><td id="?s]^" class=""><strong>$0,00080</strong></td><td id="^^]L" class=""><strong>6</strong></td><td id="j[@;" class=""><strong>10</strong></td><td id="WHKi" class=""><strong>500  000  000</strong></td><td id="|\Jo" class=""><strong>$800</strong></td><td id="GyVn" class=""><strong>$40  000</strong></td></tr></tbody></table></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>L’ICO publique</strong></summary><div class="indented"><p id="e61239f4-a707-43d0-a4c1-1a7ebc52e2bc" class="">La quantité totale de Tokens allouée à l&#x27;ICO publique sera de 10% de la supply totale. L&#x27;ICO publique commencera 60 jours après la fin de la prévente et  s&#x27;étalera sur une période de 60 jours.</p><p id="27bcf5f9-c1f2-4831-adee-6e46a39d99e9" class="">Notre ICO se  présente  avec 3 options de prix pour le Token OXLT, en fonction des périodes de cliff et de vesting. Cette approche permettra aux investisseurs de personnaliser leurs investissements en choisissant la structure qui leur convient le mieux. De plus, une augmentation de 1% du prix du palier l&#x27;ICO sera appliquée tous les 6 jours, soit plus de 10% d&#x27;augmentation, afin de récompenser les premiers investisseurs.</p><p id="f4770a1e-0f08-474a-a486-3de6be6d369d" class="">Ce tableau met en avant les paliers et leurs répartitions de Tokens pour l’ICO.</p><table id="0230c666-dfeb-4e2a-a297-03b4de40c2a1" class="simple-table"><tbody><tr id="184c79c2-e322-4895-b8b0-023663dc93f5"><td id="ACaO" class=""><strong>Phase</strong></td><td id="`{PL" class=""><strong>Prix Unitaire Initial</strong></td><td id=":rqg" class=""><strong>prix Unitaire finale</strong></td><td id="XHfE" class=""><strong>Cliff</strong></td><td id="pi_i" class=""><strong>Vesting</strong></td><td id="\_Me" class=""><strong>Tokens</strong></td><td id="?fsl" class=""><strong>Ticket Min</strong></td><td id="XGti" class=""><strong>Ticket Max</strong></td></tr><tr id="8fa5cc80-399c-455f-a094-069022af62e2"><td id="ACaO" class=""><strong>P1</strong></td><td id="`{PL" class=""><strong>$0,00130</strong></td><td id=":rqg" class=""><strong>$0,00144</strong></td><td id="XHfE" class=""><strong>4</strong></td><td id="pi_i" class=""><strong>8</strong></td><td id="\_Me" class=""><strong>350  000  000</strong></td><td id="?fsl" class=""><strong>$100</strong></td><td id="XGti" class=""><strong>$5  000</strong></td></tr><tr id="24f6a2ea-3bc3-4780-b7dc-9358f5fc881e"><td id="ACaO" class=""><strong>P2</strong></td><td id="`{PL" class=""><strong>$0,00150</strong></td><td id=":rqg" class=""><strong>$0,00165</strong></td><td id="XHfE" class=""><strong>2</strong></td><td id="pi_i" class=""><strong>6</strong></td><td id="\_Me" class=""><strong>400  000  000</strong></td><td id="?fsl" class=""><strong>$100</strong></td><td id="XGti" class=""><strong>$5  000</strong></td></tr><tr id="ac45da6a-4a72-4f91-9eee-1441286c8b79"><td id="ACaO" class=""><strong>Publique</strong></td><td id="`{PL" class=""><strong>$0,00172</strong></td><td id=":rqg" class=""><strong>$0,00190</strong></td><td id="XHfE" class=""><strong>0</strong></td><td id="pi_i" class=""><strong>0</strong></td><td id="\_Me" class=""><strong>250  000 000</strong></td><td id="?fsl" class=""><strong>$0</strong></td><td id="XGti" class=""><strong>$10  000</strong></td></tr></tbody></table><h3 id="4f676b79-c007-4437-acc1-f21e23ca8f10" class=""><strong>Affiliation ICO</strong></h3><p id="877076b0-f12f-4d08-9e15-c8f76853d5d7" class="">Pour l&#x27;ICO d&#x27;<strong>Oxelta</strong>, vous avez la possibilité d&#x27;obtenir un lien d&#x27;affiliation. Il existe deux moyens de recevoir ce lien d’affiliation. Le premier est de participer à la vente privée, tandis que le second consiste à investir un montant minimum de  500 $ dans l&#x27;ICO.</p><p id="71841551-efbf-420d-872c-391d9d1feb94" class="">Chaque filleul qui investira dans l&#x27;ICO en utilisant le lien d&#x27;affiliation octroiera à son parrain 3% d’OXLT investis en récompense.</p><p id="bd78e9c4-6c7d-4cd5-a4e2-4bb9f897645c" class="">Pour le filleul, le bénéfice réside dans le fait que l&#x27;utilisation d&#x27;un lien d&#x27;affiliation lui garantit le prix unitaire initial pour son investissement, évitant l’évolution de prix de l’ICO tous les 6 jours.</p><p id="e59944ce-d793-4b78-a0fc-2c41b13e4654" class="">Il est important de noter que les 3% de Tokens offerts au parrain seront prélevés de la supply dédiée au Marketing and Community, et ces Tokens seront immédiatement disponibles à l’émission de l’OXLT.</p><h3 id="00c599e8-1274-48d3-9b7b-18cbd44c7661" class=""><strong>Prix initial de cotation</strong></h3><p id="dbb32e0b-9e8b-4884-9ed1-8cdd46aa33d6" class="">Le prix initial de cotation du Token OXLT sera donc établi à la valeur finale du dernier prix public, soit 0,0019 $. Pour atteindre cette valeur, nous allouons 30% des revenus générés par l&#x27;ICO à un fonds de liquidité, ce qui équivaut à environ 500 000 $. En outre, environ 2,63% de la supply (prélevés dans la partie &quot;liquidity&quot;) seront dédiés à la création d&#x27;une pool de liquidité, permettant ainsi la mise en place de l’OXLT sur un échange décentralisé (DEX).</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Liquidity</strong></summary><div class="indented"><p id="7e93e35d-3a4d-428e-8c8b-c7c85f3d9c97" class="">Nous allouons 12% à la liquidité. Notre première action est à  la fin de l&#x27;ICO, 30% des fonds collectés seront utilisés pour former une pool de liquidité gérée par <strong>Oxelta</strong>. En cas de vente maximale lors de l&#x27;ICO, nous avons prévu de constituer une pool de liquidité d&#x27;environ 500 000$, composée de 2,63% du total de la supply, facilitant ainsi les échanges. Le prix sur les DEX sera déterminé par le dernier prix de l’ICO.</p><p id="e8275d81-80dc-4a16-8654-2bba1d498c16" class="">Le reste des Tokens de la liquidité seront conservés en vue de leur proposition à des plateformes d&#x27;échange centralisées (CEX) afin de répertorier l’OXLT sur ces plateformes et de le rendre aussi accessible que possible pour tous les utilisateurs.</p><table id="691c6997-ac83-42cf-a23e-db386ddce785" class="simple-table"><tbody><tr id="e8746e89-e2a7-4e97-b0aa-17852b142f80"><td id="@tk[" class=""><strong>Prix Token Publique</strong></td><td id="N}kw" class=""><strong>Market Cap</strong></td><td id="{=TH" class=""><strong>Moyenne levée ICO</strong></td><td id="\Ewm" class=""><strong>Envoi prévu pour liquidité</strong></td><td id="}OyK" class=""><strong>Pourcentage de l&#x27;ICO</strong></td><td id="ehLG" class=""><strong>Pourcentage de liquidité totale</strong></td><td id="IwW;" class=""><strong>Pourcentage de liquidité apportée</strong></td><td id="g{X:" class=""><strong>Reste de liquidité</strong></td></tr><tr id="795171fd-b4ea-4796-9918-6bda537ca58c"><td id="@tk[" class="">$0,00190</td><td id="N}kw" class="">18 991 216</td><td id="{=TH" class="">1 560 380</td><td id="\Ewm" class="">500 000</td><td id="}OyK" class="">32,04%</td><td id="ehLG" class="">12%</td><td id="IwW;" class="">2,63%</td><td id="g{X:" class="">9,37%</td></tr></tbody></table></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Airdrop Early</strong></summary><div class="indented"><p id="f1802302-cccf-49cf-a9f9-ede71254d990" class="">Pour dynamiser notre projet, nous organisons un Airdrop avec 3% de la supply  sur la plateforme Zealy. Cet AirDrop sera compétitif avec un système de classement,  l&#x27;expérience des joueurs gagnées à travers leurs actions.</p><p id="63e0400e-ff32-4860-9958-cc487e3f3566" class="">Cet Airdrop se déroule sur une période d&#x27;activité qui débute à l&#x27;annonce de notre ICO et se termine avec la fin de l&#x27;ICO. Cependant, pour garantir une distribution équitable et stable des tokens, nous utilisons un mécanisme de Cliff initial de deux mois, suivi d&#x27;une période de Vesting de trois mois.</p><p id="3f692bbb-617b-4d5d-9357-1f4da12e576f" class=""><em>Tableau de la répartition des airdrops :</em></p><table id="de99e3bd-082d-4707-b456-2418983062a1" class="simple-table"><tbody><tr id="bbbd5618-dd7c-442c-a7e8-cc855efc3611"><td id="ersn" class="">AirDrop</td><td id="xppX" class=""></td><td id="jhH^" class="">Pourcentage de la supply</td><td id="IRDh" class="">Pourcentage par personne</td><td id="aJFp" class="">Quantité Token totale</td><td id="{Le~" class="">Token par personne</td></tr><tr id="548f32a1-fc8d-456c-a2c2-159d3c40a337"><td id="ersn" class="">10</td><td id="xppX" class="">premiers</td><td id="jhH^" class="">0,07%</td><td id="IRDh" class="">0,0070%</td><td id="aJFp" class="">7 000 000</td><td id="{Le~" class="">700 000</td></tr><tr id="42e93435-652c-41e8-a35a-01d8e4cea404"><td id="ersn" class="">100</td><td id="xppX" class="">suivants</td><td id="jhH^" class="">0,40%</td><td id="IRDh" class="">0,0040%</td><td id="aJFp" class="">40 000 000</td><td id="{Le~" class="">400 000</td></tr><tr id="80e03bd8-e594-4342-9083-6b9093ea166b"><td id="ersn" class="">1000</td><td id="xppX" class="">suivants</td><td id="jhH^" class="">1,20%</td><td id="IRDh" class="">0,0012%</td><td id="aJFp" class="">120 000 000</td><td id="{Le~" class="">120 000</td></tr><tr id="7a86351f-b248-440b-af32-203385e497e1"><td id="ersn" class="">6390</td><td id="xppX" class="">suivants</td><td id="jhH^" class="">1,33%</td><td id="IRDh" class="">0,0002%</td><td id="aJFp" class="">133 000 000</td><td id="{Le~" class="">20 814</td></tr><tr id="7fb4018c-7c18-433a-a24b-73320db890b2"><td id="ersn" class=""></td><td id="xppX" class=""></td><td id="jhH^" class=""></td><td id="IRDh" class=""></td><td id="aJFp" class=""></td><td id="{Le~" class=""></td></tr><tr id="431912c4-0efc-4603-99a7-3e99b209c33b"><td id="ersn" class="">Participant AirDrop</td><td id="xppX" class=""></td><td id="jhH^" class=""><strong>7 500</strong></td><td id="IRDh" class=""></td><td id="aJFp" class=""></td><td id="{Le~" class=""></td></tr><tr id="ad4179c0-8082-47f2-87e1-76576ef83b76"><td id="ersn" class="">AirDrop/Supply totale</td><td id="xppX" class=""></td><td id="jhH^" class=""><strong>3,00%</strong></td><td id="IRDh" class=""></td><td id="aJFp" class=""></td><td id="{Le~" class=""></td></tr></tbody></table></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Tournoi de Sir OXO</strong></summary><div class="indented"><p id="64d71b0f-f425-439d-a0d9-fef4a5e716d1" class="">Dans le cadre du Tournoi Sir Oxo, qui représente notre toute première compétition communautaire, nous avons réservé 2% de la Tokenomics pour les récompenses. La répartition de ces Tokens est une démarche transparente et directe. Le nombre maximum de phases de duels autorisés dans le tournoi est de 43, tel que détaillé dans le règlement du tournoi. Il est important de noter que les deux premiers paliers du Ciel des Ascendants, de la Terre des Déchus et la finale ne donneront pas lieu à des récompenses en OXLT.</p><p id="f7c27471-3e07-4a3c-a1f2-050ab4046266" class="">À chaque duel, une part équitable de 2,5% des tokens du Tournoi Sir Oxo est mise en jeu. Les gagnants des duels se partagent de manière équitable cette part de 2,5% des Tokens du tournoi. Ce processus se répète jusqu&#x27;à la finale. Vous trouverez un tableau détaillé des gains en annexe.</p><p id="577f6d3d-0461-4c65-bd3b-88991f92cd3c" class="">Il est essentiel de noter que certaines phases de duels peuvent être annulées pour deux raisons : le nombre d&#x27;Oxo Warriors vendus avant le début du Tournoi Sir Oxo, qui influence la quantité de duels dans la première arène du Ciel des Ascendants, et le fait que les arènes de la Terre des Déchus, liées à l&#x27;équipement d&#x27;une Grâce de Sir Oxo (NFT non obligatoire), peuvent varier en fonction de la participation. Les OXLT non distribués à la fin du tournoi seront alloués pour les “P2E Rewards” en vue d&#x27;une redistribution ultérieure à la communauté.</p><p id="a455229c-f93d-4f88-824b-25b171bec920" class="">En ce qui concerne les OXLT gagnés lors des duels du Tournoi Sir OXO, ils seront soumis à un vesting de 6 mois à compter de la fin du tournoi. Il est important de noter que ces OXLT ne seront pas associés au portefeuille du joueur ayant gagné avec un Oxo Warrior. Ils seront attribués au portefeuille détenant cet Oxo Warrior au moment du transfert d&#x27;une partie des OXLT.</p><table id="5b4d079f-5525-4dbe-b059-68792bf9ea36" class="simple-table"><tbody><tr id="ed9ac6f0-5775-478e-9571-566c9ee2e484"><td id="?H\J" class=""></td><td id="br;k" class=""><strong>Nombre de Duel</strong></td><td id="EDhC" class=""><strong>Token par victoire/ par personne</strong></td><td id="DWxA" class=""><strong>Par combat</strong></td></tr><tr id="fb236e60-5e29-4af0-966a-0181cd0f7bfb"><td id="?H\J" class="">Phase 1</td><td id="br;k" class="">524 288</td><td id="EDhC" class="">0,00</td><td id="DWxA" class="">0,00%</td></tr><tr id="4594ba2e-c239-4f28-90db-4eb9c0d7c2b8"><td id="?H\J" class=""></td><td id="br;k" class="">262 144</td><td id="EDhC" class="">19,07</td><td id="DWxA" class="">2,50%</td></tr><tr id="e0654250-d6c2-4251-a111-6a82a5c26d8d"><td id="?H\J" class=""></td><td id="br;k" class="">131 072</td><td id="EDhC" class="">38,15</td><td id="DWxA" class="">2,50%</td></tr><tr id="602aff5a-1353-4d57-9cf8-10d6058de23b"><td id="?H\J" class=""></td><td id="br;k" class="">65 536</td><td id="EDhC" class="">76,29</td><td id="DWxA" class="">2,50%</td></tr><tr id="1f9f3753-9c72-42fc-8d0d-5ae532fc0c67"><td id="?H\J" class=""></td><td id="br;k" class="">32 768</td><td id="EDhC" class="">152,59</td><td id="DWxA" class="">2,50%</td></tr><tr id="e1489bac-4c70-47ba-8aa4-beb8e5236231"><td id="?H\J" class="">Phase 2</td><td id="br;k" class="">507 904</td><td id="EDhC" class="">0,00</td><td id="DWxA" class="">0,00%</td></tr><tr id="c85b725a-3fe6-40b5-8044-396b81474cb8"><td id="?H\J" class=""></td><td id="br;k" class="">253 952</td><td id="EDhC" class="">19,69</td><td id="DWxA" class="">2,50%</td></tr><tr id="18f7d41a-dfe3-4f56-b432-c3db5aa8c071"><td id="?H\J" class=""></td><td id="br;k" class="">126 976</td><td id="EDhC" class="">39,38</td><td id="DWxA" class="">2,50%</td></tr><tr id="7abd5faa-3318-4323-bcff-7ae89554069e"><td id="?H\J" class=""></td><td id="br;k" class="">63 488</td><td id="EDhC" class="">78,76</td><td id="DWxA" class="">2,50%</td></tr><tr id="e07e6451-d7d2-4614-8df0-2c329d911676"><td id="?H\J" class=""></td><td id="br;k" class="">31 744</td><td id="EDhC" class="">157,51</td><td id="DWxA" class="">2,50%</td></tr><tr id="0837e0b1-9299-477f-80f5-a36581c1aacf"><td id="?H\J" class="">Phase 3</td><td id="br;k" class="">16 384</td><td id="EDhC" class="">305,18</td><td id="DWxA" class="">2,50%</td></tr><tr id="2e8a6919-e0c3-4ed9-b4b7-8bd7d245fa35"><td id="?H\J" class=""></td><td id="br;k" class="">8 192</td><td id="EDhC" class="">610,35</td><td id="DWxA" class="">2,50%</td></tr><tr id="bba526b5-41e5-485f-a589-0a164048bef4"><td id="?H\J" class=""></td><td id="br;k" class="">4 096</td><td id="EDhC" class="">1 220,70</td><td id="DWxA" class="">2,50%</td></tr><tr id="a5814a1d-6ca3-4967-b21d-6ed6882d7b4e"><td id="?H\J" class=""></td><td id="br;k" class="">2 048</td><td id="EDhC" class="">2 441,41</td><td id="DWxA" class="">2,50%</td></tr><tr id="5d12f0b8-4edb-4442-9bb5-3a6c97f21048"><td id="?H\J" class=""></td><td id="br;k" class="">1 024</td><td id="EDhC" class="">4 882,81</td><td id="DWxA" class="">2,50%</td></tr><tr id="d4f49a65-e0ec-440b-b174-50d79c17cbfe"><td id="?H\J" class="">Phase 4</td><td id="br;k" class="">31 744</td><td id="EDhC" class="">157,51</td><td id="DWxA" class="">2,50%</td></tr><tr id="8fa1b245-7454-447d-81d1-80bba1ed0bb7"><td id="?H\J" class=""></td><td id="br;k" class="">15 872</td><td id="EDhC" class="">315,02</td><td id="DWxA" class="">2,50%</td></tr><tr id="9a5fb404-b90a-458c-8523-c2a383e1f53c"><td id="?H\J" class=""></td><td id="br;k" class="">7 936</td><td id="EDhC" class="">630,04</td><td id="DWxA" class="">2,50%</td></tr><tr id="14741df7-f1d1-4fa4-8e34-4d3390667bc0"><td id="?H\J" class=""></td><td id="br;k" class="">3 968</td><td id="EDhC" class="">1 260,08</td><td id="DWxA" class="">2,50%</td></tr><tr id="45b6fd8b-7735-484e-842c-9bdcb36ae6eb"><td id="?H\J" class=""></td><td id="br;k" class="">1 984</td><td id="EDhC" class="">2 520,16</td><td id="DWxA" class="">2,50%</td></tr><tr id="3f7b38bb-bf0f-4c4e-87bc-c3870652e41e"><td id="?H\J" class="">Phase 5</td><td id="br;k" class="">512</td><td id="EDhC" class="">9 765,63</td><td id="DWxA" class="">2,50%</td></tr><tr id="bbf0a4ba-02d6-406b-bd4e-39245c962ae5"><td id="?H\J" class=""></td><td id="br;k" class="">256</td><td id="EDhC" class="">19 531,25</td><td id="DWxA" class="">2,50%</td></tr><tr id="43941d5f-9a95-45eb-a997-e6787af82877"><td id="?H\J" class=""></td><td id="br;k" class="">128</td><td id="EDhC" class="">39 062,50</td><td id="DWxA" class="">2,50%</td></tr><tr id="f8241d16-bbd6-4d0d-96fd-79fe43520e97"><td id="?H\J" class=""></td><td id="br;k" class="">64</td><td id="EDhC" class="">78 125,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="63361d71-8f28-4436-bdd0-5db83049750d"><td id="?H\J" class=""></td><td id="br;k" class="">32</td><td id="EDhC" class="">156 250,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="b4680b69-beba-48db-8c26-cf5f7ebc6f05"><td id="?H\J" class="">Phase 6</td><td id="br;k" class="">1 488</td><td id="EDhC" class="">3 360,22</td><td id="DWxA" class="">2,50%</td></tr><tr id="4e7b72d3-29f4-463c-9dc7-122ddc3e708e"><td id="?H\J" class=""></td><td id="br;k" class="">744</td><td id="EDhC" class="">6 720,43</td><td id="DWxA" class="">2,50%</td></tr><tr id="ba5807df-e625-47ec-8191-9419ea384e7e"><td id="?H\J" class=""></td><td id="br;k" class="">372</td><td id="EDhC" class="">13 440,86</td><td id="DWxA" class="">2,50%</td></tr><tr id="c022d97b-4e86-4572-bcae-09f7813f302f"><td id="?H\J" class=""></td><td id="br;k" class="">186</td><td id="EDhC" class="">26 881,72</td><td id="DWxA" class="">2,50%</td></tr><tr id="c437f389-c4ed-4a8c-8245-d6fffae25df8"><td id="?H\J" class=""></td><td id="br;k" class="">93</td><td id="EDhC" class="">53 763,44</td><td id="DWxA" class="">2,50%</td></tr><tr id="ebb33d3f-40b3-42b3-a110-01b29fdbfa9f"><td id="?H\J" class="">Phase 7</td><td id="br;k" class="">16</td><td id="EDhC" class="">312 500,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="046bd5b4-a6bd-46e7-a4a9-4511f7243cf9"><td id="?H\J" class=""></td><td id="br;k" class="">8</td><td id="EDhC" class="">625 000,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="1b8fdc82-196f-4fc4-a1b5-6bdc067f59c3"><td id="?H\J" class=""></td><td id="br;k" class="">4</td><td id="EDhC" class="">1 250 000,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="f3ca9601-701f-4344-b064-e66c299b111a"><td id="?H\J" class=""></td><td id="br;k" class="">2</td><td id="EDhC" class="">2 500 000,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="d1f70779-33c6-4465-8f82-e8b862d42464"><td id="?H\J" class=""></td><td id="br;k" class="">1</td><td id="EDhC" class="">5 000 000,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="9eaf78b3-09c9-4666-b34b-f623acabf604"><td id="?H\J" class="">Phase 8</td><td id="br;k" class="">62</td><td id="EDhC" class="">80 645,16</td><td id="DWxA" class="">2,50%</td></tr><tr id="6db241fa-3214-4082-aa6f-852f112e8e7d"><td id="?H\J" class=""></td><td id="br;k" class="">31</td><td id="EDhC" class="">161 290,32</td><td id="DWxA" class="">2,50%</td></tr><tr id="5bf7eeb1-39b9-427a-8f1a-2765bed39646"><td id="?H\J" class=""></td><td id="br;k" class="">16</td><td id="EDhC" class="">312 500,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="be403ab0-eae6-42d0-ab52-c8bafa98a5ba"><td id="?H\J" class=""></td><td id="br;k" class="">8</td><td id="EDhC" class="">625 000,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="a3af8003-f3d9-4adc-81e1-2dad66fc9b4c"><td id="?H\J" class=""></td><td id="br;k" class="">4</td><td id="EDhC" class="">1 250 000,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="3ee651f1-0f9f-4023-bcef-df9737ab1256"><td id="?H\J" class="">Phase 9</td><td id="br;k" class="">2</td><td id="EDhC" class="">2 500 000,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="8c700904-1a5e-44ab-aff3-1eb2aacc8e9b"><td id="?H\J" class=""></td><td id="br;k" class="">1</td><td id="EDhC" class="">5 000 000,00</td><td id="DWxA" class="">2,50%</td></tr><tr id="564f3254-c586-4e50-84ac-9f8200a6890f"><td id="?H\J" class="">FINALE</td><td id="br;k" class="">1</td><td id="EDhC" class="">0,00</td><td id="DWxA" class="">0,00%</td></tr></tbody></table></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Blocage Plan</strong></summary><div class="indented"><p id="cec4a984-e094-41aa-8fde-946cda5071e2" class="">Le programme de blocage mis en place par <strong>Oxelta</strong> est destiné à récompenser les membres de notre communauté qui choisissent de conserver leurs Tokens en prévision du lancement du Metaverse. Dans le cadre de ce programme, 10% de l&#x27;offre totale de Tokens OXLT a été réservée.</p><p id="b9a6e3ad-673e-416d-ac02-d40014528d8e" class="">Nous souhaitons mettre en lumière les règles clés de ce programme :</p><ul id="25428067-92d6-4b3a-92bd-b80beb2d8da7" class="bulleted-list"><li style="list-style-type:disc">Eligibilité au Programme de Blocage : Pour être éligible à ce programme, il est impératif de recevoir des Tokens OXLT dans le cadre des actions : vente-privé, ICO, AirDrop, Sir Oxo Tournament, P2E Reward, le blocage plan lui même, Marketing-Community, Team. L’acquisition de token effectuée en dehors de ces actions n’offre pas l’avantage du blocage plan.</li></ul><ul id="146faa3e-9dec-4188-8f16-6fe9e4b0869c" class="bulleted-list"><li style="list-style-type:disc">Quantité de Tokens Éligibles : La quantité de Tokens éligibles au programme de blocage sera déterminée et 1,5 % de cette quantité sera distribué chaque mois.</li></ul><ul id="4079a2d2-7127-4ef9-946e-896ba1fbc395" class="bulleted-list"><li style="list-style-type:disc">Intérêt capitalisé : Les Tokens acquis via le le blocage plan augmenteront la quantité de Tokens éligibles, créant ainsi un intérêt composé.</li></ul><ul id="bab9acd3-b013-4c28-8fa3-746cdd1872af" class="bulleted-list"><li style="list-style-type:disc">Transparence : Nous publierons des mises à jour mensuelles pour vous tenir informé de l&#x27;état du programme.</li></ul><ul id="3ce438d3-0f46-4cf4-8414-33cb4ff058e2" class="bulleted-list"><li style="list-style-type:disc">Contrat Intelligent : Le blocage plan repose sur un smart contract (contrat intelligent) qui suit les transactions entre les portefeuilles d&#x27;Oxelta et le vôtre dans le cadre des actions citées. Le contrat détermine une quantité d’OXLT éligible au programme.</li></ul><p id="0c39da54-9087-40d1-b1ef-3098c06ae06c" class="">Exemple : <em>J&#x27;ai obtenu 20 000 OXLT grâce à un AirDrop et j&#x27;ai acheté 20 000 OXLT sur un DEX. Le mécanisme du plan de blocage détermine que vous détenez 20 000 OXLT éligibles au plan de blocage. Si vous ne diminuez pas la quantité de tokens éligibles, vous gagnerez : 20 000 * 1,5 / 100 = 300 OXLT supplémentaires, portant votre total d&#x27;OXLT éligibles à 20 300 qui deviendra alors votre base de calcul pour les intérêts du deuxième mois (et ainsi de suite).. Votre portefeuille contiendra alors un total de 40 300 OXLT. Cependant, si vous vendez plus de 20 000 OXLT, vous réduirez votre éligibilité au plan de blocage.</em></p><p id="fcd10f25-8f89-4097-9bf4-e12b9c7c7272" class="">Nous avons calculé que si tous les participants suivent le plan, les 10 % de l&#x27;offre totale alloués au blocage plan seront distribués après 24 mois, à condition que chacun respecte le plan et qu&#x27;<strong>Oxelta </strong>déploie tous les Tokens débloqués. Cependant, il est possible qu&#x27;à l&#x27;avenir, toutes les conditions et tous les participants ne participent pas au blocage plan sur la durée prévue. Dans ce cas, à partir de janvier 2030, les parties restantes du programme de blocage seront reversées à la trésorerie d&#x27;Oxelta. Cela signifie que si certains participants ne maintiennent pas leurs jetons conformément aux critères du programme de blocage jusqu&#x27;à la fin, les jetons correspondants seront restitués à <strong>Oxelta</strong> à partir du début de 2030.</p><table id="34d406ff-ed45-4319-88d3-e01cbf5a3122" class="simple-table"><tbody><tr id="d642b11e-8739-47f1-97c4-06ceda4b01f3"><td id="EK~F" class=""><strong>Release Schedule</strong></td><td id="x?kG" class=""><strong>Publique</strong></td><td id="&gt;={`" class=""><strong>1</strong></td><td id="O&lt;mK" class=""><strong>2</strong></td><td id="QfgK" class=""><strong>3</strong></td><td id="prp[" class=""><strong>4</strong></td><td id="Z|wC" class=""><strong>5</strong></td><td id="XVJb" class=""><strong>6</strong></td><td id="gK&lt;G" class=""><strong>7</strong></td><td id="x&lt;_m" class=""><strong>8</strong></td><td id="jVRy" class=""><strong>9</strong></td><td id="Q`tP" class=""><strong>10</strong></td><td id="JmG|" class=""><strong>11</strong></td><td id="SiGo" class=""><strong>12</strong></td><td id="gT@j" class=""><strong>13</strong></td><td id="^vNj" class=""><strong>14</strong></td><td id="iA|;" class=""><strong>15</strong></td><td id="R&gt;Zg" class=""><strong>16</strong></td><td id="`Jpp" class=""><strong>17</strong></td><td id="yuL|" class=""><strong>18</strong></td><td id="OG~Z" class=""><strong>19</strong></td><td id="IUq}" class=""><strong>20</strong></td><td id="UGrW" class=""><strong>21</strong></td><td id="LKmo" class=""><strong>22</strong></td><td id="Lndd" class=""><strong>23</strong></td><td id="z[su" class=""><strong>24</strong></td><td id="D;bC" class=""><strong>25</strong></td></tr><tr id="7ab54c0f-e957-4c0a-97a9-fef0bf42eb8b"><td id="EK~F" class=""><strong>ICO</strong></td><td id="x?kG" class="">250 000 000</td><td id="&gt;={`" class="">0</td><td id="O&lt;mK" class="">0</td><td id="QfgK" class="">66 666 667</td><td id="prp[" class="">66 666 667</td><td id="Z|wC" class="">110 416 667</td><td id="XVJb" class="">110 416 667</td><td id="gK&lt;G" class="">110 416 667</td><td id="x&lt;_m" class="">110 416 667</td><td id="jVRy" class="">43 750 000</td><td id="Q`tP" class="">43 750 000</td><td id="JmG|" class="">43 750 000</td><td id="SiGo" class="">43 750 000</td><td id="gT@j" class=""></td><td id="^vNj" class=""></td><td id="iA|;" class=""></td><td id="R&gt;Zg" class=""></td><td id="`Jpp" class=""></td><td id="yuL|" class=""></td><td id="OG~Z" class=""></td><td id="IUq}" class=""></td><td id="UGrW" class=""></td><td id="LKmo" class=""></td><td id="Lndd" class=""></td><td id="z[su" class=""></td><td id="D;bC" class=""></td></tr><tr id="dcc3cc6e-e45f-4ffe-889c-8520d00aebca"><td id="EK~F" class=""><strong>Pre-sale</strong></td><td id="x?kG" class=""></td><td id="&gt;={`" class=""></td><td id="O&lt;mK" class=""></td><td id="QfgK" class=""></td><td id="prp[" class=""></td><td id="Z|wC" class=""></td><td id="XVJb" class=""></td><td id="gK&lt;G" class="">50 000 000</td><td id="x&lt;_m" class="">50 000 000</td><td id="jVRy" class="">50 000 000</td><td id="Q`tP" class="">50 000 000</td><td id="JmG|" class="">50 000 000</td><td id="SiGo" class="">50 000 000</td><td id="gT@j" class="">50 000 000</td><td id="^vNj" class="">50 000 000</td><td id="iA|;" class="">50 000 000</td><td id="R&gt;Zg" class="">50 000 000</td><td id="`Jpp" class=""></td><td id="yuL|" class=""></td><td id="OG~Z" class=""></td><td id="IUq}" class=""></td><td id="UGrW" class=""></td><td id="LKmo" class=""></td><td id="Lndd" class=""></td><td id="z[su" class=""></td><td id="D;bC" class=""></td></tr><tr id="cd9ee797-328c-4538-b98f-5f1d4bfd279d"><td id="EK~F" class=""><strong>Airdrop early</strong></td><td id="x?kG" class=""></td><td id="&gt;={`" class=""></td><td id="O&lt;mK" class=""></td><td id="QfgK" class="">30 000 000</td><td id="prp[" class="">30 000 000</td><td id="Z|wC" class="">30 000 000</td><td id="XVJb" class="">30 000 000</td><td id="gK&lt;G" class="">30 000 000</td><td id="x&lt;_m" class="">30 000 000</td><td id="jVRy" class="">30 000 000</td><td id="Q`tP" class="">30 000 000</td><td id="JmG|" class="">30 000 000</td><td id="SiGo" class="">30 000 000</td><td id="gT@j" class=""></td><td id="^vNj" class=""></td><td id="iA|;" class=""></td><td id="R&gt;Zg" class=""></td><td id="`Jpp" class=""></td><td id="yuL|" class=""></td><td id="OG~Z" class=""></td><td id="IUq}" class=""></td><td id="UGrW" class=""></td><td id="LKmo" class=""></td><td id="Lndd" class=""></td><td id="z[su" class=""></td><td id="D;bC" class=""></td></tr><tr id="b26f0ceb-6c3a-4afc-aed6-c0f5027439ba"><td id="EK~F" class=""><strong>Sir Oxo tournament</strong></td><td id="x?kG" class=""></td><td id="&gt;={`" class=""></td><td id="O&lt;mK" class=""></td><td id="QfgK" class=""></td><td id="prp[" class=""></td><td id="Z|wC" class=""></td><td id="XVJb" class="">33 333 333</td><td id="gK&lt;G" class="">33 333 333</td><td id="x&lt;_m" class="">33 333 333</td><td id="jVRy" class="">33 333 333</td><td id="Q`tP" class="">33 333 333</td><td id="JmG|" class="">33 333 333</td><td id="SiGo" class=""></td><td id="gT@j" class=""></td><td id="^vNj" class=""></td><td id="iA|;" class=""></td><td id="R&gt;Zg" class=""></td><td id="`Jpp" class=""></td><td id="yuL|" class=""></td><td id="OG~Z" class=""></td><td id="IUq}" class=""></td><td id="UGrW" class=""></td><td id="LKmo" class=""></td><td id="Lndd" class=""></td><td id="z[su" class=""></td><td id="D;bC" class=""></td></tr><tr id="3b720884-a6ee-4084-9a98-be2688cc1085"><td id="EK~F" class=""><strong>P2E Reward</strong></td><td id="x?kG" class=""></td><td id="&gt;={`" class=""></td><td id="O&lt;mK" class="">50 000 000</td><td id="QfgK" class="">50 000 000</td><td id="prp[" class="">50 000 000</td><td id="Z|wC" class="">50 000 000</td><td id="XVJb" class="">50 000 000</td><td id="gK&lt;G" class="">50 000 000</td><td id="x&lt;_m" class="">50 000 000</td><td id="jVRy" class="">50 000 000</td><td id="Q`tP" class="">50 000 000</td><td id="JmG|" class="">50 000 000</td><td id="SiGo" class="">50 000 000</td><td id="gT@j" class="">50 000 000</td><td id="^vNj" class="">50 000 000</td><td id="iA|;" class="">50 000 000</td><td id="R&gt;Zg" class="">50 000 000</td><td id="`Jpp" class="">50 000 000</td><td id="yuL|" class="">50 000 000</td><td id="OG~Z" class="">50 000 000</td><td id="IUq}" class="">50 000 000</td><td id="UGrW" class="">50 000 000</td><td id="LKmo" class="">50 000 000</td><td id="Lndd" class="">50 000 000</td><td id="z[su" class="">50 000 000</td><td id="D;bC" class="">50 000 000</td></tr><tr id="328d91e3-bc2a-4a93-9fe9-52e46123ef47"><td id="EK~F" class=""><strong>Marketing-Community</strong></td><td id="x?kG" class="">50 000 000</td><td id="&gt;={`" class="">50 000 000</td><td id="O&lt;mK" class="">50 000 000</td><td id="QfgK" class="">50 000 000</td><td id="prp[" class="">50 000 000</td><td id="Z|wC" class="">50 000 000</td><td id="XVJb" class="">50 000 000</td><td id="gK&lt;G" class="">50 000 000</td><td id="x&lt;_m" class="">50 000 000</td><td id="jVRy" class="">50 000 000</td><td id="Q`tP" class="">50 000 000</td><td id="JmG|" class="">50 000 000</td><td id="SiGo" class="">50 000 000</td><td id="gT@j" class="">50 000 000</td><td id="^vNj" class="">50 000 000</td><td id="iA|;" class="">50 000 000</td><td id="R&gt;Zg" class="">50 000 000</td><td id="`Jpp" class="">50 000 000</td><td id="yuL|" class="">50 000 000</td><td id="OG~Z" class="">50 000 000</td><td id="IUq}" class=""></td><td id="UGrW" class=""></td><td id="LKmo" class=""></td><td id="Lndd" class=""></td><td id="z[su" class=""></td><td id="D;bC" class=""></td></tr><tr id="065c3b6f-a5fb-44a2-8bac-d1b734b921af"><td id="EK~F" class=""><strong>Team</strong></td><td id="x?kG" class=""></td><td id="&gt;={`" class=""></td><td id="O&lt;mK" class=""></td><td id="QfgK" class=""></td><td id="prp[" class=""></td><td id="Z|wC" class=""></td><td id="XVJb" class=""></td><td id="gK&lt;G" class=""></td><td id="x&lt;_m" class=""></td><td id="jVRy" class=""></td><td id="Q`tP" class=""></td><td id="JmG|" class=""></td><td id="SiGo" class=""></td><td id="gT@j" class=""></td><td id="^vNj" class=""></td><td id="iA|;" class=""></td><td id="R&gt;Zg" class=""></td><td id="`Jpp" class="">25 000 000</td><td id="yuL|" class="">25 000 000</td><td id="OG~Z" class="">25 000 000</td><td id="IUq}" class="">25 000 000</td><td id="UGrW" class="">25 000 000</td><td id="LKmo" class="">25 000 000</td><td id="Lndd" class="">25 000 000</td><td id="z[su" class="">25 000 000</td><td id="D;bC" class="">25 000 000</td></tr><tr id="bc354112-cdf6-4b5c-a5f5-22f0e2487466"><td id="EK~F" class="">Token Unlocked/Month</td><td id="x?kG" class="">300 000 000</td><td id="&gt;={`" class="">50 000 000</td><td id="O&lt;mK" class="">100 000 000</td><td id="QfgK" class="">196 666 667</td><td id="prp[" class="">196 666 667</td><td id="Z|wC" class="">240 416 667</td><td id="XVJb" class="">273 750 000</td><td id="gK&lt;G" class="">323 750 000</td><td id="x&lt;_m" class="">323 750 000</td><td id="jVRy" class="">257 083 333</td><td id="Q`tP" class="">257 083 333</td><td id="JmG|" class="">257 083 333</td><td id="SiGo" class="">223 750 000</td><td id="gT@j" class="">150 000 000</td><td id="^vNj" class="">150 000 000</td><td id="iA|;" class="">150 000 000</td><td id="R&gt;Zg" class="">150 000 000</td><td id="`Jpp" class="">125 000 000</td><td id="yuL|" class="">125 000 000</td><td id="OG~Z" class="">125 000 000</td><td id="IUq}" class="">75 000 000</td><td id="UGrW" class="">75 000 000</td><td id="LKmo" class="">75 000 000</td><td id="Lndd" class="">75 000 000</td><td id="z[su" class="">75 000 000</td><td id="D;bC" class="">75 000 000</td></tr><tr id="a21db6ae-4793-4a8c-8061-1ae5ff1bbd7f"><td id="EK~F" class=""><strong>Circulating supply</strong></td><td id="x?kG" class=""><strong>300 000 000</strong></td><td id="&gt;={`" class=""><strong>350 000 000</strong></td><td id="O&lt;mK" class=""><strong>450 000 000</strong></td><td id="QfgK" class=""><strong>646 666 667</strong></td><td id="prp[" class=""><strong>843 333 333</strong></td><td id="Z|wC" class=""><strong>1 083 750 000</strong></td><td id="XVJb" class=""><strong>1 357 500 000</strong></td><td id="gK&lt;G" class=""><strong>1 681 250 000</strong></td><td id="x&lt;_m" class=""><strong>2 005 000 000</strong></td><td id="jVRy" class=""><strong>2 262 083 333</strong></td><td id="Q`tP" class=""><strong>2 519 166 667</strong></td><td id="JmG|" class=""><strong>2 776 250 000</strong></td><td id="SiGo" class=""><strong>3 000 000 000</strong></td><td id="gT@j" class=""><strong>3 150 000 000</strong></td><td id="^vNj" class=""><strong>3 300 000 000</strong></td><td id="iA|;" class=""><strong>3 450 000 000</strong></td><td id="R&gt;Zg" class=""><strong>3 600 000 000</strong></td><td id="`Jpp" class=""><strong>3 725 000 000</strong></td><td id="yuL|" class=""><strong>3 850 000 000</strong></td><td id="OG~Z" class=""><strong>3 975 000 000</strong></td><td id="IUq}" class=""><strong>4 050 000 000</strong></td><td id="UGrW" class=""><strong>4 125 000 000</strong></td><td id="LKmo" class=""><strong>4 200 000 000</strong></td><td id="Lndd" class=""><strong>4 275 000 000</strong></td><td id="z[su" class=""><strong>4 350 000 000</strong></td><td id="D;bC" class=""><strong>4 425 000 000</strong></td></tr><tr id="c29a9e19-f0fd-4b8f-9b2a-c90f936ec51d"><td id="EK~F" class=""></td><td id="x?kG" class=""></td><td id="&gt;={`" class=""></td><td id="O&lt;mK" class=""></td><td id="QfgK" class=""></td><td id="prp[" class=""></td><td id="Z|wC" class=""></td><td id="XVJb" class=""></td><td id="gK&lt;G" class=""></td><td id="x&lt;_m" class=""></td><td id="jVRy" class=""></td><td id="Q`tP" class=""></td><td id="JmG|" class=""></td><td id="SiGo" class=""></td><td id="gT@j" class=""></td><td id="^vNj" class=""></td><td id="iA|;" class=""></td><td id="R&gt;Zg" class=""></td><td id="`Jpp" class=""></td><td id="yuL|" class=""></td><td id="OG~Z" class=""></td><td id="IUq}" class=""></td><td id="UGrW" class=""></td><td id="LKmo" class=""></td><td id="Lndd" class=""></td><td id="z[su" class=""></td><td id="D;bC" class=""></td></tr><tr id="1b514f5f-b4fa-42b8-9487-ade899196b08"><td id="EK~F" class=""></td><td id="x?kG" class=""></td><td id="&gt;={`" class=""></td><td id="O&lt;mK" class=""></td><td id="QfgK" class=""></td><td id="prp[" class=""></td><td id="Z|wC" class=""></td><td id="XVJb" class=""></td><td id="gK&lt;G" class=""></td><td id="x&lt;_m" class=""></td><td id="jVRy" class=""></td><td id="Q`tP" class=""></td><td id="JmG|" class=""></td><td id="SiGo" class=""></td><td id="gT@j" class=""></td><td id="^vNj" class=""></td><td id="iA|;" class=""></td><td id="R&gt;Zg" class=""></td><td id="`Jpp" class=""></td><td id="yuL|" class=""></td><td id="OG~Z" class=""></td><td id="IUq}" class=""></td><td id="UGrW" class=""></td><td id="LKmo" class=""></td><td id="Lndd" class=""></td><td id="z[su" class=""></td><td id="D;bC" class=""></td></tr><tr id="a2b1eb9d-73d0-4c9b-ad8f-953b92e88aa2"><td id="EK~F" class="">Blocage Plan Token max envoyé</td><td id="x?kG" class="">4 500 000</td><td id="&gt;={`" class="">5 317 500</td><td id="O&lt;mK" class="">6 829 763</td><td id="QfgK" class="">9 802 446</td><td id="prp[" class="">12 797 037</td><td id="Z|wC" class="">16 448 206</td><td id="XVJb" class="">20 609 223</td><td id="gK&lt;G" class="">25 527 888</td><td id="x&lt;_m" class="">30 457 918</td><td id="jVRy" class="">34 388 119</td><td id="Q`tP" class="">38 303 322</td><td id="JmG|" class="">42 218 300</td><td id="SiGo" class="">45 633 274</td><td id="gT@j" class="">47 934 499</td><td id="^vNj" class="">50 219 017</td><td id="iA|;" class="">52 503 285</td><td id="R&gt;Zg" class="">54 787 549</td><td id="`Jpp" class="">56 696 813</td><td id="yuL|" class="">58 600 452</td><td id="OG~Z" class="">60 504 007</td><td id="IUq}" class="">61 657 560</td><td id="UGrW" class="">62 799 863</td><td id="LKmo" class="">63 941 998</td><td id="Lndd" class="">65 084 130</td><td id="z[su" class="">66 226 262</td><td id="D;bC" class="">67 368 394</td></tr><tr id="ec02452d-57b6-49af-81aa-9bed6f75072a"><td id="EK~F" class="">% du token envoyé/ Token Blocage Plan Par mois</td><td id="x?kG" class="">0,45%</td><td id="&gt;={`" class="">0,53%</td><td id="O&lt;mK" class="">0,68%</td><td id="QfgK" class="">0,98%</td><td id="prp[" class="">1,28%</td><td id="Z|wC" class="">1,64%</td><td id="XVJb" class="">2,06%</td><td id="gK&lt;G" class="">2,55%</td><td id="x&lt;_m" class="">3,05%</td><td id="jVRy" class="">3,44%</td><td id="Q`tP" class="">3,83%</td><td id="JmG|" class="">4,22%</td><td id="SiGo" class="">4,56%</td><td id="gT@j" class="">4,79%</td><td id="^vNj" class="">5,02%</td><td id="iA|;" class="">5,25%</td><td id="R&gt;Zg" class="">5,48%</td><td id="`Jpp" class="">5,67%</td><td id="yuL|" class="">5,86%</td><td id="OG~Z" class="">6,05%</td><td id="IUq}" class="">6,17%</td><td id="UGrW" class="">6,28%</td><td id="LKmo" class="">6,39%</td><td id="Lndd" class="">6,51%</td><td id="z[su" class="">6,62%</td><td id="D;bC" class="">6,74%</td></tr><tr id="4df72d6d-363a-4c45-97b2-9921d145c564"><td id="EK~F" class=""><strong>Cumul du pourcentage total des des Token envoyé</strong></td><td id="x?kG" class=""><strong>0,45%</strong></td><td id="&gt;={`" class=""><strong>0,98%</strong></td><td id="O&lt;mK" class=""><strong>1,66%</strong></td><td id="QfgK" class=""><strong>2,64%</strong></td><td id="prp[" class=""><strong>3,92%</strong></td><td id="Z|wC" class=""><strong>5,57%</strong></td><td id="XVJb" class=""><strong>7,63%</strong></td><td id="gK&lt;G" class=""><strong>10,18%</strong></td><td id="x&lt;_m" class=""><strong>13,23%</strong></td><td id="jVRy" class=""><strong>16,67%</strong></td><td id="Q`tP" class=""><strong>20,50%</strong></td><td id="JmG|" class=""><strong>24,72%</strong></td><td id="SiGo" class=""><strong>29,28%</strong></td><td id="gT@j" class=""><strong>34,08%</strong></td><td id="^vNj" class=""><strong>39,10%</strong></td><td id="iA|;" class=""><strong>44,35%</strong></td><td id="R&gt;Zg" class=""><strong>49,83%</strong></td><td id="`Jpp" class=""><strong>55,50%</strong></td><td id="yuL|" class=""><strong>61,36%</strong></td><td id="OG~Z" class=""><strong>67,41%</strong></td><td id="IUq}" class=""><strong>73,57%</strong></td><td id="UGrW" class=""><strong>79,85%</strong></td><td id="LKmo" class=""><strong>86,25%</strong></td><td id="Lndd" class=""><strong>92,76%</strong></td><td id="z[su" class=""><strong>99,38%</strong></td><td id="D;bC" class=""><strong>106,12%</strong></td></tr></tbody></table></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>P2E Rewards</strong></summary><div class="indented"><p id="ddb90c9f-29b6-4c80-a34d-dbb683596531" class=""><strong>Oxelta</strong> est un écosystème dédié au P2E (Play-to-earn). Nous introduirons régulièrement de nouvelles activités et jeux, offrant ainsi aux utilisateurs la possibilité de gagner des tokens OXLT.</p><p id="577af1f3-d631-475e-80fe-d4d82e967ab9" class="">Cette catégorie de Tokens représente 25% de l&#x27;offre totale. Ces Tokens seront distribués aux joueurs en fonction de leur engagement et de leur participation active dans nos jeux.</p><p id="d1e0cd12-2c39-42b8-878a-0a41eb5d593d" class="">Il est essentiel de noter qu&#x27;<strong>Oxelta</strong> ne pourra pas vendre cette catégorie de Tokens, quel que soit le moyen utilisé. Ils sont strictement réservés aux joueurs et ne pourront être acquis que par le biais de la participation et de l&#x27;interaction dans nos jeux.</p><p id="5b4152ff-ef13-4133-ae93-d9bb9ff5d2d5" class="">La catégorie P2E reward présente un délai d&#x27;attente avec un cliff d&#x27;un mois et sera soumise à un vesting de 50 mois. L&#x27;objectif est de créer une distribution cohérente des récompenses dans le cadre du P2E. Ainsi, une déconnexion est établie entre la libération des Tokens et la quantité pouvant être gagnée. Une fois le solde d&#x27;OXLT épuisé dans l&#x27;adresse dédiée aux récompenses P2E rewards, nous garantissons la pérennité du modèle P2E en enrichissant la proposition de valeur au sein de nos jeux. L&#x27;utilisation des OXLT permettra d&#x27;accumuler et de réaffecter des fonds dans les P2E, assurant ainsi la durabilité du modèle d&#x27;Oxelta.&quot;</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Marketing &amp; Community</strong></summary><div class="indented"><p id="3f87baae-7099-4e0d-9837-fb455b5f7ecf" class="">Nous réservons 10% de l&#x27;offre totale pour soutenir nos initiatives marketing, notamment les giveaways sur les réseaux sociaux, les promotions ciblées, les partenariats avec des créateurs de contenus spécialisés ainsi que la rémunération de nos membres actifs sur Discord.</p><p id="900761bc-ff9d-4741-861c-6d1af62f7406" class="">Sur ces 10%, 5% sont mis à la disposition d&#x27;Oxelta et seront partiellement utilisés pour l&#x27;affiliation de l&#x27;ICO suivis d&#x27;un vesting de 19 mois. Ce vesting vise à limiter les actions marketing excessives et à protéger les détenteurs d&#x27;OXLT contre une inondation de Tokens.</p><p id="c972598a-a18f-4ea3-99d4-58061780094c" class="">Nous accordons une grande valeur à notre communauté et nous nous engageons à utiliser ces ressources de manière responsable pour stimuler la croissance et la visibilité de notre projet.</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Team (équipe)</strong></summary><div class="indented"><p id="33d29d74-06da-4fb0-8e70-c31c3509ab65" class="">La part de l&#x27;équipe d&#x27;<strong>Oxelta</strong> dans l’allocation représente 8% et sera verrouillée pendant 16 mois. Cette mesure vise à garantir que les investisseurs de la vente privée, de l&#x27;ICO et les participants de l&#x27;airdrop reçoivent leurs Tokens avant l&#x27;équipe. Le vesting de l&#x27;équipe s&#x27;étalera sur 32 mois.</p><p id="76067fc9-f0bb-4241-8520-91f1cd69edb9" class="">Notre objectif est de démontrer notre engagement envers la préparation du Metaverse tout en assurant la transparence et la confiance de notre communauté en alignant nos intérêts sur les leurs.</p></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0"><strong>Trésorerie</strong></summary><div class="indented"><p id="08a3ec1c-2149-4749-8ada-0e4177f45d2c" class="">Nous avons réservé 15 % des Tokens OXLT pour notre trésorerie, avec une période de cliff de 12 mois, suivie d&#x27;un vesting sur 36 mois. Cette trésorerie est stratégiquement positionnée en dehors de notre plan financier en cours, et son utilisation sera exclusivement dédiée à l&#x27;amélioration du Metaverse et d&#x27;<strong>Oxelta</strong> et de ses jeux.</p></div></details><h1 id="9e7d989e-b495-47e1-97a8-d1e5802833f3" class="block-color-yellow_background">Release</h1><p id="6906817f-39b9-4e70-9beb-0d68f327cd2b" class="">
+</p><table id="93b796d9-2d5a-4364-904d-34df0f1c2567" class="simple-table"><tbody><tr id="3439bd54-07fc-4a3e-94fc-796d52522f43"><td id="BOjg" class="" style="width:203.34375px"><strong>Release Schedule</strong></td><td id="L?Ot" class=""><strong>Publique</strong></td><td id="[JT\" class=""><strong>1</strong></td><td id="}=Uw" class=""><strong>2</strong></td><td id="OBsQ" class=""><strong>3</strong></td><td id="n@c]" class=""><strong>4</strong></td><td id="hfZb" class=""><strong>5</strong></td><td id="F;JG" class=""><strong>6</strong></td><td id="YhK}" class=""><strong>7</strong></td><td id="FP\x" class=""><strong>8</strong></td><td id="=VXv" class=""><strong>9</strong></td><td id="QVKS" class=""><strong>10</strong></td><td id="LHUC" class=""><strong>11</strong></td><td id="AlJO" class=""><strong>12</strong></td><td id="Tplu" class=""><strong>13</strong></td><td id="WaIq" class=""><strong>14</strong></td><td id="Aro=" class=""><strong>15</strong></td><td id="?D:h" class=""><strong>16</strong></td><td id="AicO" class=""><strong>17</strong></td><td id="B?`C" class=""><strong>18</strong></td><td id="P~Vs" class=""><strong>19</strong></td><td id="^GR&lt;" class=""><strong>20</strong></td><td id="[iD&gt;" class=""><strong>21</strong></td><td id="pa\S" class=""><strong>22</strong></td><td id="jMlk" class=""><strong>23</strong></td><td id="]xKY" class=""><strong>24</strong></td><td id="RnaL" class=""><strong>25</strong></td><td id="ao~H" class=""><strong>26</strong></td><td id="s|Xr" class=""><strong>27</strong></td><td id="qYaS" class=""><strong>28</strong></td><td id="eIv[" class=""><strong>29</strong></td><td id="qEUk" class=""><strong>30</strong></td><td id="kqFZ" class=""><strong>31</strong></td><td id="`rCC" class=""><strong>32</strong></td><td id="OCPy" class=""><strong>33</strong></td><td id="BhnD" class=""><strong>34</strong></td><td id="`_up" class=""><strong>35</strong></td><td id="}Ndb" class=""><strong>36</strong></td><td id="&lt;ir^" class=""><strong>37</strong></td><td id="Ng^B" class=""><strong>38</strong></td><td id="~n]Z" class=""><strong>39</strong></td><td id="T_}x" class=""><strong>40</strong></td><td id=";DUK" class=""><strong>41</strong></td><td id="B^Ip" class=""><strong>42</strong></td><td id="t&gt;;Q" class=""><strong>43</strong></td><td id="?}Nb" class=""><strong>44</strong></td><td id="Hjag" class=""><strong>45</strong></td><td id="sNsq" class=""><strong>46</strong></td><td id="}meE" class=""><strong>47</strong></td><td id="ALC~" class=""><strong>48</strong></td><td id="eYIR" class=""><strong>49</strong></td><td id="Q=?J" class=""><strong>50</strong></td><td id="f|cJ" class=""><strong>51</strong></td><td id="q:Vb" class=""><strong>52</strong></td><td id="?ppg" class=""><strong>53</strong></td><td id="qmHH" class=""><strong>54</strong></td><td id="wmT:" class=""><strong>55</strong></td><td id="WhYx" class=""><strong>56</strong></td><td id="v@^Z" class=""><strong>57</strong></td><td id="}=t;" class=""><strong>58</strong></td><td id="]RId" class=""><strong>59</strong></td><td id="okMX" class=""><strong>60</strong></td><td id="&lt;XqH" class="" style="width:137px"><strong>TOTAL</strong></td><td id="xzDG" class="" style="width:143px"><strong>EXPECTED</strong></td><td id="pq&gt;I" class=""><strong>ECART</strong></td></tr><tr id="c83f7d59-a6a7-4a1b-b503-55037afb406d"><td id="BOjg" class="" style="width:203.34375px"><strong>ICO</strong></td><td id="L?Ot" class="">250 000 000</td><td id="[JT\" class="">0</td><td id="}=Uw" class="">0</td><td id="OBsQ" class="">66 666 667</td><td id="n@c]" class="">66 666 667</td><td id="hfZb" class="">110 416 667</td><td id="F;JG" class="">110 416 667</td><td id="YhK}" class="">110 416 667</td><td id="FP\x" class="">110 416 667</td><td id="=VXv" class="">43 750 000</td><td id="QVKS" class="">43 750 000</td><td id="LHUC" class="">43 750 000</td><td id="AlJO" class="">43 750 000</td><td id="Tplu" class=""></td><td id="WaIq" class=""></td><td id="Aro=" class=""></td><td id="?D:h" class=""></td><td id="AicO" class=""></td><td id="B?`C" class=""></td><td id="P~Vs" class=""></td><td id="^GR&lt;" class=""></td><td id="[iD&gt;" class=""></td><td id="pa\S" class=""></td><td id="jMlk" class=""></td><td id="]xKY" class=""></td><td id="RnaL" class=""></td><td id="ao~H" class=""></td><td id="s|Xr" class=""></td><td id="qYaS" class=""></td><td id="eIv[" class=""></td><td id="qEUk" class=""></td><td id="kqFZ" class=""></td><td id="`rCC" class=""></td><td id="OCPy" class=""></td><td id="BhnD" class=""></td><td id="`_up" class=""></td><td id="}Ndb" class=""></td><td id="&lt;ir^" class=""></td><td id="Ng^B" class=""></td><td id="~n]Z" class=""></td><td id="T_}x" class=""></td><td id=";DUK" class=""></td><td id="B^Ip" class=""></td><td id="t&gt;;Q" class=""></td><td id="?}Nb" class=""></td><td id="Hjag" class=""></td><td id="sNsq" class=""></td><td id="}meE" class=""></td><td id="ALC~" class=""></td><td id="eYIR" class=""></td><td id="Q=?J" class=""></td><td id="f|cJ" class=""></td><td id="q:Vb" class=""></td><td id="?ppg" class=""></td><td id="qmHH" class=""></td><td id="wmT:" class=""></td><td id="WhYx" class=""></td><td id="v@^Z" class=""></td><td id="}=t;" class=""></td><td id="]RId" class=""></td><td id="okMX" class=""></td><td id="&lt;XqH" class="" style="width:137px">1 000 000 000</td><td id="xzDG" class="" style="width:143px">1 000 000 000</td><td id="pq&gt;I" class="">0</td></tr><tr id="4b0b2f87-9c1f-492d-b679-d709cb0579fa"><td id="BOjg" class="" style="width:203.34375px"><strong>Liquidity</strong></td><td id="L?Ot" class="">1 200 000 000</td><td id="[JT\" class=""></td><td id="}=Uw" class=""></td><td id="OBsQ" class=""></td><td id="n@c]" class=""></td><td id="hfZb" class=""></td><td id="F;JG" class=""></td><td id="YhK}" class=""></td><td id="FP\x" class=""></td><td id="=VXv" class=""></td><td id="QVKS" class=""></td><td id="LHUC" class=""></td><td id="AlJO" class=""></td><td id="Tplu" class=""></td><td id="WaIq" class=""></td><td id="Aro=" class=""></td><td id="?D:h" class=""></td><td id="AicO" class=""></td><td id="B?`C" class=""></td><td id="P~Vs" class=""></td><td id="^GR&lt;" class=""></td><td id="[iD&gt;" class=""></td><td id="pa\S" class=""></td><td id="jMlk" class=""></td><td id="]xKY" class=""></td><td id="RnaL" class=""></td><td id="ao~H" class=""></td><td id="s|Xr" class=""></td><td id="qYaS" class=""></td><td id="eIv[" class=""></td><td id="qEUk" class=""></td><td id="kqFZ" class=""></td><td id="`rCC" class=""></td><td id="OCPy" class=""></td><td id="BhnD" class=""></td><td id="`_up" class=""></td><td id="}Ndb" class=""></td><td id="&lt;ir^" class=""></td><td id="Ng^B" class=""></td><td id="~n]Z" class=""></td><td id="T_}x" class=""></td><td id=";DUK" class=""></td><td id="B^Ip" class=""></td><td id="t&gt;;Q" class=""></td><td id="?}Nb" class=""></td><td id="Hjag" class=""></td><td id="sNsq" class=""></td><td id="}meE" class=""></td><td id="ALC~" class=""></td><td id="eYIR" class=""></td><td id="Q=?J" class=""></td><td id="f|cJ" class=""></td><td id="q:Vb" class=""></td><td id="?ppg" class=""></td><td id="qmHH" class=""></td><td id="wmT:" class=""></td><td id="WhYx" class=""></td><td id="v@^Z" class=""></td><td id="}=t;" class=""></td><td id="]RId" class=""></td><td id="okMX" class=""></td><td id="&lt;XqH" class="" style="width:137px">1 200 000 000</td><td id="xzDG" class="" style="width:143px">1 200 000 000</td><td id="pq&gt;I" class="">0</td></tr><tr id="28abd92a-5f9b-4f21-88ed-288c8f84d0ad"><td id="BOjg" class="" style="width:203.34375px"><strong>Private Sale</strong></td><td id="L?Ot" class=""></td><td id="[JT\" class=""></td><td id="}=Uw" class=""></td><td id="OBsQ" class=""></td><td id="n@c]" class=""></td><td id="hfZb" class=""></td><td id="F;JG" class=""></td><td id="YhK}" class="">50 000 000</td><td id="FP\x" class="">50 000 000</td><td id="=VXv" class="">50 000 000</td><td id="QVKS" class="">50 000 000</td><td id="LHUC" class="">50 000 000</td><td id="AlJO" class="">50 000 000</td><td id="Tplu" class="">50 000 000</td><td id="WaIq" class="">50 000 000</td><td id="Aro=" class="">50 000 000</td><td id="?D:h" class="">50 000 000</td><td id="AicO" class=""></td><td id="B?`C" class=""></td><td id="P~Vs" class=""></td><td id="^GR&lt;" class=""></td><td id="[iD&gt;" class=""></td><td id="pa\S" class=""></td><td id="jMlk" class=""></td><td id="]xKY" class=""></td><td id="RnaL" class=""></td><td id="ao~H" class=""></td><td id="s|Xr" class=""></td><td id="qYaS" class=""></td><td id="eIv[" class=""></td><td id="qEUk" class=""></td><td id="kqFZ" class=""></td><td id="`rCC" class=""></td><td id="OCPy" class=""></td><td id="BhnD" class=""></td><td id="`_up" class=""></td><td id="}Ndb" class=""></td><td id="&lt;ir^" class=""></td><td id="Ng^B" class=""></td><td id="~n]Z" class=""></td><td id="T_}x" class=""></td><td id=";DUK" class=""></td><td id="B^Ip" class=""></td><td id="t&gt;;Q" class=""></td><td id="?}Nb" class=""></td><td id="Hjag" class=""></td><td id="sNsq" class=""></td><td id="}meE" class=""></td><td id="ALC~" class=""></td><td id="eYIR" class=""></td><td id="Q=?J" class=""></td><td id="f|cJ" class=""></td><td id="q:Vb" class=""></td><td id="?ppg" class=""></td><td id="qmHH" class=""></td><td id="wmT:" class=""></td><td id="WhYx" class=""></td><td id="v@^Z" class=""></td><td id="}=t;" class=""></td><td id="]RId" class=""></td><td id="okMX" class=""></td><td id="&lt;XqH" class="" style="width:137px">500 000 000</td><td id="xzDG" class="" style="width:143px">500 000 000</td><td id="pq&gt;I" class="">0</td></tr><tr id="9a6a48b3-0cfb-4524-bdca-485281188bb8"><td id="BOjg" class="" style="width:203.34375px"><strong>Airdrop early</strong></td><td id="L?Ot" class=""></td><td id="[JT\" class=""></td><td id="}=Uw" class=""></td><td id="OBsQ" class="">30 000 000</td><td id="n@c]" class="">30 000 000</td><td id="hfZb" class="">30 000 000</td><td id="F;JG" class="">30 000 000</td><td id="YhK}" class="">30 000 000</td><td id="FP\x" class="">30 000 000</td><td id="=VXv" class="">30 000 000</td><td id="QVKS" class="">30 000 000</td><td id="LHUC" class="">30 000 000</td><td id="AlJO" class="">30 000 000</td><td id="Tplu" class=""></td><td id="WaIq" class=""></td><td id="Aro=" class=""></td><td id="?D:h" class=""></td><td id="AicO" class=""></td><td id="B?`C" class=""></td><td id="P~Vs" class=""></td><td id="^GR&lt;" class=""></td><td id="[iD&gt;" class=""></td><td id="pa\S" class=""></td><td id="jMlk" class=""></td><td id="]xKY" class=""></td><td id="RnaL" class=""></td><td id="ao~H" class=""></td><td id="s|Xr" class=""></td><td id="qYaS" class=""></td><td id="eIv[" class=""></td><td id="qEUk" class=""></td><td id="kqFZ" class=""></td><td id="`rCC" class=""></td><td id="OCPy" class=""></td><td id="BhnD" class=""></td><td id="`_up" class=""></td><td id="}Ndb" class=""></td><td id="&lt;ir^" class=""></td><td id="Ng^B" class=""></td><td id="~n]Z" class=""></td><td id="T_}x" class=""></td><td id=";DUK" class=""></td><td id="B^Ip" class=""></td><td id="t&gt;;Q" class=""></td><td id="?}Nb" class=""></td><td id="Hjag" class=""></td><td id="sNsq" class=""></td><td id="}meE" class=""></td><td id="ALC~" class=""></td><td id="eYIR" class=""></td><td id="Q=?J" class=""></td><td id="f|cJ" class=""></td><td id="q:Vb" class=""></td><td id="?ppg" class=""></td><td id="qmHH" class=""></td><td id="wmT:" class=""></td><td id="WhYx" class=""></td><td id="v@^Z" class=""></td><td id="}=t;" class=""></td><td id="]RId" class=""></td><td id="okMX" class=""></td><td id="&lt;XqH" class="" style="width:137px">300 000 000</td><td id="xzDG" class="" style="width:143px">300 000 000</td><td id="pq&gt;I" class="">0</td></tr><tr id="fb0c3d4b-7920-4e18-980e-7009d31ce42d"><td id="BOjg" class="" style="width:203.34375px"><strong>Sir Oxo tournament</strong></td><td id="L?Ot" class=""></td><td id="[JT\" class=""></td><td id="}=Uw" class=""></td><td id="OBsQ" class=""></td><td id="n@c]" class=""></td><td id="hfZb" class=""></td><td id="F;JG" class="">33 333 333</td><td id="YhK}" class="">33 333 333</td><td id="FP\x" class="">33 333 333</td><td id="=VXv" class="">33 333 333</td><td id="QVKS" class="">33 333 333</td><td id="LHUC" class="">33 333 333</td><td id="AlJO" class=""></td><td id="Tplu" class=""></td><td id="WaIq" class=""></td><td id="Aro=" class=""></td><td id="?D:h" class=""></td><td id="AicO" class=""></td><td id="B?`C" class=""></td><td id="P~Vs" class=""></td><td id="^GR&lt;" class=""></td><td id="[iD&gt;" class=""></td><td id="pa\S" class=""></td><td id="jMlk" class=""></td><td id="]xKY" class=""></td><td id="RnaL" class=""></td><td id="ao~H" class=""></td><td id="s|Xr" class=""></td><td id="qYaS" class=""></td><td id="eIv[" class=""></td><td id="qEUk" class=""></td><td id="kqFZ" class=""></td><td id="`rCC" class=""></td><td id="OCPy" class=""></td><td id="BhnD" class=""></td><td id="`_up" class=""></td><td id="}Ndb" class=""></td><td id="&lt;ir^" class=""></td><td id="Ng^B" class=""></td><td id="~n]Z" class=""></td><td id="T_}x" class=""></td><td id=";DUK" class=""></td><td id="B^Ip" class=""></td><td id="t&gt;;Q" class=""></td><td id="?}Nb" class=""></td><td id="Hjag" class=""></td><td id="sNsq" class=""></td><td id="}meE" class=""></td><td id="ALC~" class=""></td><td id="eYIR" class=""></td><td id="Q=?J" class=""></td><td id="f|cJ" class=""></td><td id="q:Vb" class=""></td><td id="?ppg" class=""></td><td id="qmHH" class=""></td><td id="wmT:" class=""></td><td id="WhYx" class=""></td><td id="v@^Z" class=""></td><td id="}=t;" class=""></td><td id="]RId" class=""></td><td id="okMX" class=""></td><td id="&lt;XqH" class="" style="width:137px">200 000 000</td><td id="xzDG" class="" style="width:143px">200 000 000</td><td id="pq&gt;I" class="">0</td></tr><tr id="22e70fb8-5370-4c5d-9809-96fa61a635f2"><td id="BOjg" class="" style="width:203.34375px"><strong>Blocking Plan</strong></td><td id="L?Ot" class="">50 000 000</td><td id="[JT\" class="">50 000 000</td><td id="}=Uw" class="">50 000 000</td><td id="OBsQ" class="">50 000 000</td><td id="n@c]" class="">50 000 000</td><td id="hfZb" class="">50 000 000</td><td id="F;JG" class="">50 000 000</td><td id="YhK}" class="">50 000 000</td><td id="FP\x" class="">50 000 000</td><td id="=VXv" class="">50 000 000</td><td id="QVKS" class="">50 000 000</td><td id="LHUC" class="">50 000 000</td><td id="AlJO" class="">50 000 000</td><td id="Tplu" class="">50 000 000</td><td id="WaIq" class="">50 000 000</td><td id="Aro=" class="">50 000 000</td><td id="?D:h" class="">50 000 000</td><td id="AicO" class="">50 000 000</td><td id="B?`C" class="">50 000 000</td><td id="P~Vs" class="">50 000 000</td><td id="^GR&lt;" class=""></td><td id="[iD&gt;" class=""></td><td id="pa\S" class=""></td><td id="jMlk" class=""></td><td id="]xKY" class=""></td><td id="RnaL" class=""></td><td id="ao~H" class=""></td><td id="s|Xr" class=""></td><td id="qYaS" class=""></td><td id="eIv[" class=""></td><td id="qEUk" class=""></td><td id="kqFZ" class=""></td><td id="`rCC" class=""></td><td id="OCPy" class=""></td><td id="BhnD" class=""></td><td id="`_up" class=""></td><td id="}Ndb" class=""></td><td id="&lt;ir^" class=""></td><td id="Ng^B" class=""></td><td id="~n]Z" class=""></td><td id="T_}x" class=""></td><td id=";DUK" class=""></td><td id="B^Ip" class=""></td><td id="t&gt;;Q" class=""></td><td id="?}Nb" class=""></td><td id="Hjag" class=""></td><td id="sNsq" class=""></td><td id="}meE" class=""></td><td id="ALC~" class=""></td><td id="eYIR" class=""></td><td id="Q=?J" class=""></td><td id="f|cJ" class=""></td><td id="q:Vb" class=""></td><td id="?ppg" class=""></td><td id="qmHH" class=""></td><td id="wmT:" class=""></td><td id="WhYx" class=""></td><td id="v@^Z" class=""></td><td id="}=t;" class=""></td><td id="]RId" class=""></td><td id="okMX" class=""></td><td id="&lt;XqH" class="" style="width:137px">1 000 000 000</td><td id="xzDG" class="" style="width:143px">1 000 000 000</td><td id="pq&gt;I" class="">0</td></tr><tr id="d98b0e90-983e-4e76-8f52-230ca04feeae"><td id="BOjg" class="" style="width:203.34375px"><strong>P2E Reward</strong></td><td id="L?Ot" class=""></td><td id="[JT\" class=""></td><td id="}=Uw" class="">50 000 000</td><td id="OBsQ" class="">50 000 000</td><td id="n@c]" class="">50 000 000</td><td id="hfZb" class="">50 000 000</td><td id="F;JG" class="">50 000 000</td><td id="YhK}" class="">50 000 000</td><td id="FP\x" class="">50 000 000</td><td id="=VXv" class="">50 000 000</td><td id="QVKS" class="">50 000 000</td><td id="LHUC" class="">50 000 000</td><td id="AlJO" class="">50 000 000</td><td id="Tplu" class="">50 000 000</td><td id="WaIq" class="">50 000 000</td><td id="Aro=" class="">50 000 000</td><td id="?D:h" class="">50 000 000</td><td id="AicO" class="">50 000 000</td><td id="B?`C" class="">50 000 000</td><td id="P~Vs" class="">50 000 000</td><td id="^GR&lt;" class="">50 000 000</td><td id="[iD&gt;" class="">50 000 000</td><td id="pa\S" class="">50 000 000</td><td id="jMlk" class="">50 000 000</td><td id="]xKY" class="">50 000 000</td><td id="RnaL" class="">50 000 000</td><td id="ao~H" class="">50 000 000</td><td id="s|Xr" class="">50 000 000</td><td id="qYaS" class="">50 000 000</td><td id="eIv[" class="">50 000 000</td><td id="qEUk" class="">50 000 000</td><td id="kqFZ" class="">50 000 000</td><td id="`rCC" class="">50 000 000</td><td id="OCPy" class="">50 000 000</td><td id="BhnD" class="">50 000 000</td><td id="`_up" class="">50 000 000</td><td id="}Ndb" class="">50 000 000</td><td id="&lt;ir^" class="">50 000 000</td><td id="Ng^B" class="">50 000 000</td><td id="~n]Z" class="">50 000 000</td><td id="T_}x" class="">50 000 000</td><td id=";DUK" class="">50 000 000</td><td id="B^Ip" class="">50 000 000</td><td id="t&gt;;Q" class="">50 000 000</td><td id="?}Nb" class="">50 000 000</td><td id="Hjag" class="">50 000 000</td><td id="sNsq" class="">50 000 000</td><td id="}meE" class="">50 000 000</td><td id="ALC~" class="">50 000 000</td><td id="eYIR" class="">50 000 000</td><td id="Q=?J" class="">50 000 000</td><td id="f|cJ" class="">50 000 000</td><td id="q:Vb" class=""></td><td id="?ppg" class=""></td><td id="qmHH" class=""></td><td id="wmT:" class=""></td><td id="WhYx" class=""></td><td id="v@^Z" class=""></td><td id="}=t;" class=""></td><td id="]RId" class=""></td><td id="okMX" class=""></td><td id="&lt;XqH" class="" style="width:137px">2 500 000 000</td><td id="xzDG" class="" style="width:143px">2 500 000 000</td><td id="pq&gt;I" class="">0</td></tr><tr id="6787fbab-ec34-462f-aa21-529d8f7c5ba7"><td id="BOjg" class="" style="width:203.34375px"><strong>Marketing-Community</strong></td><td id="L?Ot" class="">50 000 000</td><td id="[JT\" class="">50 000 000</td><td id="}=Uw" class="">50 000 000</td><td id="OBsQ" class="">50 000 000</td><td id="n@c]" class="">50 000 000</td><td id="hfZb" class="">50 000 000</td><td id="F;JG" class="">50 000 000</td><td id="YhK}" class="">50 000 000</td><td id="FP\x" class="">50 000 000</td><td id="=VXv" class="">50 000 000</td><td id="QVKS" class="">50 000 000</td><td id="LHUC" class="">50 000 000</td><td id="AlJO" class="">50 000 000</td><td id="Tplu" class="">50 000 000</td><td id="WaIq" class="">50 000 000</td><td id="Aro=" class="">50 000 000</td><td id="?D:h" class="">50 000 000</td><td id="AicO" class="">50 000 000</td><td id="B?`C" class="">50 000 000</td><td id="P~Vs" class="">50 000 000</td><td id="^GR&lt;" class=""></td><td id="[iD&gt;" class=""></td><td id="pa\S" class=""></td><td id="jMlk" class=""></td><td id="]xKY" class=""></td><td id="RnaL" class=""></td><td id="ao~H" class=""></td><td id="s|Xr" class=""></td><td id="qYaS" class=""></td><td id="eIv[" class=""></td><td id="qEUk" class=""></td><td id="kqFZ" class=""></td><td id="`rCC" class=""></td><td id="OCPy" class=""></td><td id="BhnD" class=""></td><td id="`_up" class=""></td><td id="}Ndb" class=""></td><td id="&lt;ir^" class=""></td><td id="Ng^B" class=""></td><td id="~n]Z" class=""></td><td id="T_}x" class=""></td><td id=";DUK" class=""></td><td id="B^Ip" class=""></td><td id="t&gt;;Q" class=""></td><td id="?}Nb" class=""></td><td id="Hjag" class=""></td><td id="sNsq" class=""></td><td id="}meE" class=""></td><td id="ALC~" class=""></td><td id="eYIR" class=""></td><td id="Q=?J" class=""></td><td id="f|cJ" class=""></td><td id="q:Vb" class=""></td><td id="?ppg" class=""></td><td id="qmHH" class=""></td><td id="wmT:" class=""></td><td id="WhYx" class=""></td><td id="v@^Z" class=""></td><td id="}=t;" class=""></td><td id="]RId" class=""></td><td id="okMX" class=""></td><td id="&lt;XqH" class="" style="width:137px">1 000 000 000</td><td id="xzDG" class="" style="width:143px">1 000 000 000</td><td id="pq&gt;I" class="">0</td></tr><tr id="4590c0ef-2745-48de-8076-07c82a31a92c"><td id="BOjg" class="" style="width:203.34375px"><strong>Team</strong></td><td id="L?Ot" class=""></td><td id="[JT\" class=""></td><td id="}=Uw" class=""></td><td id="OBsQ" class=""></td><td id="n@c]" class=""></td><td id="hfZb" class=""></td><td id="F;JG" class=""></td><td id="YhK}" class=""></td><td id="FP\x" class=""></td><td id="=VXv" class=""></td><td id="QVKS" class=""></td><td id="LHUC" class=""></td><td id="AlJO" class=""></td><td id="Tplu" class=""></td><td id="WaIq" class=""></td><td id="Aro=" class=""></td><td id="?D:h" class=""></td><td id="AicO" class="">25 000 000</td><td id="B?`C" class="">25 000 000</td><td id="P~Vs" class="">25 000 000</td><td id="^GR&lt;" class="">25 000 000</td><td id="[iD&gt;" class="">25 000 000</td><td id="pa\S" class="">25 000 000</td><td id="jMlk" class="">25 000 000</td><td id="]xKY" class="">25 000 000</td><td id="RnaL" class="">25 000 000</td><td id="ao~H" class="">25 000 000</td><td id="s|Xr" class="">25 000 000</td><td id="qYaS" class="">25 000 000</td><td id="eIv[" class="">25 000 000</td><td id="qEUk" class="">25 000 000</td><td id="kqFZ" class="">25 000 000</td><td id="`rCC" class="">25 000 000</td><td id="OCPy" class="">25 000 000</td><td id="BhnD" class="">25 000 000</td><td id="`_up" class="">25 000 000</td><td id="}Ndb" class="">25 000 000</td><td id="&lt;ir^" class="">25 000 000</td><td id="Ng^B" class="">25 000 000</td><td id="~n]Z" class="">25 000 000</td><td id="T_}x" class="">25 000 000</td><td id=";DUK" class="">25 000 000</td><td id="B^Ip" class="">25 000 000</td><td id="t&gt;;Q" class="">25 000 000</td><td id="?}Nb" class="">25 000 000</td><td id="Hjag" class="">25 000 000</td><td id="sNsq" class="">25 000 000</td><td id="}meE" class="">25 000 000</td><td id="ALC~" class="">25 000 000</td><td id="eYIR" class=""></td><td id="Q=?J" class=""></td><td id="f|cJ" class=""></td><td id="q:Vb" class=""></td><td id="?ppg" class=""></td><td id="qmHH" class=""></td><td id="wmT:" class=""></td><td id="WhYx" class=""></td><td id="v@^Z" class=""></td><td id="}=t;" class=""></td><td id="]RId" class=""></td><td id="okMX" class=""></td><td id="&lt;XqH" class="" style="width:137px">800 000 000</td><td id="xzDG" class="" style="width:143px">800 000 000</td><td id="pq&gt;I" class="">0</td></tr><tr id="ea59ec3c-cd46-48f1-92a6-bb9fc1031519"><td id="BOjg" class="" style="width:203.34375px"><strong>Cashflow and future games</strong></td><td id="L?Ot" class=""></td><td id="[JT\" class=""></td><td id="}=Uw" class=""></td><td id="OBsQ" class=""></td><td id="n@c]" class=""></td><td id="hfZb" class=""></td><td id="F;JG" class=""></td><td id="YhK}" class=""></td><td id="FP\x" class=""></td><td id="=VXv" class=""></td><td id="QVKS" class=""></td><td id="LHUC" class=""></td><td id="AlJO" class=""></td><td id="Tplu" class="">31 250 000</td><td id="WaIq" class="">31 250 000</td><td id="Aro=" class="">31 250 000</td><td id="?D:h" class="">31 250 000</td><td id="AicO" class="">31 250 000</td><td id="B?`C" class="">31 250 000</td><td id="P~Vs" class="">31 250 000</td><td id="^GR&lt;" class="">31 250 000</td><td id="[iD&gt;" class="">31 250 000</td><td id="pa\S" class="">31 250 000</td><td id="jMlk" class="">31 250 000</td><td id="]xKY" class="">31 250 000</td><td id="RnaL" class="">31 250 000</td><td id="ao~H" class="">31 250 000</td><td id="s|Xr" class="">31 250 000</td><td id="qYaS" class="">31 250 000</td><td id="eIv[" class="">31 250 000</td><td id="qEUk" class="">31 250 000</td><td id="kqFZ" class="">31 250 000</td><td id="`rCC" class="">31 250 000</td><td id="OCPy" class="">31 250 000</td><td id="BhnD" class="">31 250 000</td><td id="`_up" class="">31 250 000</td><td id="}Ndb" class="">31 250 000</td><td id="&lt;ir^" class="">31 250 000</td><td id="Ng^B" class="">31 250 000</td><td id="~n]Z" class="">31 250 000</td><td id="T_}x" class="">31 250 000</td><td id=";DUK" class="">31 250 000</td><td id="B^Ip" class="">31 250 000</td><td id="t&gt;;Q" class="">31 250 000</td><td id="?}Nb" class="">31 250 000</td><td id="Hjag" class="">31 250 000</td><td id="sNsq" class="">31 250 000</td><td id="}meE" class="">31 250 000</td><td id="ALC~" class="">31 250 000</td><td id="eYIR" class="">31 250 000</td><td id="Q=?J" class="">31 250 000</td><td id="f|cJ" class="">31 250 000</td><td id="q:Vb" class="">31 250 000</td><td id="?ppg" class="">31 250 000</td><td id="qmHH" class="">31 250 000</td><td id="wmT:" class="">31 250 000</td><td id="WhYx" class="">31 250 000</td><td id="v@^Z" class="">31 250 000</td><td id="}=t;" class="">31 250 000</td><td id="]RId" class="">31 250 000</td><td id="okMX" class="">31 250 000</td><td id="&lt;XqH" class="" style="width:137px">1 500 000 000</td><td id="xzDG" class="" style="width:143px">1 500 000 000</td><td id="pq&gt;I" class="">0</td></tr><tr id="c814917b-8a27-4cf4-bd0d-c7dfd91645dd"><td id="BOjg" class="" style="width:203.34375px">Token Unlocked/Month</td><td id="L?Ot" class="">1 550 000 000</td><td id="[JT\" class="">100 000 000</td><td id="}=Uw" class="">150 000 000</td><td id="OBsQ" class="">246 666 667</td><td id="n@c]" class="">246 666 667</td><td id="hfZb" class="">290 416 667</td><td id="F;JG" class="">323 750 000</td><td id="YhK}" class="">373 750 000</td><td id="FP\x" class="">373 750 000</td><td id="=VXv" class="">307 083 333</td><td id="QVKS" class="">307 083 333</td><td id="LHUC" class="">307 083 333</td><td id="AlJO" class="">273 750 000</td><td id="Tplu" class="">231 250 000</td><td id="WaIq" class="">231 250 000</td><td id="Aro=" class="">231 250 000</td><td id="?D:h" class="">231 250 000</td><td id="AicO" class="">206 250 000</td><td id="B?`C" class="">206 250 000</td><td id="P~Vs" class="">206 250 000</td><td id="^GR&lt;" class="">106 250 000</td><td id="[iD&gt;" class="">106 250 000</td><td id="pa\S" class="">106 250 000</td><td id="jMlk" class="">106 250 000</td><td id="]xKY" class="">106 250 000</td><td id="RnaL" class="">106 250 000</td><td id="ao~H" class="">106 250 000</td><td id="s|Xr" class="">106 250 000</td><td id="qYaS" class="">106 250 000</td><td id="eIv[" class="">106 250 000</td><td id="qEUk" class="">106 250 000</td><td id="kqFZ" class="">106 250 000</td><td id="`rCC" class="">106 250 000</td><td id="OCPy" class="">106 250 000</td><td id="BhnD" class="">106 250 000</td><td id="`_up" class="">106 250 000</td><td id="}Ndb" class="">106 250 000</td><td id="&lt;ir^" class="">106 250 000</td><td id="Ng^B" class="">106 250 000</td><td id="~n]Z" class="">106 250 000</td><td id="T_}x" class="">106 250 000</td><td id=";DUK" class="">106 250 000</td><td id="B^Ip" class="">106 250 000</td><td id="t&gt;;Q" class="">106 250 000</td><td id="?}Nb" class="">106 250 000</td><td id="Hjag" class="">106 250 000</td><td id="sNsq" class="">106 250 000</td><td id="}meE" class="">106 250 000</td><td id="ALC~" class="">106 250 000</td><td id="eYIR" class="">81 250 000</td><td id="Q=?J" class="">81 250 000</td><td id="f|cJ" class="">81 250 000</td><td id="q:Vb" class="">31 250 000</td><td id="?ppg" class="">31 250 000</td><td id="qmHH" class="">31 250 000</td><td id="wmT:" class="">31 250 000</td><td id="WhYx" class="">31 250 000</td><td id="v@^Z" class="">31 250 000</td><td id="}=t;" class="">31 250 000</td><td id="]RId" class="">31 250 000</td><td id="okMX" class="">31 250 000</td><td id="&lt;XqH" class="" style="width:137px"><strong>10 000 000 000</strong></td><td id="xzDG" class="" style="width:143px"><strong>10 000 000 000</strong></td><td id="pq&gt;I" class=""><strong>0</strong></td></tr><tr id="221e7a42-633f-400c-8ae2-61ff624ca177"><td id="BOjg" class="" style="width:203.34375px"><strong>Circulating supply</strong></td><td id="L?Ot" class=""><strong>1 550 000 000</strong></td><td id="[JT\" class=""><strong>1 650 000 000</strong></td><td id="}=Uw" class=""><strong>1 800 000 000</strong></td><td id="OBsQ" class=""><strong>2 046 666 667</strong></td><td id="n@c]" class=""><strong>2 293 333 333</strong></td><td id="hfZb" class=""><strong>2 583 750 000</strong></td><td id="F;JG" class=""><strong>2 907 500 000</strong></td><td id="YhK}" class=""><strong>3 281 250 000</strong></td><td id="FP\x" class=""><strong>3 655 000 000</strong></td><td id="=VXv" class=""><strong>3 962 083 333</strong></td><td id="QVKS" class=""><strong>4 269 166 667</strong></td><td id="LHUC" class=""><strong>4 576 250 000</strong></td><td id="AlJO" class=""><strong>4 850 000 000</strong></td><td id="Tplu" class=""><strong>5 081 250 000</strong></td><td id="WaIq" class=""><strong>5 312 500 000</strong></td><td id="Aro=" class=""><strong>5 543 750 000</strong></td><td id="?D:h" class=""><strong>5 775 000 000</strong></td><td id="AicO" class=""><strong>5 981 250 000</strong></td><td id="B?`C" class=""><strong>6 187 500 000</strong></td><td id="P~Vs" class=""><strong>6 393 750 000</strong></td><td id="^GR&lt;" class=""><strong>6 500 000 000</strong></td><td id="[iD&gt;" class=""><strong>6 606 250 000</strong></td><td id="pa\S" class=""><strong>6 712 500 000</strong></td><td id="jMlk" class=""><strong>6 818 750 000</strong></td><td id="]xKY" class=""><strong>6 925 000 000</strong></td><td id="RnaL" class=""><strong>7 031 250 000</strong></td><td id="ao~H" class=""><strong>7 137 500 000</strong></td><td id="s|Xr" class=""><strong>7 243 750 000</strong></td><td id="qYaS" class=""><strong>7 350 000 000</strong></td><td id="eIv[" class=""><strong>7 456 250 000</strong></td><td id="qEUk" class=""><strong>7 562 500 000</strong></td><td id="kqFZ" class=""><strong>7 668 750 000</strong></td><td id="`rCC" class=""><strong>7 775 000 000</strong></td><td id="OCPy" class=""><strong>7 881 250 000</strong></td><td id="BhnD" class=""><strong>7 987 500 000</strong></td><td id="`_up" class=""><strong>8 093 750 000</strong></td><td id="}Ndb" class=""><strong>8 200 000 000</strong></td><td id="&lt;ir^" class=""><strong>8 306 250 000</strong></td><td id="Ng^B" class=""><strong>8 412 500 000</strong></td><td id="~n]Z" class=""><strong>8 518 750 000</strong></td><td id="T_}x" class=""><strong>8 625 000 000</strong></td><td id=";DUK" class=""><strong>8 731 250 000</strong></td><td id="B^Ip" class=""><strong>8 837 500 000</strong></td><td id="t&gt;;Q" class=""><strong>8 943 750 000</strong></td><td id="?}Nb" class=""><strong>9 050 000 000</strong></td><td id="Hjag" class=""><strong>9 156 250 000</strong></td><td id="sNsq" class=""><strong>9 262 500 000</strong></td><td id="}meE" class=""><strong>9 368 750 000</strong></td><td id="ALC~" class=""><strong>9 475 000 000</strong></td><td id="eYIR" class=""><strong>9 556 250 000</strong></td><td id="Q=?J" class=""><strong>9 637 500 000</strong></td><td id="f|cJ" class=""><strong>9 718 750 000</strong></td><td id="q:Vb" class=""><strong>9 750 000 000</strong></td><td id="?ppg" class=""><strong>9 781 250 000</strong></td><td id="qmHH" class=""><strong>9 812 500 000</strong></td><td id="wmT:" class=""><strong>9 843 750 000</strong></td><td id="WhYx" class=""><strong>9 875 000 000</strong></td><td id="v@^Z" class=""><strong>9 906 250 000</strong></td><td id="}=t;" class=""><strong>9 937 500 000</strong></td><td id="]RId" class=""><strong>9 968 750 000</strong></td><td id="okMX" class=""><strong>10 000 000 000</strong></td><td id="&lt;XqH" class="" style="width:137px"></td><td id="xzDG" class="" style="width:143px"></td><td id="pq&gt;I" class=""></td></tr><tr id="a308b5f9-556b-4031-8e05-af4eff00784b"><td id="BOjg" class="" style="width:203.34375px"><strong>Circulating supply %</strong></td><td id="L?Ot" class=""><strong>15,50%</strong></td><td id="[JT\" class=""><strong>16,50%</strong></td><td id="}=Uw" class=""><strong>18,00%</strong></td><td id="OBsQ" class=""><strong>20,47%</strong></td><td id="n@c]" class=""><strong>22,93%</strong></td><td id="hfZb" class=""><strong>25,84%</strong></td><td id="F;JG" class=""><strong>29,08%</strong></td><td id="YhK}" class=""><strong>32,81%</strong></td><td id="FP\x" class=""><strong>36,55%</strong></td><td id="=VXv" class=""><strong>39,62%</strong></td><td id="QVKS" class=""><strong>42,69%</strong></td><td id="LHUC" class=""><strong>45,76%</strong></td><td id="AlJO" class=""><strong>48,50%</strong></td><td id="Tplu" class=""><strong>50,81%</strong></td><td id="WaIq" class=""><strong>53,13%</strong></td><td id="Aro=" class=""><strong>55,44%</strong></td><td id="?D:h" class=""><strong>57,75%</strong></td><td id="AicO" class=""><strong>59,81%</strong></td><td id="B?`C" class=""><strong>61,88%</strong></td><td id="P~Vs" class=""><strong>63,94%</strong></td><td id="^GR&lt;" class=""><strong>65,00%</strong></td><td id="[iD&gt;" class=""><strong>66,06%</strong></td><td id="pa\S" class=""><strong>67,13%</strong></td><td id="jMlk" class=""><strong>68,19%</strong></td><td id="]xKY" class=""><strong>69,25%</strong></td><td id="RnaL" class=""><strong>70,31%</strong></td><td id="ao~H" class=""><strong>71,38%</strong></td><td id="s|Xr" class=""><strong>72,44%</strong></td><td id="qYaS" class=""><strong>73,50%</strong></td><td id="eIv[" class=""><strong>74,56%</strong></td><td id="qEUk" class=""><strong>75,63%</strong></td><td id="kqFZ" class=""><strong>76,69%</strong></td><td id="`rCC" class=""><strong>77,75%</strong></td><td id="OCPy" class=""><strong>78,81%</strong></td><td id="BhnD" class=""><strong>79,88%</strong></td><td id="`_up" class=""><strong>80,94%</strong></td><td id="}Ndb" class=""><strong>82,00%</strong></td><td id="&lt;ir^" class=""><strong>83,06%</strong></td><td id="Ng^B" class=""><strong>84,13%</strong></td><td id="~n]Z" class=""><strong>85,19%</strong></td><td id="T_}x" class=""><strong>86,25%</strong></td><td id=";DUK" class=""><strong>87,31%</strong></td><td id="B^Ip" class=""><strong>88,38%</strong></td><td id="t&gt;;Q" class=""><strong>89,44%</strong></td><td id="?}Nb" class=""><strong>90,50%</strong></td><td id="Hjag" class=""><strong>91,56%</strong></td><td id="sNsq" class=""><strong>92,63%</strong></td><td id="}meE" class=""><strong>93,69%</strong></td><td id="ALC~" class=""><strong>94,75%</strong></td><td id="eYIR" class=""><strong>95,56%</strong></td><td id="Q=?J" class=""><strong>96,38%</strong></td><td id="f|cJ" class=""><strong>97,19%</strong></td><td id="q:Vb" class=""><strong>97,50%</strong></td><td id="?ppg" class=""><strong>97,81%</strong></td><td id="qmHH" class=""><strong>98,13%</strong></td><td id="wmT:" class=""><strong>98,44%</strong></td><td id="WhYx" class=""><strong>98,75%</strong></td><td id="v@^Z" class=""><strong>99,06%</strong></td><td id="}=t;" class=""><strong>99,38%</strong></td><td id="]RId" class=""><strong>99,69%</strong></td><td id="okMX" class=""><strong>100,00%</strong></td><td id="&lt;XqH" class="" style="width:137px"></td><td id="xzDG" class="" style="width:143px"></td><td id="pq&gt;I" class=""></td></tr><tr id="9c2e3f66-f661-4653-af4c-62b5080b5770"><td id="BOjg" class="" style="width:203.34375px">Hors-liquidité</td><td id="L?Ot" class="">3,50%</td><td id="[JT\" class="">4,50%</td><td id="}=Uw" class="">6,00%</td><td id="OBsQ" class="">8,47%</td><td id="n@c]" class="">10,93%</td><td id="hfZb" class="">13,84%</td><td id="F;JG" class="">17,08%</td><td id="YhK}" class="">20,81%</td><td id="FP\x" class="">24,55%</td><td id="=VXv" class="">27,62%</td><td id="QVKS" class="">30,69%</td><td id="LHUC" class="">33,76%</td><td id="AlJO" class="">36,50%</td><td id="Tplu" class="">38,81%</td><td id="WaIq" class="">41,13%</td><td id="Aro=" class="">43,44%</td><td id="?D:h" class="">45,75%</td><td id="AicO" class="">47,81%</td><td id="B?`C" class="">49,88%</td><td id="P~Vs" class="">51,94%</td><td id="^GR&lt;" class="">53,00%</td><td id="[iD&gt;" class="">54,06%</td><td id="pa\S" class="">55,13%</td><td id="jMlk" class="">56,19%</td><td id="]xKY" class="">57,25%</td><td id="RnaL" class="">58,31%</td><td id="ao~H" class="">59,38%</td><td id="s|Xr" class="">60,44%</td><td id="qYaS" class="">61,50%</td><td id="eIv[" class="">62,56%</td><td id="qEUk" class="">63,63%</td><td id="kqFZ" class="">64,69%</td><td id="`rCC" class="">65,75%</td><td id="OCPy" class="">66,81%</td><td id="BhnD" class="">67,88%</td><td id="`_up" class="">68,94%</td><td id="}Ndb" class="">70,00%</td><td id="&lt;ir^" class="">71,06%</td><td id="Ng^B" class="">72,13%</td><td id="~n]Z" class="">73,19%</td><td id="T_}x" class="">74,25%</td><td id=";DUK" class="">75,31%</td><td id="B^Ip" class="">76,38%</td><td id="t&gt;;Q" class="">77,44%</td><td id="?}Nb" class="">78,50%</td><td id="Hjag" class="">79,56%</td><td id="sNsq" class="">80,63%</td><td id="}meE" class="">81,69%</td><td id="ALC~" class="">82,75%</td><td id="eYIR" class="">83,56%</td><td id="Q=?J" class="">84,38%</td><td id="f|cJ" class="">85,19%</td><td id="q:Vb" class="">85,50%</td><td id="?ppg" class="">85,81%</td><td id="qmHH" class="">86,13%</td><td id="wmT:" class="">86,44%</td><td id="WhYx" class="">86,75%</td><td id="v@^Z" class="">87,06%</td><td id="}=t;" class="">87,38%</td><td id="]RId" class="">87,69%</td><td id="okMX" class="">88,00%</td><td id="&lt;XqH" class="" style="width:137px"></td><td id="xzDG" class="" style="width:143px"></td><td id="pq&gt;I" class=""></td></tr></tbody></table><p id="46363119-5562-4211-9fcd-1c042ed65d38" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

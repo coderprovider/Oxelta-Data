@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Teams, Partenaire et Advisor</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1a9202f3-2330-47e5-be2b-7517aa476e02" class="page sans"><header><img class="page-cover-image" src="Oxelta_P2_V2%202.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🥷</span></div><h1 class="page-title">Teams, Partenaire et Advisor</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Étiquettes</th><td></td></tr></tbody></table></header><div class="page-body"><h1 id="5eb1e301-3557-4c0e-b169-7423f026591d" class="">CEO - GALANTE</h1><div id="d804bc6b-ae95-4fe8-abde-8667efa6a0ac" class="column-list"><div id="95b99a71-9295-47b5-b7a2-7e75e856f2b5" style="width:31.25%" class="column"><figure id="440de6d1-bde6-441a-ac73-2b90043bc1c8" class="image"><a href="656714bf2101642ffbbb7146_oxelta-homepagecreation9-galante-p-500.webp"><img style="width:500px" src="656714bf2101642ffbbb7146_oxelta-homepagecreation9-galante-p-500.webp"/></a></figure></div><div id="1f6a6cd1-6f9d-4f29-a7ef-bd1e2ac7822b" style="width:93.75000000000001%" class="column"><h3 id="0b1410c3-479a-432c-960b-ae522a45805f" class="">Thomas Galante</h3><p id="0c78e33d-93f9-45dc-a7bc-f63386b78859" class="">En tant que fondateur et visionnaire principal d&#x27;Oxelta, j&#x27;ai été motivé par une passion profonde pour le Web3 et l&#x27;univers des jeux vidéo pour créer cet écosystème unique. Mon rôle est de piloter l&#x27;entreprise vers des horizons novateurs, en fusionnant la technologie blockchain avec le divertissement numérique.</p></div></div><div id="a29f1645-25fe-451d-a51d-97af9eb979c4" class="column-list"><div id="626e25d5-653e-4943-bbb3-d0f5011502ce" style="width:33.33333333333333%" class="column"><p id="17206136-bc59-461e-a9f9-e7a2923a7056" class=""><strong>t.galante@oxelta.io</strong></p></div><div id="9bfbde1f-cd2d-406d-b4fe-8102e712b451" style="width:33.33333333333333%" class="column"><p id="8912f94f-9a8e-48c6-bac0-cfcb3c64496c" class="block-color-default"><strong><a href="https://www.linkedin.com/in/thomasgalantelyon/">Linkedin</a></strong></p></div><div id="f1d1eb7c-3eb7-458f-be5b-144f4914e389" style="width:33.33333333333333%" class="column"><p id="7d1a6d0d-76fb-4d96-8c71-54cbb9dbfe74" class=""><strong><a href="https://twitter.com/galanteOX">X</a></strong></p></div></div><hr id="4bf31845-84cb-4e78-bfdf-ddc015109f8c"/><h1 id="95952011-8c80-4761-b438-59b569e28cbe" class="">COO - GENE</h1><div id="84be9776-f6d4-4ab8-995c-0c0b2714bb57" class="column-list"><div id="c5c67397-3e3c-41d0-8e6b-a8ae0c5bca8d" style="width:31.25%" class="column"><figure id="5930efcc-2866-458d-816d-7ca83eeb4efe" class="image"><a href="656714bea6e7c501240f346d_oxelta-homepagecreation9-antolin-p-500.webp"><img style="width:500px" src="656714bea6e7c501240f346d_oxelta-homepagecreation9-antolin-p-500.webp"/></a></figure></div><div id="3f6a4222-ee2f-47c8-b725-4c117598d6e7" style="width:93.75000000000001%" class="column"><h3 id="61ef98ca-68c2-4863-ae92-20889c1a1568" class="">Eugène Lacaton</h3><p id="065d908f-1b2c-4343-a2fe-fbacb31e6c47" class="">En tant que fondateur et visionnaire principal d&#x27;Oxelta, j&#x27;ai été motivé par une passion profonde pour le Web3 et l&#x27;univers des jeux vidéo pour créer cet écosystème unique. Mon rôle est de piloter l&#x27;entreprise vers des horizons novateurs, en fusionnant la technologie blockchain avec le divertissement numérique.</p></div></div><div id="6e593580-5e48-4fd4-9392-02de34a13cff" class="column-list"><div id="58c283d5-1659-452b-91ff-2bf462afb83c" style="width:33.33333333333333%" class="column"><p id="d29ad5df-a132-4ecb-b2ec-2e74f7a33873" class=""><strong>e.lacaton@oxelta.io</strong></p></div><div id="1f05a5d6-6bfe-492f-8f30-20639cb1f46b" style="width:33.33333333333333%" class="column"><p id="5cc8e3b2-80b6-402f-8ae1-24b35e42d941" class="block-color-default"><a href="http://www.linkedin.com/in/eugenelacaton"><strong>Linkedin</strong></a></p></div><div id="9cdb5215-e67a-4a99-8e2c-ab9cfc1f62da" style="width:33.33333333333333%" class="column"><p id="70f521c4-e6f3-4783-b193-d3f27f9906f7" class=""><a href="https://twitter.com/genelct"><strong>X</strong></a></p></div></div><hr id="dcdc58fd-bb35-4bb1-a8e9-be92eac78f59"/><h1 id="402df2af-140e-47d6-8954-989406aa059f" class="">Directeur Artistique - LEON</h1><div id="69741943-1b2f-4361-9420-ff45d6cb5547" class="column-list"><div id="cede6716-6a1d-4a8a-8c1b-00b10c70adc7" style="width:31.25%" class="column"><figure id="8ca89ebe-f3ef-4e92-ab72-7c5f1cc709eb" class="image"><a href="656714be09ca22f2f5dfca96_oxelta-homepagecreation9-leonard-p-500.webp"><img style="width:500px" src="656714be09ca22f2f5dfca96_oxelta-homepagecreation9-leonard-p-500.webp"/></a></figure></div><div id="78d6c740-2d0a-474f-a4c3-96cc3cab7891" style="width:93.75000000000001%" class="column"><h3 id="bf3a3bb6-002c-4fa1-ba5e-adb490393b9a" class="">Léonard NOBLET</h3><p id="80a9901f-4cc3-4a89-8368-ff05a287509c" class="">En tant que graphiste chez Oxelta, je fusionne notre culture unique avec les designs des Oxo Warriors, créant une identité visuelle distincte et engageante qui distingue notre marque dans l&#x27;univers du jeu.</p></div></div><p id="caa73214-8271-461d-b90d-aec95b9e4343" class="block-color-default"><a href="https://www.linkedin.com/in/leonard-maurin-noblet-03696a193/"><strong>Linkedin</strong></a></p><hr id="4726310a-0cec-4812-97b1-ffda8303905e"/><h1 id="85dc7862-06ca-42d4-87d9-20805bb21acc" class="">Artiste - LAIKER</h1><div id="26b482a6-f59a-403d-bc4f-90843c4ad48a" class="column-list"><div id="9e4b8544-c0ed-4f63-9470-d0fa54349b8a" style="width:31.25%" class="column"><figure id="8713957e-e96e-4731-b622-9883abe84833" class="image"><a href="656714bec39c16b51489cdb0_oxelta-homepagecreation9-adrien-p-500.webp"><img style="width:500px" src="656714bec39c16b51489cdb0_oxelta-homepagecreation9-adrien-p-500.webp"/></a></figure></div><div id="b13cc8cb-7e34-4cf9-848c-38df8e837935" style="width:93.75000000000001%" class="column"><h3 id="453840d3-518e-44a0-9fac-23bf43bbe8b6" class="">Adrien Lantoine</h3><p id="96d36e21-98a0-46be-acff-5896d97a496f" class="">En tant que Directeur Artistique chez Oxelta, ma mission est de créer un univers graphique immersif et captivant. Je me concentre sur la conceptualisation et la réalisation visuelle de l&#x27;univers de jeu, en particulier sur les personnages imaginés par Léon.</p><p id="78175263-ddac-455d-9755-28c14643b226" class="">
+</p></div></div><p id="0fbfc5c0-1a01-4af0-b179-582bf41ca980" class="block-color-default"><a href="https://www.linkedin.com/in/adrien-lantoine-162079174/"><strong>Linkedin</strong></a></p><hr id="0ba15893-23dd-4282-ac37-4766ab5dca29"/><h1 id="30a35add-160c-4b3c-8a8e-877bbd036e14" class="">Manager Discord - STEPHEN</h1><div id="f0dcaa54-3e70-4814-959e-3a579e3d189f" class="column-list"><div id="7fd06dd7-0fbd-4d8d-8b5e-6bfdede1252b" style="width:31.25%" class="column"><figure id="038560df-4aa6-4cad-8d7d-23d2a50c2c3e" class="image"><a href="656714bf77ae9ad0844bdd1c_oxelta-homepagecreation9-stephen-p-500.webp"><img style="width:500px" src="656714bf77ae9ad0844bdd1c_oxelta-homepagecreation9-stephen-p-500.webp"/></a></figure></div><div id="f5837f6d-9912-44c5-9f24-40d7bcaa8b51" style="width:93.75000000000001%" class="column"><h3 id="db531db5-1f43-4fe5-90f6-a41375df3452" class="">Stephen Chuaffart</h3><p id="22701730-c189-4f1e-a13d-44e915eb547e" class="">En tant que Manager Discord chez Oxelta, je m&#x27;assure que notre communauté est protégée contre les problèmes internes et externes, garantissant un environnement sûr et accueillant.</p><p id="025acde7-b7da-4f05-97c9-d200b2e83ac2" class="">
+</p></div></div><p id="08e84d96-b574-4bab-a89f-3879ebbd9d2f" class="block-color-default"><a href="https://www.linkedin.com/in/stephen-c-059317211/"><strong>Linkedin</strong></a></p><hr id="6797dd68-ab38-4dc4-be90-3f39722a72b8"/><h1 id="67a8e297-61fa-4dfb-9175-ba68e358a61d" class="">Collaboration Manager - ILAN</h1><div id="af5baca0-d380-4c40-87b5-3b650318295e" class="column-list"><div id="2606fe66-6e9e-44b3-97a5-0d9399c2e815" style="width:31.25%" class="column"><figure id="0dfe55a9-2d83-4b5f-94bb-199382ef31c1" class="image"><a href="656714bf5e9c33a8df564780_oxelta-homepagecreation9-temmy-p-500.webp"><img style="width:500px" src="656714bf5e9c33a8df564780_oxelta-homepagecreation9-temmy-p-500.webp"/></a></figure></div><div id="2b5002a7-db11-4f70-b693-9dd966f37a1a" style="width:93.75000000000001%" class="column"><h3 id="70d04716-52f8-4178-a14e-e5704c1596e9" class="">Ilan Michel</h3><p id="e8e9c81b-83c3-4c23-85d7-2fdda8cc01c7" class="">En tant que Manager de Collaboration chez Oxelta, mon rôle est de développer notre visibilité et de renforcer nos partenariats, en me concentrant sur l&#x27;expansion de notre audience.</p><p id="52ef72ec-a6ac-4101-b79f-ab1419d01b90" class="">
+</p></div></div><p id="2051dee2-7d3a-4e2d-b63b-ea9c83dcf1c5" class="block-color-default"><a href="https://www.linkedin.com/in/ilan-michel-11459126a/"><strong>Linkedin</strong></a></p><hr id="fe0e04e9-000f-42c5-8bfe-122712e341f5"/><h1 id="e3c54372-3906-4d67-82e5-3ab9b5e9508b" class="">Collaboration Manager - LUIDGI</h1><div id="94b18b1a-fb6d-44d3-b679-107a1efba6b7" class="column-list"><div id="c3a0e11c-bdce-4d6d-9c2b-98885d371ca4" style="width:31.25%" class="column"><figure id="bccb8f8f-e8ed-4992-8b12-4c0a6361f341" class="image"><a href="656714be40493ebaa5b97534_oxelta-homepagecreation9-phil-p-500.webp"><img style="width:500px" src="656714be40493ebaa5b97534_oxelta-homepagecreation9-phil-p-500.webp"/></a></figure></div><div id="40e7a2b0-3415-4111-90a6-d15a8180f53c" style="width:93.75000000000001%" class="column"><h3 id="b05fd7ab-955c-4793-ab53-5a05f0c56f41" class="">Luidgi</h3><p id="043e1fa4-685b-49d7-bdaf-30a49cfcbf23" class="">En tant que Community Manager chez Oxelta, je dynamise notre communauté en relayant notre vision sur les réseaux sociaux et en interagissant activement avec vos messages.</p><p id="6b42b131-fcc2-4d0e-b283-ae6764cdeb37" class="">
+</p></div></div><p id="f7fd6d04-4f7f-4bb8-8771-4c1511a6fe04" class="block-color-default"><a href="https://www.linkedin.com/in/imluijdi/"><strong>Linkedin</strong></a></p><hr id="6837a87b-5d16-4fd1-b2fb-79d029e46cec"/><h1 id="6d13a741-341f-4a62-b3cd-82f81e02a7d0" class="">Community Manager - ADRIEN</h1><div id="ed626bc5-460f-4467-90fd-5ad71cc4016d" class="column-list"><div id="9162cf8a-d9e9-4f56-9d34-c174550e0b67" style="width:31.25%" class="column"><figure id="097e0cff-7e47-4bdf-aa5e-7ce8a0be300f" class="image"><a href="656714be61642f838ef35eab_oxelta-homepagecreation9-hugo-p-500.webp"><img style="width:500px" src="656714be61642f838ef35eab_oxelta-homepagecreation9-hugo-p-500.webp"/></a></figure></div><div id="e84a834c-021c-4aae-8fcb-adee24de55ce" style="width:93.75000000000001%" class="column"><h3 id="834a5ee8-4648-4e58-9ec0-dd5fda390bc3" class="">Adrien</h3><p id="64eae9c6-b210-4711-ab7a-f91ea7436893" class="">En collaboration avec Ilan, en tant que Collab Manager chez Oxelta, je m&#x27;efforce de créer un espace à la fois accueillant et divertissant, axé sur la proposition d&#x27;expériences uniques et captivantes.</p><p id="ca8ff40b-f159-449d-8db4-b2f4cfef2083" class="">
+</p></div></div><p id="2473ff2d-9a67-4b09-a6ce-7e0f06ede706" class="block-color-default"><a href="https://www.linkedin.com/in/ilan-michel-11459126a/"><strong>Linkedin</strong></a></p><hr id="68e68e63-38fb-4f8f-b131-54974072ea94"/><h1 id="c483cc0f-b0c9-4b3b-a639-f743c9be7da5" class="">Smart Chain</h1><div id="51acedde-ac0b-4d31-8892-2a6f4b843278" class="column-list"><div id="d1930b9f-c33c-4732-9887-a7e24a774be5" style="width:31.25%" class="column"><figure id="77725562-5075-42b4-8d99-0a372970c3eb" class="image"><a href="656714bfab2d6ab337ee9088_oxelta-homepagecreation9-smartchain-p-500.webp"><img style="width:500px" src="656714bfab2d6ab337ee9088_oxelta-homepagecreation9-smartchain-p-500.webp"/></a></figure></div><div id="a45fa158-25f7-4705-8ab4-e67e06cd81ad" style="width:93.75000000000001%" class="column"><p id="71fae2f0-d2b4-47ca-8c95-f3dbfee24588" class="">En tant que CTO partenaire, contribuent avec leurs expertises techniques en Web3 pour garantir le succès d&#x27;Oxelta. Leur rôle clé est de superviser le développement technologique, en particulier l&#x27;intégration de solutions blockchain, pour assurer une expérience utilisateur fluide et sécurisée au sein de l&#x27;écosystème Oxelta.</p><p id="3bf2517d-2318-4045-94ed-210953db682b" class="block-color-default"><strong><a href="https://www.smart-chain.fr/home">Website</a></strong></p></div></div><hr id="85710302-3520-4855-aab5-0424cd4b916b"/><h1 id="1d228680-e10f-4eeb-98ba-30aadd4676ee" class="">Smooty Labs</h1><div id="84f8e538-8af4-420d-8423-26aa9dd2cece" class="column-list"><div id="aad86442-389c-41a0-81fb-b3bd3c8f595c" style="width:31.25%" class="column"><figure id="323f1a7a-d43c-4f8e-86c4-8a8b58bdb657" class="image"><a href="656714be0fb2f4a610701df0_oxelta-homepagecreation9-pings-p-500.webp"><img style="width:500px" src="656714be0fb2f4a610701df0_oxelta-homepagecreation9-pings-p-500.webp"/></a></figure></div><div id="e7edd6e0-8703-4597-b5f2-4bc18d9bbfbb" style="width:93.75000000000001%" class="column"><p id="e11d9e28-c5a6-4512-be65-efc597c47aec" class="">À la tête du développement chez Smooty Labs, je supervise la création de jeux pour Oxelta, en alliant gameplay innovant et technologie blockchain, pour enrichir l&#x27;expérience utilisateur dans l&#x27;écosystème Oxelta.</p></div></div><hr id="141d154d-cb01-4e19-9519-120ee2293c47"/><h1 id="962e5008-874d-4b52-ba72-cb90eae3ae10" class="">Harbor 3</h1><div id="b0ead818-8d23-46d8-8fe2-2323f1396a89" class="column-list"><div id="a5ea3269-6daa-4bc9-87e1-35004d35dfbd" style="width:31.25%" class="column"><figure id="71881be4-7fca-4b4c-939a-0ad1a06e43ce" class="image"><a href="656714be398d99a3146fea4f_oxelta-homepagecreation9-growyouneed-p-500.webp"><img style="width:500px" src="656714be398d99a3146fea4f_oxelta-homepagecreation9-growyouneed-p-500.webp"/></a></figure></div><div id="344125df-567e-49a8-b6af-ab2f7d6b4da0" style="width:93.75000000000001%" class="column"><p id="d605ff9d-a7b8-43c8-9fce-f15da502290f" class="">Je dirige les initiatives marketing chez Harbor 3 pour Oxelta, en développant des stratégies créatives et ciblées qui renforcent la présence d&#x27;Oxelta sur le marché et engagent efficacement notre communauté.</p></div></div><hr id="57589a0a-72f9-4f28-9c75-5bad4fb5ec21"/><h1 id="48882900-f79d-4104-ae08-c114b091e27e" class="">Netcord</h1><div id="b1fafae6-3e56-4a79-bd73-ba76d50d5040" class="column-list"><div id="ab886735-1757-4399-a41a-12eb11cf07dc" style="width:31.25%" class="column"><figure id="075ad60b-f16c-4335-a198-c16c5a647f25" class="image"><a href="656714be535d110a8dd093ed_lta-homepagecreation9-oxotreeplanted-p-500.webp"><img style="width:500px" src="656714be535d110a8dd093ed_lta-homepagecreation9-oxotreeplanted-p-500.webp"/></a></figure></div><div id="a7cfc048-d90c-4091-9623-369f6d17b525" style="width:93.75000000000001%" class="column"><p id="870aa944-867a-4f64-8929-db15b79f6a7c" class="">Netcord nous accompagne dans la gestion de notre communauté sur Discord, assurant une interaction dynamique et un soutien constant aux utilisateurs d&#x27;Oxelta.</p><p id="ac2f52ce-2c85-4acb-b33c-b078bf71d507" class="block-color-default"><a href="https://www.netcord.fr/"><strong>Website</strong></a></p></div></div><hr id="3384b7f5-3fda-4c7b-b8fe-8a39cd93782e"/><h1 id="ddc86fbe-ac86-4cbd-bad7-7586baf61399" class="">Synapse</h1><div id="2781bbf4-37ea-47cc-b8b7-7e063ec9ebeb" class="column-list"><div id="468d5d34-ed03-470f-9119-8f95669f2d30" style="width:31.25%" class="column"><figure id="9f0029a5-9064-4949-9023-a52b8cb2bc8c" class="image"><a href="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1542973748-658653fb3d12?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="8da54c36-4a36-46cf-8ac2-77fad6b820d8" style="width:93.75000000000001%" class="column"><p id="ab17e14e-50f8-402a-b962-960673dba2f8" class="">En tant que partenaire technologique, Synapse fournit à Oxelta des solutions KYB et KYC sécurisées et fiables, garantissant la conformité et la protection des utilisateurs dans notre écosystème.</p><p id="e79f9c72-7115-4a3c-b758-25e9e2e1cb54" class="block-color-default"><a href="https://www.synapseprotocol.com/landing"><strong>Website</strong></a></p></div></div><hr id="6358cbe1-f69c-4766-88b6-a444a85fa6f0"/></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

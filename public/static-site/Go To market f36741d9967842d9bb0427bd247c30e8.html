@@ -1,0 +1,687 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Go To market</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="f36741d9-9678-42d9-bb04-27bd247c30e8" class="page sans"><header><img class="page-cover-image" src="Oxelta_P2_V2%2010.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🧨</span></div><h1 class="page-title">Go To market</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Étiquettes</th><td></td></tr></tbody></table></header><div class="page-body"><ol type="1" id="aa7e8634-368f-4e86-bc8a-19f1fa910909" class="numbered-list" start="1"><li><strong>Introduction</strong></li></ol><h2 id="5978438b-87f0-4d63-8e9a-72c409b02b4a" class="">Présentation rapide</h2><p id="e125ff02-9b03-4244-abdb-8fd1f32c4ae7" class="">Oxelta se positionne à l&#x27;avant-garde de la révolution du jeu vidéo, en exploitant le potentiel disruptif de la blockchain et du Play to Earn (P2E). Notre vision est de créer un Metaverse où les joueurs ne sont pas seulement des consommateurs, mais des acteurs clés de son développement. L&#x27;essence d&#x27;Oxelta repose sur l&#x27;innovation, l&#x27;engagement communautaire, et la création d&#x27;une expérience de jeu immersive et enrichissante.</p><p id="907295f3-412e-442c-a377-51da7ab7e236" class="">Notre écosystème s&#x27;articule autour de trois piliers fondamentaux : Nos jeux Play to Earn, l’accès à notre univers qui se fait via nos NFT les “OXO Warriors” et la mise en place de notre token OXLT. Cette trinité forme la base de notre Metaverse, promettant une expérience de jeu unique où chaque joueur contribue activement à l&#x27;évolution de l&#x27;univers Oxelta.</p><h2 id="e59f16c8-293d-40e8-a20f-9720e61e0933" class="">Importance du token OXLT</h2><p id="eb5e97d2-c358-46f2-8656-11ffb8a00fb5" class="">Au cœur de notre écosystème se trouve le token OXLT, notre devise numérique conçue pour transcender les frontières traditionnelles des jeux vidéo. Le token OXLT n&#x27;est pas seulement une monnaie au sein de notre univers; il est le symbole de l&#x27;empowerment des joueurs. En tant que utility token émis sur la blockchain Polygon, OXLT garantit sécurité, évolutivité et interopérabilité, offrant ainsi une fondation solide pour notre projet.</p><p id="f6b82397-00a3-4cfe-ac10-43d6bceb8ab6" class="">Le rôle du token OXLT est polyvalent et central à toutes les interactions au sein de l&#x27;écosystème Oxelta. Que ce soit pour acheter des articles exclusifs, participer à des événements, ou encore faciliter les échanges dans la Marketplace, le token OXLT est la clé qui déverrouille le monde d’Oxelta. Avec une offre totale fixe, il promet une stabilité et une valeur soutenues, essentielles pour la confiance et l&#x27;engagement à long terme de notre communauté.</p><p id="01ca3082-0f12-4083-92fc-2bcf7090e5d2" class="">Information importante sur le token :</p><ul id="62bed62e-417d-441c-853d-3565fe387459" class="bulleted-list"><li style="list-style-type:disc">Supply : 10’000’000’000</li></ul><ul id="39bd7f3c-5583-470f-b317-34cb1662d604" class="bulleted-list"><li style="list-style-type:disc">Name : “OXLT”</li></ul><ul id="219c17ce-d426-400f-9596-87be8cb74099" class="bulleted-list"><li style="list-style-type:disc">Blockchain : Polygon MATIC</li></ul><p id="c439bc26-5bf7-4072-b4ab-3068d68ce435" class="">Rappel tokenomics :</p><table id="d21bf6ea-0226-4e80-8258-00708cd1fef7" class="simple-table"><tbody><tr id="55b2789e-313e-45b5-b19f-84aa8da19c9c"><td id="&gt;JGf" class=""><strong>Name</strong></td><td id="zs_P" class=""><strong>Nbr de Token</strong></td><td id="@KAx" class=""><strong>%</strong></td></tr><tr id="3c59e21d-9de5-4a4f-892a-022d16fad7da"><td id="&gt;JGf" class=""><strong>Pre-sale</strong></td><td id="zs_P" class=""><strong>500’000’000</strong></td><td id="@KAx" class=""><strong>5%</strong></td></tr><tr id="88a82aff-d389-4cb8-b384-239725306d49"><td id="&gt;JGf" class=""><strong>ICO</strong></td><td id="zs_P" class=""><strong>1’000’000’000</strong></td><td id="@KAx" class=""><strong>10%</strong></td></tr><tr id="4047a836-f944-488f-b010-4bb244447f23"><td id="&gt;JGf" class="">Liquidity</td><td id="zs_P" class="">1’200’000’000</td><td id="@KAx" class="">12%</td></tr><tr id="addbbc32-86fb-4cdb-8f9a-2df2d0eaa38a"><td id="&gt;JGf" class=""><strong>Airdrop early</strong></td><td id="zs_P" class=""><strong>300’000’000</strong></td><td id="@KAx" class=""><strong>3%</strong></td></tr><tr id="db8ee197-79ef-4632-8c7f-14ec58f7ef90"><td id="&gt;JGf" class="">Sir Oxo tournament</td><td id="zs_P" class="">200’000’000</td><td id="@KAx" class="">2%</td></tr><tr id="c24eb69e-9b25-49c5-b66a-f1c1c336a348"><td id="&gt;JGf" class="">Blocking Plan</td><td id="zs_P" class="">1’000’000’000</td><td id="@KAx" class="">10%</td></tr><tr id="bfdd7d1a-f435-43ac-bfbc-e5ad3edeb16b"><td id="&gt;JGf" class="">P2E Reward</td><td id="zs_P" class="">2’500’000’000</td><td id="@KAx" class="">25%</td></tr><tr id="08be5256-a3ce-4581-9939-325361f757fd"><td id="&gt;JGf" class="">Marketing-Community</td><td id="zs_P" class="">1’000’000’000</td><td id="@KAx" class="">10%</td></tr><tr id="81844116-162a-447d-b873-3e9eeae78f41"><td id="&gt;JGf" class="">Team</td><td id="zs_P" class="">800’000’000</td><td id="@KAx" class="">8%</td></tr><tr id="6bf88fc7-a1c0-483e-8e03-5ea3fc74343b"><td id="&gt;JGf" class="">Cashflow and future games</td><td id="zs_P" class="">1’500’000’000</td><td id="@KAx" class="">15%</td></tr><tr id="77543495-01fa-4792-898a-7475e33f43ca"><td id="&gt;JGf" class=""><strong>Total</strong></td><td id="zs_P" class=""><strong>10’000’000’000</strong></td><td id="@KAx" class=""><strong>100%</strong></td></tr></tbody></table><h2 id="fc1ec9fe-0a26-40fb-93b0-08aa9d272152" class="">Stratégie Go-to-Market :</h2><p id="179d3170-374f-4d07-a9a2-06aadeb1fa1a" class="">La phase initiale de notre développement se focalise sur le lancement et la vente de notre token OXLT. L&#x27;objectif de cette Initial Coin Offering (ICO) est de lever des fonds essentiels pour soutenir et renforcer notre budget. Ces ressources financières seront cruciales pour le développement de nos infrastructures technologiques clés, telles que la marketplace, les plateformes Play to Earn (P2E), et notre application mobile. Cette stratégie go-to-market est spécifiquement conçue pour guider notre approche lors de l&#x27;ICO. Il est à noter qu&#x27;une stratégie différente et adaptée sera élaborée pour la commercialisation des NFT packs dans les étapes ultérieures.</p><ol type="1" id="f9076ef6-9fd1-479d-8aa2-539696a4c784" class="numbered-list" start="1"><li><strong>Marketing mix</strong></li></ol><h2 id="6aab1a05-6c63-4350-9cec-043ca43b4a19" class="">Product</h2><p id="046df625-7858-4bd2-898c-902c843b1659" class="">Le token OXLT, au cœur de l&#x27;offre de produit d&#x27;Oxelta, est un élément clé qui nécessite une compréhension approfondie de ses caractéristiques, de ses fonctions et de sa valeur ajoutée pour les utilisateurs.</p><h3 id="f6cc9593-48e2-49b5-9eab-5138ec0c6ef7" class="">Caractéristiques et Fonctionnalités</h3><ul id="ed826395-4d86-4de3-a3bf-0472135240c4" class="bulleted-list"><li style="list-style-type:disc"><strong>Nature du Token</strong>: OXLT est un utility token basé sur la blockchain Polygon. Il est conçu pour être utilisé dans toute l&#x27;économie de l&#x27;écosystème d&#x27;Oxelta, offrant une expérience de jeu enrichie et une participation économique active dans le Metaverse.</li></ul><ul id="951d7e73-43fa-4ee0-afc7-0da60edd87cf" class="bulleted-list"><li style="list-style-type:disc"><strong>Interactivité et Utilisation </strong>: Le token permet diverses interactions au sein du Metaverse, telles que l&#x27;achat d&#x27;objets exclusifs, la participation à des tournois et événements communautaires, et la facilitation des transactions sur la Marketplace d&#x27;Oxelta.</li></ul><ul id="f6a4213f-7c8f-49e3-9bdd-9f207910d415" class="bulleted-list"><li style="list-style-type:disc"><strong>Sécurité et Évolutivité</strong>: Grâce à la blockchain Polygon, OXLT bénéficie d&#x27;une sécurité accrue, d&#x27;une faible latence et d&#x27;une compatibilité avec l&#x27;Ethereum Virtual Machine (EVM), offrant ainsi une base solide et évolutive pour l&#x27;écosystème.</li></ul><h3 id="9b5f37a9-db83-4581-9386-96090527dd7a" class="">Avantages et Valeurs pour les Utilisateurs</h3><ul id="44ce6968-aa4f-4c96-a46c-085a2ed909c1" class="bulleted-list"><li style="list-style-type:disc"><strong>Rôle Central </strong>: En tant que monnaie principale de l&#x27;écosystème d&#x27;Oxelta, OXLT permet aux utilisateurs de jouer un rôle actif dans l&#x27;économie du jeu, leur donnant un sens de l&#x27;autonomie et de l&#x27;engagement.</li></ul><ul id="ff47de6e-a627-44e0-82ef-11168f2270e5" class="bulleted-list"><li style="list-style-type:disc"><strong>Récompenses et Incitations</strong>: Le token offre des opportunités de gagner des récompenses par la participation à des jeux, des tournois et d&#x27;autres activités, encourageant ainsi l&#x27;engagement des joueurs et renforçant leur loyauté envers l&#x27;écosystème.</li></ul><ul id="d3871a8f-b6a8-4436-ae87-47d2c4090fd5" class="bulleted-list"><li style="list-style-type:disc"><strong>Accessibilité </strong>: Le token est conçu pour être accessible et compréhensible pour une large gamme d&#x27;utilisateurs, des joueurs aux investisseurs, favorisant ainsi une adoption généralisée.</li></ul><ul id="797326c3-343e-4118-bd9f-ad119deed359" class="bulleted-list"><li style="list-style-type:disc"><strong>Potentiel de la Valeur</strong>: En tant qu&#x27;actif numérique avec une offre totale fixe, OXLT a le potentiel de gagner en valeur, offrant ainsi des opportunités d&#x27;investissement attractives.</li></ul><h3 id="b7cb6701-5450-404d-93ba-94316485be52" class="">Positionnement et Différenciation</h3><ul id="9ca2d8cf-ab31-4454-ada7-58153711f96d" class="bulleted-list"><li style="list-style-type:disc"><strong>Token Unique dans le Marché du Jeu Vidéo</strong>: OXLT se distingue des autres tokens de jeu en offrant une intégration plus profonde et une utilité accrue dans un écosystème de jeu complet et évolutif.</li></ul><ul id="7dcbb917-9341-483c-a83c-de24e936ea4c" class="bulleted-list"><li style="list-style-type:disc"><strong>Innovation </strong>: En s&#x27;appuyant sur la technologie blockchain et en visant une expérience utilisateur immersive, OXLT se positionne comme un leader dans l&#x27;innovation du secteur des jeux vidéo et de la blockchain.</li></ul><p id="fdaeef73-9584-4a5e-96ba-97ebb748e3aa" class="">En résumé, le token OXLT est plus qu&#x27;une simple monnaie numérique ; c&#x27;est un pilier central de l&#x27;expérience d&#x27;Oxelta, offrant sécurité, polyvalence, et une valeur ajoutée significative pour tous les utilisateurs de l&#x27;écosystème.</p><h2 id="aa2b2cf9-1456-4e98-a8fa-305ff05736c0" class="">2. Price</h2><p id="e810a954-7718-43a8-8e0c-86ea3d9e5065" class="">La stratégie de tarification pour le token OXLT d&#x27;Oxelta est un élément crucial qui influence directement son adoption et sa perception sur le marché.</p><h3 id="2a253a48-d0a0-41e5-b7c5-b832ed9f114b" class="">Stratégie de Tarification Initiale</h3><ul id="f971456d-836b-40c2-8a0b-5385ce7cd0f0" class="bulleted-list"><li style="list-style-type:disc"><strong>Définition du Prix Initial</strong>: Le prix de lancement du token OXLT est établi lors des phases de vente privée et de l&#x27;ICO. Ce prix est soigneusement déterminé pour équilibrer l&#x27;attrait pour les investisseurs précoces tout en assurant la viabilité et la croissance à long terme du token.</li></ul><ul id="a11f8bab-07ed-41f3-b05a-d47459258acf" class="bulleted-list"><li style="list-style-type:disc"><strong>Structure de Prix Dynamique</strong>: Durant l&#x27;ICO, Oxelta adopte une structure de prix dynamique où le prix du token peut augmenter progressivement, récompensant ainsi les investisseurs initiaux et générant un sentiment d&#x27;urgence pour les acheteurs potentiels.</li></ul><h3 id="eedccc32-b145-42e1-99b9-27d77fc6be12" class="">Options de Paiement et Flexibilité</h3><ul id="83f1696a-28ab-458d-9e11-2dd0bea6394d" class="bulleted-list"><li style="list-style-type:disc"><strong>Modes de Paiement Diversifiés</strong>: Pour faciliter l&#x27;accessibilité et l&#x27;adoption, OXLT peut être acheté avec des monnaies Fiat ou des crypto monnaies comme l’USDT, offrant ainsi une plus grande flexibilité aux investisseurs et utilisateurs.</li></ul><ul id="8355dc25-0678-40c0-9855-c4714f4a1627" class="bulleted-list"><li style="list-style-type:disc"><strong>Barrières d&#x27;Entrée Adaptées</strong>: La stratégie de tarification prend en compte différents niveaux d&#x27;investissement, avec des montants minimums et maximums définis pour la vente privée et l&#x27;ICO, rendant le token accessible à une variété d&#x27;investisseurs.</li></ul><h3 id="3197c942-8de7-4638-aaa0-2637f63eda4f" class="">Politique de Prix Après Lancement</h3><ul id="f50618cd-5b57-4ed3-8871-0d5adbf9e325" class="bulleted-list"><li style="list-style-type:disc"><strong>Marché Secondaire</strong>: Après l&#x27;ICO, le prix du token OXLT sera dicté par le marché, influencé par la demande, l&#x27;offre et la perception de la valeur d&#x27;Oxelta.</li></ul><ul id="663901e8-8276-4e2f-89fc-c3b96aae2174" class="bulleted-list"><li style="list-style-type:disc"><strong>Surveillance et Gestion Actives du Prix</strong>: Oxelta suivra de près les tendances du marché pour comprendre et potentiellement influencer la valeur du token, tout en restant conforme aux régulations et éthiques de marché.</li></ul><h3 id="d8d38f08-ff50-404b-bf56-5a0e75848dab" class="">Communication Transparente sur la Tarification</h3><ul id="c2ce83cf-c540-40bf-8504-a346622650dd" class="bulleted-list"><li style="list-style-type:disc"><strong>Information Claire et Accessible</strong>: Oxelta s&#x27;engage à fournir des informations transparentes et facilement accessibles sur la structure de prix du token OXLT, assurant que les investisseurs comprennent pleinement les modalités avant de s&#x27;engager.</li></ul><ul id="75b1820c-39d2-4bbc-8833-f1c09776d5f7" class="bulleted-list"><li style="list-style-type:disc"><strong>Éducation des Investisseurs</strong>: Des ressources éducatives seront fournies pour aider les investisseurs à comprendre les facteurs influençant le prix du token et les meilleures stratégies pour investir ou utiliser OXLT.</li></ul><p id="f3e50c31-7d08-446a-8334-503c688df525" class="">En adoptant une stratégie de tarification réfléchie et flexible, Oxelta vise à maximiser l&#x27;attrait et la valeur du token OXLT, tout en s&#x27;assurant qu&#x27;il reste accessible et attrayant pour une large gamme d&#x27;utilisateurs et d&#x27;investisseurs.</p><h2 id="c9f248d5-b950-4b1b-9ce3-700bc9a1254a" class="">3. Place (Distribution) - Token OXLT</h2><p id="1c23c346-44c9-4df2-844f-a547ad452c47" class="">La distribution du token OXLT est un aspect crucial de sa stratégie go-to-market, déterminant comment et où les utilisateurs et les investisseurs peuvent accéder au token.</p><h3 id="e57b2eb2-493b-4893-b55e-f0f242580268" class="">Canaux de Distribution</h3><ul id="34ccd59d-d1e2-426b-a39a-700c39d1869d" class="bulleted-list"><li style="list-style-type:disc"><strong>Plateformes Numériques</strong>: Le token OXLT est principalement distribué via la plateforme Web d&#x27;Oxelta. Cette plateforme servira de point d&#x27;accès primaire, offrant une facilité d&#x27;achat et de gestion du token.</li></ul><ul id="060f0dd3-2bdf-42df-8172-3968d558f2bb" class="bulleted-list"><li style="list-style-type:disc"><strong>Échanges</strong>: Après l&#x27;ICO, OXLT sera listé sur des exchanges décentralisés (DEX), augmentant ainsi sa visibilité et son accessibilité à une audience mondiale. Cette étape est cruciale pour assurer la liquidité du token et faciliter les échanges.</li></ul><h3 id="07b32d79-afbf-4c11-8ead-55522f8f07e0" class="">Accessibilité et Portée Globale</h3><ul id="889b1056-e23a-42ec-9159-22629c409b2c" class="bulleted-list"><li style="list-style-type:disc"><strong>Disponibilité Mondiale</strong>: En tant que token basé sur la blockchain, OXLT est accessible à une audience internationale, transcendant les barrières géographiques et réglementaires traditionnelles.</li></ul><ul id="cc35c520-d7d2-4f2c-b303-693d8a23ad97" class="bulleted-list"><li style="list-style-type:disc"><strong>Interopérabilité Blockchains</strong>: Grâce à la compatibilité EVM de la blockchain Polygon, OXLT a le potentiel de s&#x27;intégrer avec d&#x27;autres écosystèmes blockchain, élargissant encore son accessibilité.</li></ul><h3 id="d311fff0-d6b2-4dbd-a291-8c0935426d30" class="">Sécurité et Conformité</h3><ul id="3a1e8834-3c92-4712-85dc-7416db8d2f17" class="bulleted-list"><li style="list-style-type:disc"><strong>Transactions Sécurisées</strong>: Les transactions impliquant OXLT sont sécurisées par la technologie blockchain, garantissant la transparence et la fiabilité.</li></ul><ul id="2878a18b-3a25-4113-a21d-3513dd302af0" class="bulleted-list"><li style="list-style-type:disc"><strong>Respect des Réglementations</strong>: Oxelta s&#x27;engage à respecter les réglementations KYC/KYB, assurant une distribution conforme et sécurisée du token.</li></ul><h3 id="2821e894-144d-4823-b793-df8316294658" class="">Stratégies Post-Lancement</h3><ul id="118cc807-c7e8-426b-af26-d43421b2e971" class="bulleted-list"><li style="list-style-type:disc"><strong>Suivi de la Distribution</strong>: Après le lancement, Oxelta surveillera la distribution du token pour s&#x27;assurer qu&#x27;elle reste alignée avec la stratégie globale et les objectifs de l&#x27;entreprise.</li></ul><ul id="cfa4b494-57e1-4870-b1e7-d8834b683295" class="bulleted-list"><li style="list-style-type:disc"><strong>Adaptabilité au Marché</strong>: La stratégie de distribution pourra être ajustée en réponse aux tendances du marché, aux retours des utilisateurs, et aux évolutions technologiques et réglementaires.</li></ul><h3 id="d186381a-857b-4b0e-a957-4f4d3c7f1fed" class="">Communication et Information</h3><ul id="56e83b62-c0d1-43c8-85fe-62bdc5ed4972" class="bulleted-list"><li style="list-style-type:disc"><strong>Transparence</strong>: Oxelta communiquera clairement sur les canaux de distribution du token, assurant que les utilisateurs et investisseurs soient bien informés sur comment et où acquérir OXLT.</li></ul><ul id="7eca1c11-fc16-4222-b00d-05ebe8101923" class="bulleted-list"><li style="list-style-type:disc"><strong>Support et Assistance</strong>: Un support dédié sera disponible pour aider les utilisateurs dans le processus d&#x27;achat et de gestion du token, renforçant ainsi la confiance et la satisfaction des utilisateurs.</li></ul><p id="8bbcb078-e504-4cfe-8c07-856d4709c507" class="">En mettant en œuvre une stratégie de distribution efficace et diversifiée, Oxelta vise à maximiser la disponibilité et l&#x27;adoption du token OXLT, garantissant ainsi son intégration réussie dans l&#x27;écosystème de jeu et au-delà.</p><h2 id="ea2e0364-226e-4974-b162-4351dd72fef3" class="">4. Promotion</h2><p id="d0a110ea-23fe-4b1c-a6eb-570305b53e12" class="">La promotion du token OXLT est essentielle pour assurer sa visibilité, son adoption et son succès sur le marché.</p><h3 id="63356127-fd1a-4020-a360-dbcc9574b5ef" class="">Stratégies de Communication et de Marketing</h3><ul id="6239d0ae-7002-40ea-84d8-c16915edb6c8" class="bulleted-list"><li style="list-style-type:disc"><strong>Campagnes</strong>: Lancement de campagnes de marketing ciblées pour sensibiliser et attirer l&#x27;attention sur le projet OXELTA. Cela inclut le SEO, le marketing par e-mail, et les publicités payantes sur des plateformes pertinentes.</li></ul><ul id="48eed822-dc8d-4c85-9495-91eb09b1d3ad" class="bulleted-list"><li style="list-style-type:disc"><strong>Utilisation des Réseaux Sociaux</strong>: Activation des réseaux sociaux pour engager la communauté, partager des mises à jour, et créer un buzz autour du projet. Les plateformes comme Twitter, LinkedIn, Discrod, et Telegram seront utilisées pour atteindre un public diversifié.</li></ul><ul id="efe4e4f6-3417-406b-99fd-70e76bfaaed4" class="bulleted-list"><li style="list-style-type:disc"><strong>Partenariats Stratégiques</strong>: Collaboration avec des influenceurs de la blockchain et du jeu, des blogueurs, et des leaders d&#x27;opinion pour augmenter la portée et la crédibilité du projet.</li></ul><h3 id="794a0070-e823-43d8-ba26-ec7cb14fcce6" class="">Événements et Engagement de la Communauté</h3><ul id="c02002d9-45b9-4772-bd67-2bbf58884a80" class="bulleted-list"><li style="list-style-type:disc"><strong>Webinaires et AMA (Ask Me Anything)</strong>: Organisation d&#x27;événements en ligne pour éduquer les utilisateurs et investisseurs potentiels sur le projet offrant une plateforme pour des discussions en direct et la résolution des doutes.</li></ul><ul id="1709d02f-f167-46bd-bd2b-f10ebe1dcda9" class="bulleted-list"><li style="list-style-type:disc"><strong>Participation à des Conférences </strong>: Présence dans des événements clés de l&#x27;industrie pour présenter Oxelta à un public plus large et établir des relations avec des partenaires potentiels.</li></ul><h3 id="4f109f7e-9202-46f2-b802-aaf28672060f" class="">Matériel Promotionnel et Éducatif</h3><ul id="d6423600-0f7b-44e1-a060-dd1b3fc756bc" class="bulleted-list"><li style="list-style-type:disc"><strong>Contenu Éducatif</strong>: Création de guides, de tutoriels vidéo, et de FAQ pour aider les utilisateurs à comprendre la valeur d’Oxelta.</li></ul><ul id="d8072c09-e507-4d5d-b737-6736adc5a768" class="bulleted-list"><li style="list-style-type:disc"><strong>Matériel de Marketing</strong>: Développement de brochures, présentations, et d&#x27;autres matériaux pour soutenir les efforts de marketing et de vente.</li></ul><h3 id="d0fea1f4-d165-458e-a707-14b48040c308" class="">Feedback et Adaptation</h3><ul id="2368aafa-ebdf-4570-b973-9a2cb74eb037" class="bulleted-list"><li style="list-style-type:disc"><strong>Écoute Active de la Communauté</strong>: Recueil des retours des utilisateurs et ajustement des stratégies promotionnelles en fonction de ces insights.</li></ul><ul id="46571218-c393-4d7a-9b3c-4392b1e711bd" class="bulleted-list"><li style="list-style-type:disc"><strong>Analyse des Performances de la Campagne</strong>: Suivi des KPIs (indicateurs clés de performance) pour évaluer l&#x27;efficacité des différentes initiatives de marketing et ajuster les tactiques en conséquence.</li></ul><h3 id="93f6ddda-3b44-4526-a14d-d8f6039ea923" class="">Consolidation de la Marque</h3><ul id="4c53e1c6-e975-4485-bdc5-931c0b605e07" class="bulleted-list"><li style="list-style-type:disc"><strong>Construction d&#x27;une Image de Marque Forte</strong>: Positionnement d&#x27;Oxelta comme innovants et fiables dans l&#x27;esprit des consommateurs, en mettant l&#x27;accent sur la sécurité, l&#x27;utilité, et la vision à long terme du projet.</li></ul><ul id="4a32a5f7-1879-4e8a-8e77-391f662fb815" class="bulleted-list"><li style="list-style-type:disc"><strong>Récits et témoignages</strong>: Utilisation de success stories et de témoignages pour illustrer l&#x27;impact positif et les opportunités offertes par Oxelta</li></ul><p id="6b9e9338-d94d-4000-8830-2faf4401272f" class="">En mettant en œuvre ces stratégies de promotion diversifiées et dynamiques, Oxelta vise à créer une forte présence sur le marché pour le token OXLT, en stimulant son adoption et en renforçant sa réputation au sein de la communauté des jeux et de la blockchain.</p><h1 id="8edce1c8-6493-4f90-8b22-93b5c212ea6a" class=""><strong>III. Plan de déploiement</strong></h1><p id="78716220-8446-4f3e-84c1-96c2200e2839" class="">Le déploiement du token OXLT d&#x27;Oxelta s&#x27;articule autour de deux phases cruciales : la phase de vente privée et la phase de vente publique (ICO). Chacune de ces phases a des stratégies de pricing spécifiques et des objectifs bien définis pour assurer le succès du lancement du token.</p><h2 id="8afc2ed5-2a2e-450f-a689-89d94bc46ebf" class="">Phase de Presales</h2><p id="6de604cc-fe9f-4211-8cce-5dc3ea881f68" class="">La phase de vente privée du token OXLT d&#x27;Oxelta est une étape critique qui pose les fondations pour le succès global du token.</p><h3 id="13566138-800a-47b8-b9cb-7963b84cefb2" class="">Objectifs et Structure</h3><ul id="e393c1a2-8b18-4ba2-8b5e-46cc6d4c199d" class="bulleted-list"><li style="list-style-type:disc"><strong>Allocation de Tokens</strong>: 5% de l&#x27;offre totale du token OXLT est réservée pour la vente privée, ce qui représente une part significative de la disponibilité initiale du token.</li></ul><ul id="55247036-e055-4fb5-ba10-cd1599b57d04" class="bulleted-list"><li style="list-style-type:disc"><strong>Objectif de Financement</strong>: Cette phase vise à lever 400 000$. Les fonds recueillis sont destinés à financer le plan de communication sur le projet Oxelta et à contribuer au développement de l&#x27;application mobile.</li></ul><ul id="7a13237e-c9dd-44a8-8388-36365ed33ed5" class="bulleted-list"><li style="list-style-type:disc"><strong>Période de vente</strong>: Planifiée sur le mois de janvier 2024..</li></ul><h3 id="91f5cbd6-1bdb-4d3e-bb4b-44d54641253e" class="">Stratégie de Pricing et Modalités</h3><ul id="112ef538-4bcb-440c-99f7-da26fd8b3edf" class="bulleted-list"><li style="list-style-type:disc"><strong>Prix Fixe</strong>: Le token OXLT est proposé à un prix fixe de <strong>0,0008 $</strong> pendant la vente privée, ce qui est une stratégie courante pour attirer les investisseurs précoces en offrant un prix attractif.</li></ul><ul id="6c68155e-cc58-48e4-809f-d3c1c6f04ee0" class="bulleted-list"><li style="list-style-type:disc"><strong>Modes de Paiement</strong>: Les investisseurs peuvent acheter le token en utilisant des fonds en Fiat ou en USDT, offrant ainsi une flexibilité et une accessibilité accrues.</li></ul><ul id="3333e0d6-7da6-4ab5-84bb-ae9ec1ca2a2d" class="bulleted-list"><li style="list-style-type:disc"><strong>Cliff et Vesting</strong>: Un cliff de 6 mois est mis en place à la suite de l’émission du token, suivi d&#x27;une période de vesting de 10 mois. Cette stratégie est cruciale pour éviter une vente massive post-ICO et pour maintenir la stabilité du prix du token.</li></ul><ul id="70c23a8b-c932-4f5d-bb0f-e8e04a8b2bae" class="bulleted-list"><li style="list-style-type:disc"><strong>Cap &amp; Floor :</strong> L’investissement minimum pour cette phase est de 800$, l’investissement maximum est lui de 40’000$. L’objectif est d’avoir un nombre d’investisseurs varié pour garantir une certaine stabilité de notre token.</li></ul><ul id="41754654-3dcd-4e1c-8a92-b8ef11f4d7fa" class="bulleted-list"><li style="list-style-type:disc"><strong>NFT d’investissement :</strong> Chaque investisseur recevra un NFT indiquant la quantité de token acheté. Ce token non fongible pourra être librement échangé et de rendre les pre sales liquide.</li></ul><h3 id="67089cde-b3cb-4669-9c90-564fa7f55832" class="">Sélection des Investisseurs et Sécurité</h3><ul id="2784d393-ea5b-4044-96cd-85e12e1bbdbe" class="bulleted-list"><li style="list-style-type:disc"><strong>Processus de Sélection</strong>: La vente privée est limitée à 150 participants, sélectionnés sur la base de critères stricts pour assurer un engagement de qualité et une conformité réglementaire.</li></ul><ul id="a0e589d5-dc11-4925-964e-b51fa380d2d3" class="bulleted-list"><li style="list-style-type:disc"><strong>Validation KYC/KYB</strong>: Tous les participants doivent passer par une validation Know Your Customer (KYC) / Know Your Business (KYB), garantissant ainsi la sécurité et la conformité réglementaire.</li></ul><ul id="8c341c90-eed2-4391-8e6c-13a6c4fbe1dd" class="bulleted-list"><li style="list-style-type:disc"><strong>Inscription et Accès Whitelist</strong>: Les investisseurs peuvent s&#x27;inscrire via la Web App d&#x27;Oxelta ou être directement contactés pour accéder à une liste blanche privilégiée, ce qui permet une distribution sélective et contrôlée du token.</li></ul><h3 id="c5456736-0f4b-433d-9adb-7526aa9f7e8f" class="">Communication et Engagement</h3><ul id="f2fbc73c-fc2f-495a-b084-d340d6aa1240" class="bulleted-list"><li style="list-style-type:disc"><strong>Stratégie de Communication</strong>: La stratégie de communication à adopter dans cette phase est précisée dans la suite de ce document.</li></ul><ul id="f60f3412-0bed-4ccf-aa94-798bfc949873" class="bulleted-list"><li style="list-style-type:disc"><strong>Matériel Informatif et Supports</strong>: Des ressources détaillées, telles que des whitepapers, une data-room, des FAQ et des use cases, seront mises à disposition pour éduquer les investisseurs potentiels sur les spécificités de la vente privée.</li></ul><p id="e575fc44-5cc2-4291-a7c5-65c091e6000b" class="">En résumé, la phase de vente privée du token OXLT est conçue pour établir une base solide d&#x27;investisseurs engagés et pour générer un financement initial vital pour le projet. Cette phase nécessite une approche méticuleuse en termes de tarification, de sélection des investisseurs, et de communication, afin de garantir un lancement réussi et conforme du token.</p><h2 id="51ba6346-85d2-4995-a810-04baf8b37b19" class="">Initial Coin Offering (ICO) - Ventes publiques</h2><p id="4cd67b1f-365d-4ff4-8df1-1c663e059176" class="">Suite à la presale, nous réaliserons notre ICO.</p><h3 id="1cb83ded-b256-4faf-b6ac-2e9da3ce4f8d" class="">Objectifs et Structure</h3><ul id="a8de189a-f676-4e23-91d6-a9c2af47efeb" class="bulleted-list"><li style="list-style-type:disc"><strong>Allocation de Tokens</strong>: 10% de l&#x27;offre totale du token OXLT est réservée pour l&#x27;ICO publique.</li></ul><ul id="3567e858-9a8d-4a76-a9f9-abd9f42f3b23" class="bulleted-list"><li style="list-style-type:disc"><strong>Période de Vente</strong>: L&#x27;ICO débutera 60 jours après la fin de la prévente et durera 60 jours.</li></ul><h3 id="8dec0c80-016e-4a04-9fc0-0751502dcf71" class="">Stratégie de Pricing et Modalités</h3><ul id="be0a29ab-064a-4660-97e9-005fbca65230" class="bulleted-list"><li style="list-style-type:disc"><strong>Options de Prix Variables</strong>: L&#x27;ICO présente trois paliers de prix, <strong>P1, P2 et Publique</strong>, avec des prix unitaires initiaux et finaux différents. Cette structure offre aux investisseurs une flexibilité pour choisir l&#x27;option qui correspond le mieux à leurs stratégies d&#x27;investissement.</li></ul><ul id="cdc9b6cb-677a-474f-860f-11258990c3d5" class="bulleted-list"><li style="list-style-type:disc"><strong>Augmentation progressive du prix</strong>: Une augmentation linéaire de <strong>1%</strong> du prix du token est prévue <strong>tous les 6 jours</strong> pendant l&#x27;ICO, encourageant ainsi la participation anticipée.</li></ul><p id="d3c2fb3c-413b-4147-abf6-745ffc3585c3" class="">Tableau des Tarifs et Conditions :</p><table id="0c62e8eb-247e-428b-bc81-7077a7fce901" class="simple-table"><tbody><tr id="80f001c8-1473-48f5-9b48-c18100e0ae1a"><td id="rVqE" class=""><strong>Palier (Phase)</strong></td><td id="mnVl" class=""><strong>Prix Unitaire Initial</strong></td><td id="rOnH" class=""><strong>Prix Unitaire Final</strong></td><td id="zhYs" class=""><strong>Cliff (Mois)</strong></td><td id="xd:D" class=""><strong>Vesting (Mois)</strong></td><td id="NU?v" class=""><strong>Quantité de Tokens</strong></td><td id="EHV~" class=""><strong>Ticket Min ($)</strong></td><td id="i&lt;~o" class=""><strong>Ticket Max ($)</strong></td></tr><tr id="ccd388b4-02e3-480e-8d79-ee153d608a12"><td id="rVqE" class="">P1</td><td id="mnVl" class="">$0,00130</td><td id="rOnH" class="">$0,00144</td><td id="zhYs" class="">4</td><td id="xd:D" class="">8</td><td id="NU?v" class="">350,000,000</td><td id="EHV~" class="">$100</td><td id="i&lt;~o" class="">$5,000</td></tr><tr id="6a8fb8f4-0adf-427e-9998-20f340850525"><td id="rVqE" class="">P2</td><td id="mnVl" class="">$0,00150</td><td id="rOnH" class="">$0,00165</td><td id="zhYs" class="">2</td><td id="xd:D" class="">6</td><td id="NU?v" class="">400,000,000</td><td id="EHV~" class="">$100</td><td id="i&lt;~o" class="">$5,000</td></tr><tr id="e980106d-4dd3-42cd-87f1-3f41b6361a33"><td id="rVqE" class="">Publique</td><td id="mnVl" class="">$0,00172</td><td id="rOnH" class="">$0,00190</td><td id="zhYs" class="">0</td><td id="xd:D" class="">0</td><td id="NU?v" class="">250,000,000</td><td id="EHV~" class="">$0</td><td id="i&lt;~o" class="">$10,000</td></tr></tbody></table><h3 id="8b37654c-eda8-4843-93c3-51bffed13857" class="">Communication</h3><ul id="507b1fa5-b4b1-488d-b768-b169b1a168fb" class="bulleted-list"><li style="list-style-type:disc"><strong>Marketing </strong>: La stratégie de communication à adopter dans cette phase est précisée dans la suite de ce document.</li></ul><h3 id="d29112e1-e8ce-47dc-a8a6-5e0a9d4c14b1" class="">Suivi et Gestion Post-ICO</h3><ul id="75ae0294-20cc-463c-b71a-7c70e7a15730" class="bulleted-list"><li style="list-style-type:disc"><strong>Analyse des Résultats</strong>: Évaluation des résultats de l&#x27;ICO pour mesurer le succès et identifier les opportunités d&#x27;amélioration.</li></ul><ul id="454c6c80-01e3-4921-872f-ac5f3a38d3a7" class="bulleted-list"><li style="list-style-type:disc"><strong>Gestion de la Liquidité et des Prix</strong>: Surveillance de la liquidité du token sur le marché et gestion proactive pour soutenir sa stabilité et sa croissance.</li></ul><p id="b2877536-3d6b-4be2-8425-e720f1cd8a82" class="">En résumé, l&#x27;ICO pour le token OXLT d&#x27;Oxelta est conçue pour offrir flexibilité et valeur aux investisseurs à travers des structures de prix variées et des incitations pour les investissements précoces. Une communication transparente et des ressources éducatives sont prévues pour assurer la clarté et la compréhension de l&#x27;ICO, favorisant ainsi une participation large et informée.</p><h2 id="dd9fafdb-5b76-4d8d-8580-17faa62be252" class="">Roadmap</h2><p id="0658af24-9e31-4a16-bd41-93060523b16d" class="">Voici un aperçu simplifié de la roadmap, détaillant les phases clés de lancement de notre token sur le marché. Nous prévoyons de débuter les ventes privées en janvier 2024, avec l&#x27;objectif d&#x27;achever l&#x27;ICO d&#x27;ici la fin d&#x27;avril 2024.</p><p id="40c001de-7b0e-4980-ad26-97c20ddcfffd" class="">La campagne marketing autour d’OXELTA sera lancée à la conclusion des ventes privées, le financement nécessaire étant généré par ces dernières, et se poursuivra jusqu&#x27;à la fin de l&#x27;ICO.</p><p id="9dec3307-7686-4b35-abde-fa6147a7f276" class="">Parallèlement, durant le dernier mois de l&#x27;ICO, nous élaborerons une nouvelle stratégie go-to-market, préparant ainsi le terrain pour le lancement des packs NFT sur le marché.</p><table id="94227dd0-094b-4427-94ea-794fa3697446" class="simple-table"><tbody><tr id="14f392a1-91ab-4de9-a378-bfcea7a7c44b"><td id="Gk_d" class=""></td><td id="XvzI" class="">30 J</td><td id="`:a_" class="">30 J</td><td id="UK;w" class="">30 J</td><td id="B;iy" class="">30 J</td><td id="qFQk" class="">30 J</td></tr><tr id="7707c4d2-9bcd-4c4c-a775-954318516e2f"><td id="Gk_d" class="">Presales</td><td id="XvzI" class="">X</td><td id="`:a_" class=""></td><td id="UK;w" class=""></td><td id="B;iy" class=""></td><td id="qFQk" class=""></td></tr><tr id="179e9f73-fef7-4564-9df3-077195595292"><td id="Gk_d" class="">Marketing Oxelta</td><td id="XvzI" class=""></td><td id="`:a_" class="">X</td><td id="UK;w" class="">X</td><td id="B;iy" class=""></td><td id="qFQk" class=""></td></tr><tr id="6d486d79-ab21-41f2-834e-b91566c5bfcf"><td id="Gk_d" class="">ICO</td><td id="XvzI" class=""></td><td id="`:a_" class=""></td><td id="UK;w" class=""></td><td id="B;iy" class="">X</td><td id="qFQk" class="">X</td></tr></tbody></table><h1 id="38159443-387e-45f6-936c-58ee9b13f026" class=""><strong>IV. Plan de communication</strong></h1><h2 id="161b3098-bdec-4a52-91ae-f6a0a5418e3e" class="">Phase 1 : Presales (30 jours)</h2><h3 id="bc6a96dd-2ff9-41b3-9aa2-de146a7c77d9" class="">Objectifs de cette Phase</h3><ol type="1" id="9908ecea-63be-4b40-9f9a-54f7dea94fc4" class="numbered-list" start="1"><li><strong>Maintenir une Présence Active sur les Réseaux Sociaux</strong>: Assurer une visibilité constante sur les plateformes sociales pour renforcer l&#x27;impact des presales.</li></ol><ol type="1" id="0c66ba5d-97e8-44aa-a018-719e25455fd6" class="numbered-list" start="2"><li><strong>Préparer le Terrain pour la Phase Suivante</strong>: Dynamiser nos canaux de communication pour faciliter la transition vers la deuxième phase.</li></ol><h3 id="8c53950b-da3c-43ac-ab8e-c1cb4b221870" class="">Réseaux à Développer</h3><ul id="eae5122d-4a70-4413-aaf2-57b88d95a50a" class="bulleted-list"><li style="list-style-type:disc"><strong>Twitter</strong>: Plateforme essentielle pour les mises à jour rapides, l&#x27;engagement avec la communauté crypto et les influenceurs.</li></ul><ul id="923241f3-81c0-49d9-9ed4-d1beacb90edd" class="bulleted-list"><li style="list-style-type:disc"><strong>LinkedIn</strong>: Idéal pour cibler les investisseurs professionnels et les partenaires stratégiques.</li></ul><ul id="9666bd73-8af2-4690-bd8e-cef0f55a2a58" class="bulleted-list"><li style="list-style-type:disc"><strong>Discord</strong>: Pour créer une communauté engagée, fournir un support rapide et partager des informations exclusives.</li></ul><ul id="4f7e0d65-767d-47ae-a131-cd0a3b97ac73" class="bulleted-list"><li style="list-style-type:disc"><strong>Blog d&#x27;Oxelta</strong>: Pour des articles détaillés, des annonces officielles et du contenu éducatif (SEO ++).</li></ul><h3 id="ece8b566-2724-4f0b-9ce7-081851d0e8ca" class="">Calendrier détaillé</h3><table id="b5908583-ef24-436c-b74b-fbaace13012d" class="simple-table"><tbody><tr id="1c946d79-7a3b-46d1-8b70-226e6e5cd536"><td id="OqRS" class=""><strong>Semaine</strong></td><td id="kqeG" class=""><strong>Twitter</strong></td><td id="jFTS" class=""><strong>LinkedIn</strong></td><td id="k&lt;eD" class=""><strong>Blog Oxelta</strong></td><td id=":Vwg" class=""><strong>Discord</strong></td></tr><tr id="4e019f84-c670-4d08-baf5-0653f6e56ca9"><td id="OqRS" class="">1</td><td id="kqeG" class="">Lancement, roadmap, partenariats</td><td id="jFTS" class="">Introduction, présentation Oxelta</td><td id="k&lt;eD" class="">Introduction d&#x27;Oxelta</td><td id=":Vwg" class="">Réouverture, AMA, blockchain</td></tr><tr id="0bf352ed-6f98-4a8c-98cc-e5fec334f7c3"><td id="OqRS" class="">2</td><td id="kqeG" class="">Innovations, fonctionnalités</td><td id="jFTS" class="">Focus OXLT et roadmap</td><td id="k&lt;eD" class="">Avenir du P2E, impact du Web3</td><td id=":Vwg" class="">Écosystème, discussion libre</td></tr><tr id="aad87824-2d3f-48e5-a69b-0a8c276177fc"><td id="OqRS" class="">3</td><td id="kqeG" class="">Stratégies, annonces, utilisations OXLT</td><td id="jFTS" class="">Focus private sales + avantages</td><td id="k&lt;eD" class="">Vision à long terme, avantages</td><td id=":Vwg" class="">Innovations, stratégies, défis</td></tr><tr id="05910817-8743-49df-b41b-3d56f46f16a4"><td id="OqRS" class="">4</td><td id="kqeG" class="">Compte à rebours, avantages, clôture</td><td id="jFTS" class="">Focus ICO + roadmap plus large</td><td id="k&lt;eD" class="">Partenariats, validation presale</td><td id=":Vwg" class="">Utilisation Metaverse, célébration</td></tr></tbody></table><h2 id="c6b1069f-47b9-4430-a6d0-2cc268f3386a" class="">Phase 2 : Break (60 jours)</h2><h3 id="f8204c2d-8b0c-4834-a773-6434d00b3289" class="">Objectifs de cette Phase</h3><ul id="bb00634e-6189-4a98-8029-0d7427b7b92b" class="bulleted-list"><li style="list-style-type:disc"><strong>Consolider et Élargir la Base d&#x27;Investisseurs:</strong> Utiliser un budget de 60’000$ pour renforcer la confiance et l&#x27;intérêt parmi les membres de la communauté actuelle et attirer de nouveaux investisseurs potentiels.</li></ul><ul id="ba67286b-06bf-44d6-9c28-82e33b5ab64c" class="bulleted-list"><li style="list-style-type:disc"><strong>Optimiser la Stratégie de Communication pour l&#x27;ICO:</strong> Développer et mettre en œuvre des campagnes marketing ciblées et stratégiques pour préparer efficacement le lancement du projet..</li></ul><h3 id="a33cfa3a-54f0-475e-be2f-9673da1b64e0" class="">Réseaux à Développer</h3><ul id="316ab32e-8133-4aab-a471-249ee2ec906a" class="bulleted-list"><li style="list-style-type:disc"><strong>Blog : </strong>Offre un espace pour des articles détaillés, renforçant la compréhension et l&#x27;engagement envers le projet Oxelta.</li></ul><ul id="d0873f75-7ea4-45ed-b48a-e815e571a608" class="bulleted-list"><li style="list-style-type:disc"><strong>Instagram : </strong>Idéal pour une communication visuelle, touchant un public large et diversifié avec un contenu attractif.</li></ul><ul id="5d7cf222-293e-43ec-ad78-cf26c8609b38" class="bulleted-list"><li style="list-style-type:disc"><strong>Twitter : </strong>Permet des mises à jour rapides et un engagement immédiat avec la communauté crypto.</li></ul><ul id="61f878ee-b97f-4d71-816a-cd8d58541dcb" class="bulleted-list"><li style="list-style-type:disc"><strong>Email : </strong>Outil de communication directe pour des mises à jour personnalisées et des informations exclusives aux abonnés.</li></ul><ul id="ea6fdae9-c9e3-4115-91e1-33bfe572fe30" class="bulleted-list"><li style="list-style-type:disc"><strong>Telegram : </strong>Crée un canal de communication rapide pour les mises à jour en temps réel et le support communautaire.</li></ul><ul id="2075ea23-0bca-4282-9cc7-1ef0db76ea46" class="bulleted-list"><li style="list-style-type:disc"><strong>Discord : </strong>Favorise une communauté engagée, offrant des discussions interactives et un soutien approfondi.</li></ul><ul id="f4e7fffc-04ae-4416-bcbc-5b082a5a3b0c" class="bulleted-list"><li style="list-style-type:disc"><strong>YouTube : </strong>Canal puissant pour le contenu vidéo éducatif, augmentant la visibilité et l&#x27;attrait du projet.</li></ul><ul id="f535c086-9c39-4f96-be0b-0ed0dbc38bf8" class="bulleted-list"><li style="list-style-type:disc"><strong>Publicité en Ligne : </strong>Atteint des audiences ciblées efficacement, augmentant la visibilité et l&#x27;intérêt pour l&#x27;ICO.</li></ul><ul id="d1c65060-1385-4461-8d70-1af251038dd5" class="bulleted-list"><li style="list-style-type:disc"><strong>Relations Presse : </strong>Élargit la portée et la crédibilité grâce à la couverture médiatique dans des publications influentes.</li></ul><ul id="17e78ae5-a3ab-4c3c-a0f6-817c56cba690" class="bulleted-list"><li style="list-style-type:disc"><strong>Influenceurs : </strong>Utilise l&#x27;influence des leaders d&#x27;opinion pour accroître la sensibilisation et la confiance dans le projet.</li></ul><h3 id="1ec87358-8c2e-4c85-bb76-7c31bca82760" class="">Calendrier détaillé</h3><table id="de1c202c-5d2a-4445-97ea-5bb74ee27e93" class="simple-table"><tbody><tr id="413cf35a-0c57-4905-ad87-fc31fef38d34"><td id="}O|M" class=""><strong>Semaine</strong></td><td id="Bb=q" class=""><strong>Blog</strong></td><td id="vZpn" class=""><strong>Instagram</strong></td><td id="MBij" class=""><strong>Twitter</strong></td><td id="qFlU" class=""><strong>Email</strong></td><td id="unRs" class=""><strong>Telegram</strong></td><td id="fH:&gt;" class=""><strong>Discord</strong></td><td id="kq_w" class=""><strong>YouTube</strong></td><td id="sQNC" class=""><strong>Publicité en Ligne</strong></td><td id="BAVk" class=""><strong>Relations Presse</strong></td><td id="xo=G" class=""><strong>Influenceurs</strong></td></tr><tr id="4e28c143-f599-49f8-b53b-a5ef264314a5"><td id="}O|M" class="">1</td><td id="Bb=q" class="">Article de fond sur l&#x27;ICO</td><td id="vZpn" class="">Visuels créatifs de l&#x27;ICO</td><td id="MBij" class="">Annonce de la phase de &quot;Break&quot;</td><td id="qFlU" class="">Newsletter sur le début de &quot;Break&quot;</td><td id="unRs" class="">Mise à jour et FAQ</td><td id="fH:&gt;" class="">Discussions sur l&#x27;ICO</td><td id="kq_w" class="">Vidéo introductive de l&#x27;ICO</td><td id="sQNC" class="">Lancement de la campagne</td><td id="BAVk" class="">Communiqué sur la phase de &quot;Break&quot;</td><td id="xo=G" class="">Partage d&#x27;informations sur l&#x27;ICO</td></tr><tr id="57292d75-3e95-4ccc-b06d-6fcca0193bae"><td id="}O|M" class="">2</td><td id="Bb=q" class="">Analyse des tendances du marché</td><td id="vZpn" class="">Lore</td><td id="MBij" class="">Mises à jour de développement</td><td id="qFlU" class="">Infolettre exclusive</td><td id="unRs" class="">Infos en direct sur l&#x27;avancement</td><td id="fH:&gt;" class="">Sessions AMA</td><td id="kq_w" class="">Interview de Thomas Galante</td><td id="sQNC" class="">Ciblage d&#x27;audiences spécifiques</td><td id="BAVk" class="">Article d&#x27;analyse de marché</td><td id="xo=G" class="">Témoignages d&#x27;experts</td></tr><tr id="eab760b1-a34b-4b39-8006-0c2b79384288"><td id="}O|M" class="">3</td><td id="Bb=q" class="">Article sur la blockchain</td><td id="vZpn" class="">Infographies sur le token OXLT</td><td id="MBij" class="">Teasers sur les avantages de l&#x27;ICO</td><td id="qFlU" class="">Rappels de participation à l&#x27;ICO</td><td id="unRs" class="">Q&amp;R sur les caractéristiques d&#x27;OXLT</td><td id="fH:&gt;" class="">Discussions techniques</td><td id="kq_w" class="">Tutoriel sur l&#x27;investissement</td><td id="sQNC" class="">Renforcement de la campagne</td><td id="BAVk" class="">Interviews dans les médias</td><td id="xo=G" class="">Stories sur leurs expériences</td></tr><tr id="9c173cab-e603-4495-bb57-a0df4fec632a"><td id="}O|M" class="">4</td><td id="Bb=q" class="">Post sur les stratégies d&#x27;ICO</td><td id="vZpn" class="">Posts sur les partenariats</td><td id="MBij" class="">Insights sur le marché crypto</td><td id="qFlU" class="">Mise à jour de la roadmap</td><td id="unRs" class="">Annonce des partenariats</td><td id="fH:&gt;" class="">Partage d&#x27;analyses de marché</td><td id="kq_w" class="">Vidéo sur l&#x27;évolution du projet</td><td id="sQNC" class="">Publicités sur les avantages d&#x27;OXLT</td><td id="BAVk" class="">Articles sur les partenariats</td><td id="xo=G" class="">Discussions avec la communauté</td></tr><tr id="656f6564-3ef5-4bf8-9144-120244d7073a"><td id="}O|M" class="">5</td><td id="Bb=q" class="">Billet sur l&#x27;économie du token</td><td id="vZpn" class="">Images de l&#x27;équipe en action</td><td id="MBij" class="">Infos sur les préparatifs de l&#x27;ICO</td><td id="qFlU" class="">Conseils pour l&#x27;investissement</td><td id="unRs" class="">Discussions sur l&#x27;économie d&#x27;OXLT</td><td id="fH:&gt;" class="">Sessions de brainstorming</td><td id="kq_w" class="">Vidéo sur les cas d&#x27;utilisation</td><td id="sQNC" class="">Accent sur l&#x27;unicité d&#x27;OXLT</td><td id="BAVk" class="">Couverture des préparatifs de l&#x27;ICO</td><td id="xo=G" class="">Échanges sur l&#x27;investissement</td></tr><tr id="d7515936-9fa3-49c4-bd0b-38b69a6163e7"><td id="}O|M" class="">6</td><td id="Bb=q" class="">Focus sur les cas d&#x27;utilisation</td><td id="vZpn" class="">Preview P2E</td><td id="MBij" class="">Rappels sur les dates clés de l&#x27;ICO + AMA</td><td id="qFlU" class="">Invitation à des webinaires</td><td id="unRs" class="">Annonce des webinaires</td><td id="fH:&gt;" class="">Préparation pour l&#x27;ICO</td><td id="kq_w" class="">Récapitulatif avant l&#x27;ICO</td><td id="sQNC" class="">Publicités sur les retours d&#x27;OXLT</td><td id="BAVk" class="">Focus sur les retours d&#x27;utilisateurs</td><td id="xo=G" class="">Sessions Q&amp;A</td></tr><tr id="1a6f8f72-2f8d-42bb-ad2c-1fa7ca82fe9c"><td id="}O|M" class="">7</td><td id="Bb=q" class="">FAQ sur l&#x27;ICO</td><td id="vZpn" class="">Posts de compte à rebours</td><td id="MBij" class="">Updates sur la communauté Oxelta + AMA</td><td id="qFlU" class="">Email de dernière minute</td><td id="unRs" class="">Infos de dernière minute sur l&#x27;ICO</td><td id="fH:&gt;" class="">Discussions de dernière minute</td><td id="kq_w" class="">Vidéo de motivation avant l&#x27;ICO</td><td id="sQNC" class="">Campagnes de rappel</td><td id="BAVk" class="">Articles sur le compte à rebours</td><td id="xo=G" class="">Partage d&#x27;expériences personnelles</td></tr><tr id="538e7aa6-498b-4b37-b8d8-04bac8150264"><td id="}O|M" class="">8</td><td id="Bb=q" class="">Récapitulatif avant l&#x27;ICO</td><td id="vZpn" class="">Visuels de lancement de l&#x27;ICO</td><td id="MBij" class="">Annonce du lancement de l&#x27;ICO + AMA</td><td id="qFlU" class="">Email de lancement de l&#x27;ICO</td><td id="unRs" class="">Lancement de l&#x27;ICO</td><td id="fH:&gt;" class="">Célébration du lancement de l&#x27;ICO</td><td id="kq_w" class="">Vidéo de lancement de l&#x27;ICO</td><td id="sQNC" class="">Maximisation de la visibilité</td><td id="BAVk" class="">Couverture du lancement de l&#x27;ICO</td><td id="xo=G" class="">Célébration du lancement de l&#x27;ICO</td></tr></tbody></table><p id="fc30131d-f847-4399-9331-b355febfb587" class="">Ce calendrier est présenté à titre indicatif, servant de guide pour les thèmes à aborder et la répartition des rôles que chaque canal de communication pourra jouer. Il est important de noter que le contenu, la fréquence et les approches spécifiques de chaque canal seront adaptés et affinés en fonction des résultats obtenus et des insights recueillis durant la première phase des presales. Cette approche flexible nous permettra de rester réactifs et d&#x27;optimiser notre stratégie de communication pour maximiser l&#x27;impact et l&#x27;efficacité de notre campagne marketing pendant cette phase cruciale de &quot;Break&quot;, en préparation pour l&#x27;ICO.</p><h2 id="45de6b9c-7d02-49bb-a634-44a2c2f9b447" class="">Phase 3 : ICO (60 jours)</h2><h3 id="d06ed74b-1367-4595-85df-f9fa0805b0b0" class="">Objectifs Principaux</h3><ul id="afdba53c-ba6d-4431-9a12-57cf4e1dd112" class="bulleted-list"><li style="list-style-type:disc"><strong>Maximiser la Participation à l&#x27;ICO</strong>: L&#x27;objectif crucial de cette phase est d&#x27;attirer le plus grand nombre possible d&#x27;investisseurs pour participer à l&#x27;ICO, en vue de maximiser la levée de fonds et d&#x27;assurer un large soutien et adoption du token OXLT.</li></ul><ul id="a1aa80a7-7725-4676-a918-a8175978c311" class="bulleted-list"><li style="list-style-type:disc"><strong>Renforcer la crédibilité et la confiance dans Oxelta</strong>: Au-delà de la levée de fonds, un objectif majeur est de consolider la réputation et la fiabilité d&#x27;Oxelta dans le marché. Cela implique de communiquer efficacement la vision, la valeur, et la viabilité à long terme du projet et du token OXLT auprès des investisseurs et de la communauté crypto.</li></ul><h3 id="61ccb943-e080-4cae-9537-6b13737d62b0" class="">Réseaux à Développer</h3><p id="84947fbf-82d5-49c3-9b0d-f2589d40f805" class="">Idem que pour la phase 2.</p><h3 id="d3c2c83f-fb5b-4a46-928f-72c528ef7f78" class="">Calendrier détaillé</h3><table id="d80b1bf9-b097-4429-a953-db722e62df99" class="simple-table"><tbody><tr id="840ba939-7fc9-4c36-a172-f4f3d43ea1ae"><td id="OUAy" class=""><strong>Semaine</strong></td><td id="Zp~p" class=""><strong>Blog</strong></td><td id="NKI~" class=""><strong>Instagram</strong></td><td id="CeVo" class=""><strong>Twitter</strong></td><td id="g?G`" class=""><strong>Email</strong></td><td id="OYle" class=""><strong>Telegram</strong></td><td id="@aMq" class=""><strong>Discord</strong></td><td id="}Q_I" class=""><strong>YouTube</strong></td><td id="~xzD" class=""><strong>Publicité en Ligne</strong></td><td id="~xFu" class=""><strong>Relations Presse</strong></td><td id="]]]u" class=""><strong>Influenceurs</strong></td></tr><tr id="80606737-3742-4790-b624-04d3df1249b0"><td id="OUAy" class="">1</td><td id="Zp~p" class="">Lancement de l&#x27;ICO: Détails clés</td><td id="NKI~" class="">Visuels du lancement de l&#x27;ICO</td><td id="CeVo" class="">Annonce du lancement de l&#x27;ICO + AMA</td><td id="g?G`" class="">Newsletter sur l&#x27;ouverture de l&#x27;ICO</td><td id="OYle" class="">Mise à jour en direct de l&#x27;ICO</td><td id="@aMq" class="">Discussions sur le lancement de l&#x27;ICO</td><td id="}Q_I" class="">Vidéo de lancement de l&#x27;ICO</td><td id="~xzD" class="">Campagne de lancement de l&#x27;ICO</td><td id="~xFu" class="">Communiqué de presse sur l&#x27;ICO</td><td id="]]]u" class="">Partage du lancement de l&#x27;ICO</td></tr><tr id="456d91ec-dc0f-42d8-88c2-b022ca57e8f5"><td id="OUAy" class="">2</td><td id="Zp~p" class="">Avantages d&#x27;investir tôt dans l&#x27;ICO</td><td id="NKI~" class="">Stories sur les premiers investisseurs</td><td id="CeVo" class="">Updates sur la progression de l&#x27;ICO + AMA</td><td id="g?G`" class="">Rappel des avantages de l&#x27;ICO</td><td id="OYle" class="">Q&amp;A sur l&#x27;investissement dans l&#x27;ICO</td><td id="@aMq" class="">Sessions AMA sur l&#x27;ICO</td><td id="}Q_I" class="">Tutoriel sur comment investir</td><td id="~xzD" class="">Ciblage des audiences intéressées</td><td id="~xFu" class="">Articles sur l&#x27;engouement de l&#x27;ICO</td><td id="]]]u" class="">Discussions sur les premières impressions</td></tr><tr id="d8ac67c6-1f44-4253-b5a2-414fd0d57090"><td id="OUAy" class="">3</td><td id="Zp~p" class="">Focus sur la technologie Oxelta</td><td id="NKI~" class="">Infographies sur le token OXLT</td><td id="CeVo" class="">Insights sur l&#x27;économie du token + AMA</td><td id="g?G`" class="">Infos exclusives sur l&#x27;ICO</td><td id="OYle" class="">Annonce des jalons atteints</td><td id="@aMq" class="">Partage de success stories</td><td id="}Q_I" class="">Vidéo sur les usages du token OXLT</td><td id="~xzD" class="">Augmentation de la visibilité</td><td id="~xFu" class="">Interviews sur les avancées technologiques</td><td id="]]]u" class="">Témoignages sur les usages du token</td></tr><tr id="ed1d26eb-e2f6-417f-997c-8cac274274cf"><td id="OUAy" class="">4</td><td id="Zp~p" class="">Analyse du marché et de l&#x27;ICO</td><td id="NKI~" class="">Posts sur les partenariats d&#x27;Oxelta</td><td id="CeVo" class="">Mises à jour des objectifs de l&#x27;ICO + AMA</td><td id="g?G`" class="">Conseils pour les nouveaux investisseurs</td><td id="OYle" class="">Discussions sur les partenariats</td><td id="@aMq" class="">Sessions de réflexion sur l&#x27;ICO</td><td id="}Q_I" class="">Retour sur les succès de l&#x27;ICO</td><td id="~xzD" class="">Campagnes axées sur les partenariats</td><td id="~xFu" class="">Couverture des partenariats de l&#x27;ICO</td><td id="]]]u" class="">Live sessions avec la communauté</td></tr><tr id="44668881-dd98-4b22-9f6b-d74aa86702cb"><td id="OUAy" class="">5</td><td id="Zp~p" class="">Billet sur les stratégies d&#x27;ICO</td><td id="NKI~" class="">Aperçus des coulisses de l&#x27;ICO</td><td id="CeVo" class="">Tweets motivants sur l&#x27;ICO + AMA</td><td id="g?G`" class="">Mise à jour sur les progrès de l&#x27;ICO</td><td id="OYle" class="">Annonce des événements à venir</td><td id="@aMq" class="">Discussions sur la stratégie d&#x27;ICO</td><td id="}Q_I" class="">Interview avec un membre de l&#x27;équipe</td><td id="~xzD" class="">Publicités témoignant du succès</td><td id="~xFu" class="">Articles sur la stratégie d&#x27;Oxelta</td><td id="]]]u" class="">Partage d&#x27;expériences d&#x27;investissement</td></tr><tr id="039e0da5-27a3-4a88-8797-23faad209269"><td id="OUAy" class="">6</td><td id="Zp~p" class="">FAQ sur l&#x27;ICO</td><td id="NKI~" class="">Visuels des milestones de l&#x27;ICO</td><td id="CeVo" class="">Compte à rebours pour la fin de l&#x27;ICO + AMA</td><td id="g?G`" class="">Rappel des dates clés de l&#x27;ICO</td><td id="OYle" class="">Infos sur la dernière chance de participer</td><td id="@aMq" class="">Discussions sur la clôture de l&#x27;ICO</td><td id="}Q_I" class="">Vidéo récapitulative de l&#x27;ICO</td><td id="~xzD" class="">Campagnes de rappel de l&#x27;ICO</td><td id="~xFu" class="">Focus sur les derniers jours de l&#x27;ICO</td><td id="]]]u" class="">Messages d&#x27;encouragement</td></tr><tr id="73ab5be7-9bec-4f34-9ac9-03b06fc26b54"><td id="OUAy" class="">7</td><td id="Zp~p" class="">Article sur l&#x27;impact de l&#x27;ICO</td><td id="NKI~" class="">Images célébrant le succès de l&#x27;ICO</td><td id="CeVo" class="">Annonce de la clôture prochaine de l&#x27;ICO + AMA</td><td id="g?G`" class="">Email de clôture de l&#x27;ICO</td><td id="OYle" class="">Bilan de l&#x27;ICO avec la communauté</td><td id="@aMq" class="">Récapitulatif de l&#x27;ICO avec la communauté</td><td id="}Q_I" class="">Vidéo de remerciement post-ICO</td><td id="~xzD" class="">Dernières publicités de l&#x27;ICO</td><td id="~xFu" class="">Retour sur le succès de l&#x27;ICO</td><td id="]]]u" class="">Réactions post-ICO avec la communauté</td></tr><tr id="7a6ef34d-037a-4394-93ee-b12124e85475"><td id="OUAy" class="">8</td><td id="Zp~p" class="">Réflexions post-ICO</td><td id="NKI~" class="">Posts de remerciement et de célébration</td><td id="CeVo" class="">Tweets de remerciement et d&#x27;appréciation + AMA</td><td id="g?G`" class="">Email de remerciement à la communauté</td><td id="OYle" class="">Discussions sur les étapes suivantes</td><td id="@aMq" class="">Plans futurs et remerciements</td><td id="}Q_I" class="">Vidéo sur les prochaines étapes</td><td id="~xzD" class="">Réduction progressive des campagnes</td><td id="~xFu" class="">Articles récapitulatifs sur l&#x27;ICO</td><td id="]]]u" class="">Bilan de l&#x27;ICO et discussions futures</td></tr></tbody></table><p id="8f9bb040-c927-470c-99a2-cacc28e4f744" class="">Comme pour la phase 2, ce calendrier est présenté à titre indicatif, servant de guide pour les thèmes à aborder et la répartition des rôles que chaque canal de communication pourra jouer.</p><h1 id="8585bee3-77f5-4af9-9100-ba6744ac28ff" class=""><strong>V. Positionnement</strong></h1><h2 id="94ee3a6e-59de-48ca-bc90-c5c0e1c0c208" class="">Les points cruciaux</h2><p id="308f299b-97ef-4e59-9988-01008cb458ad" class="">Pour définir le positionnement d&#x27;Oxelta sur le marché, il est essentiel de prendre en compte à la fois l&#x27;analyse de marché et les éléments clés du whitepaper d&#x27;Oxelta. Voici un résumé des points cruciaux à partir des documents :</p><ul id="a12195a9-2696-44f7-943f-b023111faf4c" class="bulleted-list"><li style="list-style-type:disc">Raison d&#x27;Être et Problématiques du Marché :</li></ul><ul id="beda84a6-b3a0-4c25-9e90-4ccb78a87fd3" class="bulleted-list"><li style="list-style-type:disc">Les jeux actuels offrent une expérience limitée après leur achèvement, avec peu de bénéfices tangibles pour les joueurs.</li></ul><ul id="105020a3-dfd1-4a63-8975-fcc6236291f3" class="bulleted-list"><li style="list-style-type:disc">Les Metaverses existantes sont souvent limitées à des marketplaces ou des expériences visuelles sans immersion profonde.</li></ul><ul id="9bd0b53d-179d-4534-ba50-bcc9064e6a45" class="bulleted-list"><li style="list-style-type:disc">Oxelta vise à résoudre ces problèmes en créant une expérience de jeu immersive et équitable, exploitant la technologie Web3.</li></ul><ul id="311f2659-45e2-485f-87e1-9715b29c8d3f" class="bulleted-list"><li style="list-style-type:disc">Vision et Mission d&#x27;Oxelta :</li></ul><ul id="651ccfdc-9600-472b-88ee-b2ab19d755cd" class="bulleted-list"><li style="list-style-type:disc">Oxelta aspire à briser les barrières entre le monde numérique et réel, en créant un Metaverse immersif et en intégrant des NFTs pour une expérience personnalisée.</li></ul><ul id="89a1bbbb-5a32-45c6-a9be-821a25a97ba0" class="bulleted-list"><li style="list-style-type:disc">La mission : Rassembler, Partager et Développer</li></ul><ul id="a41e3907-229e-4112-9d7a-cca564f61a3c" class="bulleted-list"><li style="list-style-type:disc">Objectifs Stratégiques :</li></ul><ul id="47d3a82c-0cb6-4163-bafe-7379ad57d6c5" class="bulleted-list"><li style="list-style-type:disc">Développer un Metaverse immersif, offrir des expériences P2E personnalisées, promouvoir l&#x27;équité et la prospérité, encourager l&#x27;adoption du Web3, et rester à la pointe de l&#x27;innovation.</li></ul><ul id="37affa79-aae9-4586-b1ce-688f8de32b09" class="bulleted-list"><li style="list-style-type:disc">Plan d&#x27;Action et Écosystème :</li></ul><ul id="4b6e56a8-8af4-48c7-b316-c72f17c982d9" class="bulleted-list"><li style="list-style-type:disc">Création de Token OXLT, développement de NFTs uniques, lancement de jeux P2E mobiles, et organisation de compétitions communautaires.</li></ul><ul id="b35c1a04-3d9a-495e-a80e-7b5e953d0da9" class="bulleted-list"><li style="list-style-type:disc">L&#x27;écosystème comprend des comptes Oxelta, l&#x27;accès aux jeux via NFT Oxo Warriors, le Token OXLT comme monnaie principale, et une application mobile servant de hub pour les utilisateurs.</li></ul><ul id="2f8fe900-c316-4134-a8d0-ebe084205bd9" class="bulleted-list"><li style="list-style-type:disc">Le Metaverse et les Jeux :</li></ul><ul id="249bb877-b4ca-45d5-8330-08cd3be3bb4d" class="bulleted-list"><li style="list-style-type:disc">Accès au Metaverse via NFT Oxo Warriors, création d&#x27;événements dans le Metaverse, et développement de jeux P2E variés.</li></ul><ul id="212f2200-1646-4f08-b8dc-a20af951ec51" class="bulleted-list"><li style="list-style-type:disc">Le Token OXLT et son Économie :</li></ul><ul id="17174c73-4f5d-451e-9ee8-6d53ac4bf6a1" class="bulleted-list"><li style="list-style-type:disc">OXLT est un utility token sur la Blockchain Polygon, jouant un rôle central dans l&#x27;écosystème d&#x27;Oxelta.</li></ul><ul id="3a091f23-cafd-4edd-9830-3c7a89c50ee8" class="bulleted-list"><li style="list-style-type:disc">La répartition du token inclut des allocations pour la vente privée, l&#x27;ICO, la liquidité, les Airdrops, les tournois, et les récompenses P2E.</li></ul><h2 id="5fbaa567-e5c6-4929-94b8-5b64cb50c579" class="">Positionnement stratégique</h2><p id="1d67d1db-567a-462a-a66c-a32d9e8fac3a" class="">Basé sur ces informations, Oxelta peut se positionner comme une plateforme révolutionnaire dans le domaine des jeux P2E et des Metaverses. En offrant des expériences de jeu riches et personnalisées via le Web3, Oxelta peut attirer une communauté mondiale de joueurs et de développeurs, tout en promouvant un modèle économique équitable et transparent basé sur la blockchain et les NFTs. L&#x27;accent mis sur l&#x27;innovation, l&#x27;interopérabilité, et la participation communautaire, combiné à une approche éthique et centrée sur l&#x27;utilisateur, positionne Oxelta comme un acteur clé dans la transformation des expériences de jeu numériques.</p><p id="429cff83-d3c5-4de8-86cc-e6282fd0c897" class="">
+</p><p id="09964e7e-bbf4-4f07-9ef9-a34448845935" class="">Voici une analyse plus approfondie avec des exemples concrets :</p><ul id="32778c84-8a97-440e-84bc-3dce4d6667fa" class="bulleted-list"><li style="list-style-type:disc">Innovateur en Expériences P2E Personnalisées :</li></ul><p id="f0923c07-022c-48e0-b480-6625de28b992" class="">Oxelta se démarque en offrant des expériences P2E enrichies par des NFTs personnalisables. Par exemple, l&#x27;usage des NFTs Oxo Warriors comme clé d&#x27;accès au Metaverse et aux jeux offre une expérience unique à chaque utilisateur, similaire à la personnalisation poussée dans des jeux comme &quot;Roblox&quot; ou &quot;Minecraft&quot;, mais avec l&#x27;avantage des actifs numériques blockchain.</p><p id="c9e01c23-89e5-4205-baaf-5bcce06ff16f" class="">
+</p><p id="8fec83cd-2134-4b18-8fba-bcaee919f5f8" class="">En mettant l&#x27;accent sur une expérience utilisateur distinctive où chaque joueur peut façonner son aventure, Oxelta peut se positionner comme le leader dans la création de mondes numériques personnalisés et interactifs, similaires aux univers de <em>&quot;Second Life&quot; </em>mais avec une dimension blockchain.</p><p id="ddb8e7c2-3946-4c09-8962-5d49df5fe4aa" class="">
+</p><ul id="284d8b67-b61e-4e33-b1a0-06f63ce1b852" class="bulleted-list"><li style="list-style-type:disc">Promoteur de Communauté et d&#x27;Écosystème Collaboratif :</li></ul><p id="de9bee40-9faf-40e5-9e3f-bc69942b8d58" class="">Oxelta vise à rassembler une communauté diversifiée autour d&#x27;une expérience partagée. Cela rappelle des initiatives comme celles de &quot;Fortnite&quot;, où la communauté est engagée à travers des événements et des interactions sociales, mais avec une composante Web3 qui permet une participation et une création de valeur plus profondes.</p><p id="38a7fec2-a22d-4dcb-9f5b-1fb7229d668d" class="">La création d&#x27;événements dans le Metaverse et l&#x27;encouragement à la collaboration et au partage d&#x27;idées, positionne Oxelta comme une plateforme communautaire, similaire aux dynamiques sociales de &quot;Animal Crossing&quot;, mais enrichies par la technologie blockchain.</p><p id="f84a1808-0ab7-4b0e-a61d-7ec3924144bd" class="">
+</p><ul id="41a25051-f35d-4ad1-81ff-39be97798d7c" class="bulleted-list"><li style="list-style-type:disc">Avant-gardiste dans l&#x27;Intégration de la Blockchain et l&#x27;Économie Tokenisée :</li></ul><p id="c664e34b-9472-430b-8f44-27cc11e18a92" class="">
+</p><p id="82f16f5e-8b55-423d-b9f9-95b642585088" class="">Avec le Token OXLT, Oxelta intègre une économie tokenisée au cœur de son écosystème. Cela ressemble à des économies de jeu classique, mais avec l&#x27;avantage supplémentaire d&#x27;une monnaie basée sur la blockchain, assurant transparence et équité.</p><p id="b0108054-571f-4ad6-8569-daab57d71d3c" class="">La distribution et l&#x27;utilisation de OXLT pour divers aspects du jeu, comme les récompenses P2E et les transactions sur la Marketplace, s&#x27;alignent sur des modèles économiques décentralisés et équitables, similaires à ceux de &quot;Axie Infinity&quot;, mais avec une structure plus diversifiée et intégrée.</p><p id="510cbd57-6954-43da-bbb2-f83b15c995d8" class="">
+</p><ul id="bcdfc257-96c5-4cba-84dc-f0ae16049691" class="bulleted-list"><li style="list-style-type:disc">Leader en Équité et Redistribution de la Valeur :</li></ul><p id="f7b83d94-77e4-43a9-8a59-ae9ddc9d4150" class="">Oxelta se concentre sur la décentralisation et la redistribution équitable de la richesse au sein de son écosystème. Cela rappelle des principes similaires à ceux de &quot;Decentraland&quot;, où la valeur est générée et partagée parmi les utilisateurs, mais Oxelta va plus loin en intégrant cette approche dans l&#x27;ensemble de son modèle de jeu P2E.</p><p id="6dc7bf64-1cb2-4dfd-b342-27ad452be67c" class="">La stratégie de récompenser activement la participation et l&#x27;engagement des joueurs, ainsi que de favoriser une économie de partage, place Oxelta comme un pionnier dans la création d&#x27;un environnement de jeu où la valeur générée bénéficie à l&#x27;ensemble de la communauté, pas seulement à une élite.</p><p id="dd2b27ab-f9ce-4d82-8339-13559c23b13e" class="">
+</p><p id="d86d736a-dea3-4ec5-83bd-c72f3c570c8d" class="">En conclusion, Oxelta peut se positionner comme un pionnier dans la création d&#x27;expériences de jeu P2E personnalisées et immersives, un bâtisseur de communautés collaboratives et interactives, un innovateur dans l&#x27;intégration de la blockchain et l&#x27;économie tokenisée, et un leader en matière d&#x27;équité et de redistribution de valeur. Cette approche positionne Oxelta non seulement comme un acteur majeur dans l&#x27;industrie des jeux P2E, mais aussi comme un innovateur dans la façon dont les jeux vidéo peuvent créer de la valeur et des expériences enrichissantes pour les utilisateurs.</p><h2 id="9c6071c5-244d-4c06-bd8e-52fea1fd774b" class="">Marché et clientèle cible pour l’ICO</h2><p id="99ff7ce5-64f7-4d51-bf7e-3aa18a2ad295" class="">Marchés Clés :</p><ul id="5e6cd10c-66a1-464f-a3df-5009c43e63f6" class="bulleted-list"><li style="list-style-type:disc">Les pays émergents montrent un intérêt particulièrement élevé pour les jeux P2E.</li></ul><ul id="694488a2-edcf-49d7-b8ae-d20cab152120" class="bulleted-list"><li style="list-style-type:disc">Les cinq pays les plus impliqués dans les jeux P2E sont l&#x27;Inde (33,8 %), Hong Kong (28,7 %), les Émirats Arabes Unis (27,3 %), les Philippines (25,0 %), et le Vietnam (23,0 %).</li></ul><ul id="d1315d3f-2e29-4895-b7ae-bac735a36dda" class="bulleted-list"><li style="list-style-type:disc">Cette tendance indique une forte adoption en Asie et dans les pays en développement, où les jeux P2E sont souvent considérés comme un complément de revenu.</li></ul><p id="9302f9bb-c0c7-434b-823d-ed54b34fb672" class="">
+</p><p id="655b4238-2cad-48ed-ace8-fc572805863d" class="">Tendances Futures du Marché :</p><ul id="1d70315b-6044-4e81-96c3-b8de285f6806" class="bulleted-list"><li style="list-style-type:disc">Les pays comme le Nigeria, le Pérou, et les Philippines sont susceptibles d&#x27;augmenter leur adoption des jeux P2E.</li></ul><ul id="45f0f2a1-223e-4dd9-b9b3-486dbfd08949" class="bulleted-list"><li style="list-style-type:disc">Dans certains de ces pays, le taux d&#x27;adoption pourrait approcher les 40 % à l&#x27;avenir.</li></ul><ul id="8a999f88-ec28-463b-bfe0-530f63ddfbb8" class="bulleted-list"><li style="list-style-type:disc">En France, seulement 5,8 % de la population a joué à des jeux P2E, mais ce chiffre pourrait presque tripler prochainement. Des tendances similaires pourraient être observées dans d&#x27;autres pays européens comme l&#x27;Espagne.</li></ul><p id="8e93f037-570b-4d39-a451-e2b76e04cc75" class="">
+</p><p id="771ad433-9951-4aaf-9d3f-0e0d4a657667" class="">Démographie des Joueurs :</p><ul id="b7b64257-6fcf-40c5-8ed7-a02c44507de8" class="bulleted-list"><li style="list-style-type:disc">Les hommes sont nettement plus intéressés que les femmes par les jeux P2E, avec 17 % d&#x27;hommes joueurs contre 12 % de femmes au niveau mondial.</li></ul><ul id="ad531cda-584b-4256-9139-dabe4efecaac" class="bulleted-list"><li style="list-style-type:disc">Cette tendance est constante dans les 26 pays étudiés, bien que l&#x27;écart entre les sexes varie selon les pays. Par exemple, à Singapour, 31,6 % des hommes sont intéressés par ces jeux contre 12,6 % des femmes, tandis qu&#x27;au Pérou, l&#x27;écart est plus faible (13,5 % des hommes contre 12,9 % des femmes).</li></ul><h3 id="bf528ecf-66be-4dd2-a0a5-64c655939473" class="">Stratégie de Ciblage pour l&#x27;ICO :</h3><ul id="08f40650-0645-44f8-b107-2c3c489aef4a" class="bulleted-list"><li style="list-style-type:disc">Concentration sur les Pays Asiatiques et en Développement : Étant donné la popularité élevée des jeux P2E dans ces régions, il serait judicieux de cibler des pays comme l&#x27;Inde, les Philippines, et le Vietnam pour l&#x27;ICO d&#x27;OXLT.</li></ul><ul id="b6d50b4b-e102-48d1-859c-07aec5884a9d" class="bulleted-list"><li style="list-style-type:disc">Expansion en Europe et en Amérique Latine : Les pays comme la France, l&#x27;Espagne, la Colombie et le Pérou présentent un potentiel de croissance significatif et devraient être inclus dans les stratégies de marketing.</li></ul><ul id="e3eea437-cd50-4f1a-998f-c4828dcb4dcc" class="bulleted-list"><li style="list-style-type:disc">Ciblage Démographique : Les campagnes de marketing devraient principalement viser les hommes, tout en explorant des stratégies pour augmenter l&#x27;engagement féminin, en tenant compte des différences culturelles et des intérêts de jeu dans chaque pays.</li></ul><ul id="1f6ebf8e-43de-44ab-b2f4-735d626dd645" class="bulleted-list"><li style="list-style-type:disc"></li></ul><p id="9de688a6-7d4f-41ca-993a-424d8cd36771" class="">Cette approche aidera à maximiser l&#x27;efficacité de la stratégie go-to-market pour l&#x27;ICO d&#x27;OXLT, en ciblant les marchés les plus prometteurs et les démographies les plus réceptives.</p><p id="9b66a278-6019-46fb-8745-b522e38f908d" class="">
+</p><p id="c5d2945b-687b-421e-8748-9fb3f1fbd900" class="">D&#x27;après l&#x27;analyse approfondie de la démographie et des comportements des utilisateurs dans le secteur des jeux Play to Earn (P2E) et des cryptomonnaies, notre cible pour l&#x27;ICO du token &quot;OXLT&quot; se concentre principalement sur les marchés émergents en <strong>Asie et en Amérique Latine, avec un accent particulier sur l&#x27;Inde, Hong Kong, les Émirats Arabes Unis, les Philippines, le Vietnam, le Pérou et la Colombie.</strong> Ces régions ont démontré un intérêt et une adoption élevés des jeux P2E, considérés souvent comme un complément de revenu. En Europe, la France et l&#x27;Espagne représentent des marchés émergents significatifs, avec un potentiel de croissance rapide dans l&#x27;adoption des jeux P2E. Notre client idéal pour l&#x27;ICO du token &quot;OXLT&quot; se situe dans la tranche <strong>d&#x27;âge des 25 à 35 ans.</strong> Cette catégorie d&#x27;âge représente le cœur de notre cible démographique, car elle englobe des individus généralement bien établis dans leur carrière professionnelle, possédant ainsi une capacité financière suffisante pour investir, tout en étant suffisamment jeunes pour être en phase avec les innovations technologiques et les tendances du marché des cryptomonnaies et des jeux P2E. De plus, cette tranche d&#x27;âge est souvent plus ouverte et réceptive aux nouvelles technologies et innovations, ce qui en fait des candidats idéaux pour adopter et soutenir l&#x27;usage de notre token dans l&#x27;univers des jeux blockchain.</p><h1 id="0a28718c-2046-47e7-a02f-cab8b83e9923" class=""><strong>VI. Stratégie de fidélisation et d’engagement</strong></h1><p id="17e50152-1be3-4ac9-b841-a16fadd05d34" class="">Dans la stratégie de mise sur le marché du token OXLT, Oxelta se distingue par son approche innovante centrée sur la fidélisation. La clé de cette stratégie réside dans un programme d&#x27;affiliation incitatif, couplé à des initiatives d&#x27;engagement comme les Airdrops sur la plateforme Zealy. Ces tactiques visent à renforcer la communauté autour du token OXLT, en encourageant une participation active et un investissement personnel des membres, essentiels pour le succès et la pérennité du projet dans l&#x27;univers compétitif du Web3 et des jeux P2E.</p><h2 id="2ddfa30e-90d8-4079-abc7-2c9151a1652f" class="">Système de Parrainage pour le Token OXLT</h2><p id="9616dc11-f06f-4b74-ad91-7ff638cd6db0" class="">Le programme d&#x27;affiliation d&#x27;Oxelta pour l&#x27;ICO du token OXLT est conçu pour stimuler la participation active et élargir la portée de l&#x27;ICO à travers un réseau d&#x27;investisseurs engagés. Ce programme permet aux participants de l&#x27;ICO et de la vente privée d&#x27;obtenir un lien d&#x27;affiliation, offrant<strong> 3% des OXLT</strong> investis en récompense pour chaque filleul qui investit via ce lien.</p><h3 id="6dbb463a-5271-4072-a577-de6996453c24" class="">Pourquoi est-ce une bonne stratégie ?</h3><ul id="3ff95452-4b39-454c-afbc-fa8555dde12a" class="bulleted-list"><li style="list-style-type:disc"><strong>Incitation à la Promotion :</strong> En offrant des récompenses en OXLT, Oxelta incite ses premiers investisseurs à promouvoir activement l&#x27;ICO, créant ainsi un effet multiplicateur dans la sensibilisation et l&#x27;engagement des potentiels investisseurs.</li></ul><ul id="acc5999c-7e0d-4274-8c7f-601ffdc35f85" class="bulleted-list"><li style="list-style-type:disc"><strong>Avantages pour les Filleuls : </strong>Les filleuls bénéficient d&#x27;un prix fixe pour l&#x27;achat des tokens, indépendamment de l&#x27;augmentation progressive des prix pendant l&#x27;ICO. Cela encourage une action rapide et décisive, augmentant la participation globale à l&#x27;ICO.</li></ul><ul id="9b70f81b-73cb-476b-81e1-5448c1b7ec7f" class="bulleted-list"><li style="list-style-type:disc"><strong>Élargissement de la Base d&#x27;Investisseurs : </strong>Ce système permet d&#x27;atteindre un public plus large que les canaux de marketing traditionnels, touchant des investisseurs potentiels dans des réseaux diversifiés et étendus.</li></ul><ul id="5535321d-6e3a-4a1c-b2a5-9cfd994d6da3" class="bulleted-list"><li style="list-style-type:disc"><strong>Création de Communauté : </strong>Ce programme renforce le sentiment d&#x27;appartenance à la communauté Oxelta, en engageant les investisseurs dans le succès collectif du projet.</li></ul><h2 id="e74a3347-0de8-4335-ac38-5b80b9009d69" class="">Communication via Zealy pour l&#x27;ICO</h2><p id="dece7145-9069-4696-a243-0a7cebd652c8" class="">Pour l&#x27;ICO, Oxelta a choisi d&#x27;utiliser la plateforme Zealy pour organiser un Airdrop compétitif, impliquant 3% de la supply totale du token OXLT. Ce Airdrop vise à récompenser l&#x27;engagement des joueurs et leur participation active, avec un système de classement basé sur leurs actions.</p><table id="7e9287dc-de53-41cd-a9d3-3c7bbf0536c4" class="simple-table"><tbody><tr id="9de35340-085f-4d2f-94e1-87a3b30f25b3"><td id="oe]]" class=""><strong>AirDrop</strong></td><td id="yEs@" class=""><strong>Pourcentage de la supply</strong></td><td id="FEiP" class=""><strong>Pourcentage par personne</strong></td><td id="TZel" class=""><strong>Quantité Token totale</strong></td><td id="Je&gt;@" class=""><strong>Token par personne</strong></td></tr><tr id="c6e5df68-41fa-4989-900b-d7c6a5b8a887"><td id="oe]]" class="">10 premiers</td><td id="yEs@" class="">0,07%</td><td id="FEiP" class="">0,0070%</td><td id="TZel" class="">7 000 000</td><td id="Je&gt;@" class="">700 000</td></tr><tr id="982653d2-741c-4da0-977d-c83ac3debd08"><td id="oe]]" class="">100 suivants</td><td id="yEs@" class="">0,40%</td><td id="FEiP" class="">0,0040%</td><td id="TZel" class="">40 000 000</td><td id="Je&gt;@" class="">400 000</td></tr><tr id="1f827d96-9a0a-4028-9aef-864e96db86c8"><td id="oe]]" class="">1000 suivants</td><td id="yEs@" class="">1,20%</td><td id="FEiP" class="">0,0012%</td><td id="TZel" class="">120 000 000</td><td id="Je&gt;@" class="">120 000</td></tr><tr id="39c3bdb7-de91-4d50-a588-f21957c084a1"><td id="oe]]" class="">6390 suivant</td><td id="yEs@" class="">1,33%</td><td id="FEiP" class="">0,0002%</td><td id="TZel" class="">133 000 000</td><td id="Je&gt;@" class="">20 814</td></tr></tbody></table><p id="225c9858-0291-40e7-b76d-77b9439841a2" class="">Nombre de participants total : <strong>7500</strong></p><p id="f5eae8af-1810-46a4-a1e0-06c74f7b7a51" class="">Supply OXLT : <strong>3%</strong></p><h3 id="5997d134-603c-4eb6-8be1-75bda2e2f46e" class="">Pourquoi cette approche est-elle efficace ?</h3><ul id="daed3207-528e-4c12-9534-a36c1543982d" class="bulleted-list"><li style="list-style-type:disc"><strong>Engagement Actif :</strong> Airdrop sur Zealy incite les participants à s&#x27;engager activement dans l&#x27;écosystème d&#x27;Oxelta, augmentant non seulement la visibilité de l&#x27;ICO mais aussi l&#x27;interaction avec la plateforme.</li></ul><ul id="82e2ca9a-78ab-4c7f-954d-2129bed3d7e5" class="bulleted-list"><li style="list-style-type:disc"><strong>Récompenses Basées sur le Mérite : </strong>Le système de classement garantit que les récompenses sont attribuées en fonction de l&#x27;engagement réel des participants, favorisant ainsi une communauté motivée et impliquée.</li></ul><ul id="0d07492d-2b74-43f7-9285-4205c101a914" class="bulleted-list"><li style="list-style-type:disc"><strong>Distribution Équitable :</strong> En utilisant un mécanisme de Cliff et de Vesting, Oxelta assure une distribution équitable et stable des tokens, évitant ainsi une saturation rapide du marché et préservant la valeur du token.</li></ul><ul id="dbe68d4e-6ebd-4563-bd9c-e5a6a777cff9" class="bulleted-list"><li style="list-style-type:disc"><strong>Utilisation Stratégique des Ressources :</strong> En allouant une partie significative du budget marketing à ce Airdrop, Oxelta maximise l&#x27;efficacité de ses dépenses en marketing, en ciblant directement les utilisateurs les plus engagés et les plus susceptibles de contribuer activement à l&#x27;écosystème.</li></ul><h1 id="d9218cc4-ff35-40b1-8652-011a9324674c" class=""><strong>VII. Stratégie de partenariat et de collaboration</strong></h1><h2 id="5d526b06-2b84-4ff6-b5ab-a3884adf34d1" class="">Objectif des Partenariats et Collaborations</h2><p id="b56d6f9f-ed27-469d-bd65-c1fceb81f1ff" class="">Dans la stratégie de lancement du token OXLT, Oxelta intègre des partenariats et des collaborations comme un levier crucial. L&#x27;objectif est de capitaliser sur les synergies avec des acteurs clés du secteur pour étendre la portée et renforcer la crédibilité du projet. Ces partenariats sont envisagés non seulement pour augmenter la visibilité du token OXLT, mais aussi pour intégrer des fonctionnalités et des innovations complémentaires, enrichissant ainsi l&#x27;offre d&#x27;Oxelta.</p><h2 id="2b574264-e79d-40d3-a7ee-b39cb610fda4" class="">Types de Leaders d&#x27;Influence Visés et Leur Importance</h2><ul id="383c9206-944a-4baf-80f7-e1bbf2bb686c" class="bulleted-list"><li style="list-style-type:disc"><strong>Influenceurs dans le domaine du Web3 et des Cryptomonnaies :</strong> Ces leaders d&#x27;opinion ont une audience engagée et informée, susceptible d&#x27;être intéressée par l&#x27;investissement dans des tokens innovants. Leur soutien peut légitimer le token OXLT aux yeux d&#x27;une communauté déjà sensibilisée aux technologies blockchain.</li></ul><ul id="dcef31d5-048e-4cd4-b51f-c0ef974fdfc4" class="bulleted-list"><li style="list-style-type:disc"><strong>Experts en Jeux P2E et Metaverses :</strong> Collaborer avec des personnalités influentes dans le domaine des jeux P2E et des Metaverses peut aider à positionner le token OXLT comme une composante clé de ces écosystèmes en plein essor. Ces partenariats peuvent favoriser l&#x27;intégration d&#x27;Oxelta dans des plateformes et des jeux existants, élargissant son utilité et sa portée.</li></ul><h2 id="ef7ce5e2-73ca-4514-bb52-f7413906f7b1" class="">Bénéfices des Partenariats et Collaborations pour Oxelta</h2><ul id="3612b2cf-7c5f-42dc-a1c2-f5cc4ef8dad5" class="bulleted-list"><li style="list-style-type:disc"><strong>Augmentation de la Visibilité et de la Notoriété : </strong>Les partenariats avec des leaders influents et des plateformes reconnues dans l&#x27;industrie peuvent considérablement accroître la visibilité du token OXLT, attirant l&#x27;attention des investisseurs et des utilisateurs potentiels.</li></ul><ul id="1deae3d7-b1dd-4afd-8074-c76dd6b3589f" class="bulleted-list"><li style="list-style-type:disc"><strong>Crédibilité et Confiance Accrues :</strong> S&#x27;associer avec des entités et des individus établis et respectés dans l&#x27;espace blockchain et P2E peut renforcer la crédibilité d&#x27;Oxelta, un facteur crucial pour attirer des investissements sérieux et durables.</li></ul><ul id="ae73262a-20b9-44f5-933c-cf02b5bd2e3a" class="bulleted-list"><li style="list-style-type:disc"><strong>Accès à de Nouvelles Communautés et Marchés : </strong>Les partenariats peuvent ouvrir les portes à de nouvelles communautés, permettant à Oxelta d&#x27;atteindre des segments de marché qui n&#x27;étaient pas accessibles en solo.</li></ul><ul id="3caaf2c7-33ee-4325-a0f7-cf4f14742f1f" class="bulleted-list"><li style="list-style-type:disc"><strong>Intégration et Synergie Technologique : </strong>Collaborer avec d&#x27;autres projets Web3 et plateformes de jeux peut conduire à l&#x27;intégration de technologies et de fonctionnalités innovantes, améliorant l&#x27;attractivité et l&#x27;utilité du token OXLT.</li></ul><ul id="db56cd54-5791-41b6-a840-dc1a05670b90" class="bulleted-list"><li style="list-style-type:disc"><strong>Feedback et Amélioration Continue : </strong>Les partenariats offrent l&#x27;opportunité d&#x27;obtenir des retours d&#x27;expérience et des insights précieux de la part de leaders et d&#x27;experts du domaine, ce qui peut guider l&#x27;évolution et l&#x27;amélioration continue du projet.</li></ul><h2 id="f7500cde-ef6e-45ee-a6de-4546d328debd" class="">Conclusion</h2><p id="c8947fd1-0f6c-4345-a3a3-7962660fa679" class="">En intégrant stratégiquement des partenariats et des collaborations dans sa stratégie de mise sur le marché, Oxelta positionne le token OXLT pour un succès à long terme. Cette approche permet non seulement de capter l&#x27;attention du marché dès le lancement, mais aussi de construire une fondation solide pour la croissance et l&#x27;expansion future du token dans l&#x27;écosystème Web3 et P2E. Ces alliances stratégiques sont essentielles pour assurer que le token OXLT devienne une pièce maîtresse reconnue et valorisée dans l&#x27;univers de la blockchain et des jeux Play to Earn.</p><h1 id="7e872504-7fcc-4259-8063-2f1bafd0bab4" class=""><strong>VII. Plan de gestion des risques</strong></h1><p id="63abbd72-1535-4088-b281-64c60a5e4c56" class="">Le projet Oxelta, naviguant dans l&#x27;univers complexe et dynamique de la blockchain et du Play to Earn, requiert une gestion des risques méticuleuse et adaptée. Cette section présente un plan de gestion des risques conçu spécifiquement pour Oxelta, en tenant compte des particularités de la blockchain Polygon et des défis propres aux marchés numériques. Il aborde des aspects clés tels que les risques de marché, technologiques, réglementaires, financiers et opérationnels. L&#x27;objectif est de fournir un cadre solide pour anticiper, évaluer et atténuer les risques, tout en maximisant les opportunités pour le succès et la croissance durable d&#x27;Oxelta.</p><h2 id="2bd80263-08a1-4ab4-83d1-3ae7e7e8e950" class="">1. Identification des Risques</h2><ul id="e8a0f150-807f-4d52-877f-fec0de8e6c4b" class="bulleted-list"><li style="list-style-type:disc"><strong>Risques de Marché:</strong> Sensibilité du projet Oxelta aux variations du marché de la blockchain et de la crypto-monnaie, particulièrement dans le contexte du Play to Earn et de la blockchain Polygon.</li></ul><ul id="e98411cb-9e63-497c-adc3-b26055b37eeb" class="bulleted-list"><li style="list-style-type:disc"><strong>Risques Technologiques: </strong>Dépendance aux performances et à la sécurité de la blockchain Polygon, ainsi qu&#x27;aux technologies associées aux jeux Play to Earn.</li></ul><ul id="2e0fa25a-4a4b-4407-b731-25743c8e6a7d" class="bulleted-list"><li style="list-style-type:disc"><strong>Risques Réglementaires:</strong> Impact des lois et régulations sur les cryptomonnaies et les jeux blockchain dans différents marchés cibles.</li></ul><ul id="98705d5f-79a8-46ce-bf72-c7eea58ad5c0" class="bulleted-list"><li style="list-style-type:disc"><strong>Risques Financiers:</strong> Gestion de la liquidité et des fonds levés, volatilité des prix des tokens associés à Oxelta.</li></ul><ul id="59810633-b0be-4687-846c-79182c4a5eb7" class="bulleted-list"><li style="list-style-type:disc"><strong>Risques Opérationnels:</strong> Défis liés au déploiement et à la maintenance de la plateforme, ainsi qu&#x27;à l&#x27;engagement et à la fidélisation des utilisateurs.</li></ul><h2 id="a62da7b0-6e1d-4f53-8a33-72b3412f2986" class="">2. Analyse et Évaluation des Risques</h2><ul id="77b1d3cd-8ca5-4fb6-95db-ce73bbb5d3a3" class="bulleted-list"><li style="list-style-type:disc">Évaluation quantitative basée sur les données de marché et les prévisions pour les jeux Play to Earn et la blockchain Polygon.</li></ul><ul id="4a78d1b1-b2c0-4294-b9fe-59e52f086b82" class="bulleted-list"><li style="list-style-type:disc">Analyse de la probabilité d&#x27;occurrence et de l&#x27;impact potentiel des risques réglementaires et technologiques sur le projet.</li></ul><h2 id="37d1b768-4cf5-4006-bea6-d0103e1a1072" class="">3. Stratégies de Mitigation</h2><ul id="dd6e776c-db47-498d-8b47-a91fdb32360c" class="bulleted-list"><li style="list-style-type:disc"><strong>Marché &amp; Technologie:</strong> Collaboration continue avec des développeurs experts en blockchain pour optimiser la performance et la sécurité.</li></ul><ul id="f628effa-096a-48a7-b1ff-3f75b4eb7f25" class="bulleted-list"><li style="list-style-type:disc"><strong>Réglementation:</strong> Consultation avec des experts juridiques pour naviguer dans les réglementations variées des marchés cibles.</li></ul><ul id="8986a93a-0016-441a-9bdd-532ea0e6e5e7" class="bulleted-list"><li style="list-style-type:disc"><strong>Finances:</strong> Stratégies de diversification des actifs et de gestion prudente des fonds levés.</li></ul><ul id="42430225-41f9-4cba-8b3b-da962a5cfa66" class="bulleted-list"><li style="list-style-type:disc"><strong>Opérations:</strong> Mise en place de systèmes de surveillance et de maintenance robustes pour la plateforme Oxelta.</li></ul><h2 id="5395f506-b1e7-4614-af9c-747a7290f552" class="">4. Plan d&#x27;Action</h2><ul id="37d2f7c8-2878-478b-bff9-41a7400b15fc" class="bulleted-list"><li style="list-style-type:disc"><strong>Mesures Proactives:</strong> Formation continue des équipes sur les meilleures pratiques de sécurité et de développement blockchain.</li></ul><ul id="f9d15d7d-b647-48f8-a66d-5f0574210bc6" class="bulleted-list"><li style="list-style-type:disc"><strong>Réponse aux Incidents:</strong> Protocoles clairs en cas de failles de sécurité ou de problèmes techniques.</li></ul><ul id="8b2cb7fa-b145-44fb-abec-5770f5e79c1f" class="bulleted-list"><li style="list-style-type:disc"><strong>Communication:</strong> Plan de communication pour gérer la réputation et l&#x27;engagement des utilisateurs en cas de problèmes.</li></ul><h2 id="e472eb9d-2394-4124-ab82-8eecbd4d27a0" class="">5. Surveillance et Révision</h2><ul id="a52b3fdf-5a19-4bbe-a7f5-bbd37eaf9abb" class="bulleted-list"><li style="list-style-type:disc">Suivi en temps réel des performances de la plateforme et des signaux du marché.</li></ul><ul id="c5540f8f-a0bc-47e4-9681-60c30bcbffc3" class="bulleted-list"><li style="list-style-type:disc">Réévaluation périodique des risques en fonction des changements technologiques et de marché.</li></ul><h2 id="e3adae83-c10c-491a-89f4-deadc95ac5cb" class="">6. Reporting et Documentation</h2><ul id="95c04bb7-2ad2-43f0-b305-ed3d48aad96c" class="bulleted-list"><li style="list-style-type:disc">Rapports réguliers sur l&#x27;état des risques, les mesures prises, et les performances du projet.</li></ul><ul id="46c63cad-6b95-437b-9c23-66f6278d5c57" class="bulleted-list"><li style="list-style-type:disc">Documentation détaillée pour les audits, améliorations et références futures.</li></ul><p id="74188dd2-5ef7-48ae-a553-a549b33ccf18" class="">Ce plan tient compte des spécificités du projet Oxelta, en se focalisant sur les éléments clés de la stratégie go-to-market et des particularités du marché des jeux blockchain et de la crypto-monnaie. Il est essentiel d&#x27;effectuer des ajustements continus en fonction de l&#x27;évolution du marché et des retours des utilisateurs.</p><h1 id="7ee0ee60-d800-46c6-b402-70adc4bb4479" class=""><strong>VIII. Mesure et suivi des évaluation</strong></h1><p id="fec312f7-fa95-4aed-81b5-6ce207cb819b" class="">Dans cette section, nous abordons les mesures et le suivi essentiels pour la phase initiale de mise sur le marché du token Oxelta. Nous mettrons l&#x27;accent sur l&#x27;établissement d&#x27;indicateurs de performance clés, la collecte et l&#x27;analyse de données pertinentes, et l&#x27;adaptation rapide de nos stratégies en réponse aux tendances du marché. Cela garantira une introduction efficace et réactive de notre token dans l&#x27;écosystème dynamique de la blockchain.</p><h2 id="1263fb64-5872-4297-aeca-8c366780c613" class="">Objectifs de Suivi</h2><ul id="8b1ad3e0-4229-4ca0-a34e-1410ebac904b" class="bulleted-list"><li style="list-style-type:disc"><strong>Performance du Token: </strong>Suivre l&#x27;évolution du prix, la liquidité, et le volume de transactions du token Oxelta dès son introduction sur le marché.</li></ul><ul id="1536170a-a7cb-4fd7-adad-8e00d9449709" class="bulleted-list"><li style="list-style-type:disc"><strong>Engagement des Investisseurs et Utilisateurs:</strong> Évaluer l&#x27;intérêt et l&#x27;engagement des premiers adoptants, investisseurs et utilisateurs de la plateforme.</li></ul><h2 id="684555a7-5eca-4e44-a2fd-f2ac66be935f" class="">Indicateurs Clés de Performance (KPIs)</h2><ul id="f9907684-2859-4067-9360-0d3bce41ecf6" class="bulleted-list"><li style="list-style-type:disc"><strong>Prix et Volatilité du Token:</strong> Suivi quotidien des variations de prix et de la volatilité.</li></ul><ul id="9c84a9da-8527-44d7-a10f-e97af8df2c79" class="bulleted-list"><li style="list-style-type:disc"><strong>Volume de Transactions:</strong> Quantité des tokens échangés sur une base quotidienne/hebdomadaire.</li></ul><ul id="b0efc2d7-58ac-4255-b27e-197eeb341dde" class="bulleted-list"><li style="list-style-type:disc"><strong>Nombre d&#x27;Utilisateurs Actifs: </strong>Mesure du nombre d&#x27;utilisateurs interagissant avec le token et la plateforme.</li></ul><ul id="a10c48c2-f33a-4f5f-b0f3-f46975f182aa" class="bulleted-list"><li style="list-style-type:disc"><strong>Taux de rétention:</strong> Pourcentage d&#x27;utilisateurs revenant sur la plateforme après un premier usage.</li></ul><ul id="9d3ed12c-f5f7-430e-be89-708bacdfd82b" class="bulleted-list"><li style="list-style-type:disc"><strong>Feedback des Utilisateurs:</strong> Analyses qualitatives des retours d&#x27;utilisateurs.</li></ul><h2 id="d5c9bcfb-31a7-4f48-bebe-961feb7909d0" class="">Méthodes de Collecte de Données</h2><ul id="53a90da5-82a0-43d8-8d98-ccd530bcafe6" class="bulleted-list"><li style="list-style-type:disc">Utilisation d&#x27;outils d&#x27;analyse de marché pour surveiller en temps réel les données liées au token.</li></ul><ul id="45099d79-6e98-4804-a556-0d509f82eb72" class="bulleted-list"><li style="list-style-type:disc">Sondages et feedback direct des utilisateurs pour comprendre leur expérience et leurs attentes.</li></ul><ul id="12b466b8-12e7-42aa-ae9b-4f81e4cd4a0b" class="bulleted-list"><li style="list-style-type:disc">Analyse des données d&#x27;engagement sur la plateforme Oxelta.</li></ul><h2 id="78cd7020-477d-49ad-a36e-d7df0678a0cc" class="">Stratégies d&#x27;Analyse</h2><ul id="95cede20-cd50-46d8-8ecd-e8b4b9f10d01" class="bulleted-list"><li style="list-style-type:disc"><strong>Analyse Comparative:</strong> Comparaison des performances du token Oxelta avec d&#x27;autres tokens similaires du marché.</li></ul><ul id="c2c54bd6-c9cf-45de-9ad3-8ebdd4ad7bc1" class="bulleted-list"><li style="list-style-type:disc"><strong>Analyse de Tendance:</strong> Identification des tendances émergentes dans les données de prix et d&#x27;engagement.</li></ul><ul id="16f98f23-b1b0-4fc2-9fdd-2fec00cb49d2" class="bulleted-list"><li style="list-style-type:disc"><strong>Analyse des Feedbacks: </strong>Évaluation des retours d&#x27;utilisateurs pour améliorer la plateforme et l&#x27;offre de token.</li></ul><h2 id="a32408a4-45e3-47c6-8f45-6506cbf5faf1" class="">Plan d&#x27;Action en Réponse aux Données</h2><ul id="e11c04c6-818d-4f25-9cf6-ae416634288b" class="bulleted-list"><li style="list-style-type:disc"><strong>Réajustements de Stratégie: </strong>Modifier la stratégie de marketing et de communication en fonction des données récoltées.</li></ul><ul id="fae49eb6-ee7f-491a-890c-dfe4e8abf7d2" class="bulleted-list"><li style="list-style-type:disc"><strong>Interventions techniques:</strong> Apporter des ajustements techniques en réponse à des problèmes de performance ou de sécurité du token.</li></ul><ul id="dd9d37d6-9844-402d-ad7b-cfd2193c9cfc" class="bulleted-list"><li style="list-style-type:disc"><strong>Engagement Communautaire:</strong> Renforcer les efforts de communication avec la communauté pour augmenter la fidélisation et l&#x27;adoption.</li></ul><h2 id="3fdaebe8-d018-4113-9b68-a7fd93e91f62" class="">Reporting et Communication</h2><ul id="c7036552-0655-4576-bd8a-a05fa982bb64" class="bulleted-list"><li style="list-style-type:disc">Rapports réguliers sur les KPIs et les tendances observées à l&#x27;équipe de direction.</li></ul><ul id="420d2cdf-8f4f-4c0d-9c74-fcace8990a7b" class="bulleted-list"><li style="list-style-type:disc">Mise à jour continue des parties prenantes sur l&#x27;état et les performances du token sur le marché.</li></ul><h2 id="d10025c0-ecc9-44be-b6b8-8fe87ea3c65c" class="">Révision et Amélioration Continue</h2><ul id="89a100de-1197-4e96-b0d7-81ccf8a63a8d" class="bulleted-list"><li style="list-style-type:disc">Révisions périodiques de la stratégie basées sur les analyses de données et les retours d&#x27;utilisateurs.</li></ul><ul id="71e58cae-8149-4f42-a7fe-4e54538c75d3" class="bulleted-list"><li style="list-style-type:disc">Adaptation et amélioration continues pour rester aligné avec les objectifs de marché et les besoins des utilisateurs.</li></ul><p id="3b383fdb-2365-405c-8ce5-156427d961b4" class="">Cette section vise à assurer que la mise sur le marché du token Oxelta est surveillée de manière rigoureuse, permettant des ajustements rapides et efficaces en réponse à l&#x27;évolution du marché et aux retours des utilisateurs. Cela contribuera à maximiser le succès du lancement du token et à établir une base solide pour les phases futures de développement d&#x27;Oxelta.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
